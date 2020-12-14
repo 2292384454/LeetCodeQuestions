@@ -49,17 +49,35 @@ public class P933NumberOfRecentCalls {
     public static void main(String[] args) {
         RecentCounter recentCounter = new P933NumberOfRecentCalls().new RecentCounter();
         // TO TEST
+        recentCounter.ping(1);
+        recentCounter.ping(100);
+        recentCounter.ping(3001);
+        recentCounter.ping(3002);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class RecentCounter {
+        int current_t;
+        int[] counter;
 
         public RecentCounter() {
-
+            current_t = 0;
+            counter = new int[3001];
         }
 
         public int ping(int t) {
-
+            int result = 0, sub = t - current_t;
+            for (int i = 0; i < counter.length; i++) {
+                if (i + sub < counter.length)
+                    counter[i] = counter[i + sub];
+                else
+                    counter[i] = 0;
+            }
+            counter[counter.length - 1]++;
+            current_t = t;
+            for (int x : counter)
+                result += x;
+            return result;
         }
     }
 
