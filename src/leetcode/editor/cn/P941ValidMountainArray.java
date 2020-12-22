@@ -66,7 +66,7 @@ public class P941ValidMountainArray {
             int i = 1;
             while (i < arr.length && arr[i] > arr[i - 1])//找到山顶（如果是山脉数组）
                 i++;
-            if (i == 1 || i == arr.length)//如果山顶在第一个位置或者最末位置，那么返回false
+            if (i == 1 || i == arr.length)//如果山顶在第一个位置或者越界，那么返回false
                 return false;
             while (i < arr.length) {//判断从山顶往后是不是都是严格递减的
                 if (arr[i] >= arr[i - 1])
