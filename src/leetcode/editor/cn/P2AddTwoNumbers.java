@@ -51,7 +51,7 @@ public class P2AddTwoNumbers {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            ListNode p = l1, q = l2, result = new ListNode(0), tail = result;
+            ListNode p = l1, q = l2, head = new ListNode(0), tail = head;
             int carry = 0, x = 0, y = 0;
             while (p != null || q != null) {
                 x = (p != null) ? p.val : 0;
@@ -64,7 +64,7 @@ public class P2AddTwoNumbers {
             }
             if (carry > 0)
                 tail.next = new ListNode(carry);
-            return result.next;
+            return head.next;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

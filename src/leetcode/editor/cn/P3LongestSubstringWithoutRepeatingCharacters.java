@@ -32,24 +32,26 @@ public class P3LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
         Solution solution = new P3LongestSubstringWithoutRepeatingCharacters().new Solution();
         // TO TEST
-        String s = "bbbbb";
+        String s = "abcabcbfha";
         int result = solution.lengthOfLongestSubstring(s);
         System.out.println(result);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
-        public int lengthOfLongestSubstring(String s) {//核心思想：滑动窗口法
-            int result = 0;
-            HashMap<Character, Integer> mymap = new HashMap<>();//哈希表，key为字符，value为字符在字符串中的位置
-            for (int start = 0, end = 0; end < s.length(); end++) {
-                char temp = s.charAt(end);
-                if (mymap.containsKey(temp))
-                    start = Math.max(start, mymap.get(temp) + 1);
-                result = Math.max(result, end - start + 1);
-                mymap.put(temp, end);
+        public int lengthOfLongestSubstring(String s) {
+            HashMap<Character, Integer> mymap = new HashMap<>();
+            int ans = 0, i = 0, j = 0;
+            while (j < s.length()) {
+                if (mymap.containsKey(s.charAt(j)) && mymap.get(s.charAt(j)) >= i) {
+                    ans = Math.max(ans, j - i);
+                    i = mymap.get(s.charAt(j)) + 1;
+                }
+                mymap.put(s.charAt(j), j);
+                j++;
             }
-            return result;
+            ans = Math.max(ans, j - i);
+            return ans;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
