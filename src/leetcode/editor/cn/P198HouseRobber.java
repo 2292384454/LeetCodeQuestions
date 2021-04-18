@@ -33,7 +33,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
 
 //Java：打家劫舍
 public class P198HouseRobber {
@@ -47,14 +46,16 @@ public class P198HouseRobber {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int rob(int[] nums) {
-            int len = nums.length;
-            if (len == 0) return 0;
-            int dp[] = new int[len + 1];
-            dp[0] = 0;
-            dp[1] = nums[0];
-            for (int k = 2; k <= len; k++)
-                dp[k] = Math.max(dp[k - 1], nums[k - 1] + dp[k - 2]);
-            return dp[len];
+            if (nums == null || nums.length == 0) return 0;
+            int n = nums.length;
+            int[] dp = new int[n];
+            dp[0] = nums[0];
+            if (nums.length == 1) return dp[0];
+            dp[1] = Math.max(nums[0], nums[1]);
+            for (int i = 2; i < n; i++) {
+                dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+            }
+            return dp[n - 1];
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

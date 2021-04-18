@@ -15,8 +15,6 @@ package leetcode.editor.cn;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 //Java：复原IP地址
 public class P93RestoreIpAddresses {

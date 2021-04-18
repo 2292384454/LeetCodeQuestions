@@ -38,8 +38,9 @@ public class P43MultiplyStrings {
             if (num1.equals("0") || num2.equals("0")) return "0";
             int len1 = num1.length(), len2 = num2.length();
             char[] array1 = num1.toCharArray(), array2 = num2.toCharArray();
-            String tempcounts[] = new String[len2];
-            String zeros = "", result = "0";
+            String[] tempcounts = new String[len2];
+            StringBuilder zeros = new StringBuilder();
+            String result = "0";
             for (int i = len2 - 1; i >= 0; i--) {
                 int carry = 0;
                 StringBuilder tempstr = new StringBuilder();
@@ -54,7 +55,7 @@ public class P43MultiplyStrings {
             }
             for (int i = 0; i < len2; i++) {
                 result = add(result, tempcounts[i] + zeros);
-                zeros += "0";
+                zeros.append("0");
             }
             return result;
         }

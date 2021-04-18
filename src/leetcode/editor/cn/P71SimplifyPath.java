@@ -65,28 +65,27 @@ public class P71SimplifyPath {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String simplifyPath(String path) {
-            String result = "";
+            StringBuilder result = new StringBuilder();
             String[] names = path.split("/");
-            Stack<String> mystack = new Stack<String>();//创建堆栈用来存储路径，栈底为根目录
+            Stack<String> myStack = new Stack<>();//创建堆栈用来存储路径，栈底为根目录
             for (String s : names) {
                 switch (s) {
                     case "..":
-                        if (!mystack.isEmpty())
-                            mystack.pop();
+                        if (!myStack.isEmpty())
+                            myStack.pop();
                         break;
                     case ".":
-                        break;
                     case "":
                         break;
                     default:
-                        mystack.push(s);
+                        myStack.push(s);
                 }
             }
-            if (mystack.isEmpty())
+            if (myStack.isEmpty())
                 return "/";
-            for (String s : mystack)
-                result += ("/" + s);
-            return result;
+            for (String s : myStack)
+                result.append("/").append(s);
+            return result.toString();
         }
 /*
         //自定义getDicNames方法，从原始路径中提取出各级目录的名字或者"."或".."

@@ -20,26 +20,28 @@ public class P206ReverseLinkedList {
     }
     //leetcode submit region begin(Prohibit modification and deletion)
 
-    public class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
-    //leetcode submit region begin(Prohibit modification and deletion)
+    /**
+     * public class ListNode {
+     * int val;
+     * ListNode next;
+     * <p>
+     * ListNode(int x) {
+     * val = x;
+     * }
+     * }
+     **/
     class Solution {
         public ListNode reverseList(ListNode head) {
-            ListNode result = null, p = head, temp = null;
+            if (head == null) return null;
+            ListNode virtualHead = new ListNode(), p = head.next;
+            virtualHead.next = head;
             while (p != null) {
-                temp = new ListNode(p.val);
-                temp.next = result;
-                result = temp;
-                p = p.next;
+                head.next = p.next;
+                p.next = virtualHead.next;
+                virtualHead.next = p;
+                p = head.next;
             }
-            return result;
+            return virtualHead.next;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

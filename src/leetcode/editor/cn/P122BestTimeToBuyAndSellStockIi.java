@@ -42,32 +42,27 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
 
 //Java：买卖股票的最佳时机 II
 public class P122BestTimeToBuyAndSellStockIi {
     public static void main(String[] args) {
         Solution solution = new P122BestTimeToBuyAndSellStockIi().new Solution();
         // TO TEST
+        System.out.println(solution.maxProfit(new int[]{1, 2, 3, 4, 5}));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxProfit(int[] prices) {
-            short buy = (short) prices[0], sellday = 0, profit = 0, len = (short) prices.length;
-            if (len == 0) return 0;
-            for (short i = 1; i < len; i++) {
-                if (prices[i] <= buy && profit == 0)
-                    buy = (short) prices[i];
-                else if (prices[i] - buy >= profit) {
-                    sellday = i;
-                    profit = (short) (prices[i] - buy);
-                } else if (prices[i] - buy < profit) {
-                    if (sellday < len - 1)
-                        return profit + maxProfit(Arrays.copyOfRange(prices, sellday, len));
-                }
+            //buy和sell分别存储截止当前日期，最后一次操作为买入/卖出能取得的最大收益
+            int buy = Integer.MIN_VALUE, sell = 0;
+            for (int price : prices) {
+                int tempBuy = Math.max(buy, sell - price);
+                int tempSell = Math.max(sell, buy + price);
+                buy = tempBuy;
+                sell = tempSell;
             }
-            return profit;
+            return sell;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

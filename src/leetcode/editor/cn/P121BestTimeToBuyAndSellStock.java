@@ -35,14 +35,13 @@ public class P121BestTimeToBuyAndSellStock {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxProfit(int[] prices) {
-            if (prices.length == 0) return 0;
-            int buy = prices[0], profit = 0;
-            for (int i = 1; i < prices.length; i++)
-                if (prices[i] <= buy)
-                    buy = prices[i];
-                else if (prices[i] - buy > profit)
-                    profit = prices[i] - buy;
-            return profit;
+            //buy和sell分别存储截止当前日期，最后一次操作为买入/卖出能取得的最大收益
+            int buy = Integer.MIN_VALUE, sell = 0;
+            for (int price : prices) {
+                buy = Math.max(buy, -price);
+                sell = Math.max(sell, buy + price);
+            }
+            return sell;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
