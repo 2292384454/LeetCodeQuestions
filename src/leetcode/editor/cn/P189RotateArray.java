@@ -29,8 +29,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：旋转数组
 public class P189RotateArray {
     public static void main(String[] args) {

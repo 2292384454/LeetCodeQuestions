@@ -44,12 +44,12 @@ public class P501FindModeInBinarySearchTree {
     //leetcode submit region begin(Prohibit modification and deletion)
 
     class Solution {
-        private int curVal, curTimes, lastTimes;
+        private int curTimes, maxTimes, curVal;
         ArrayList<Integer> modes = new ArrayList<>();
 
         public int[] findMode(TreeNode root) {
             inOrder(root);
-            Integer[] resArray = modes.toArray(new Integer[modes.size()]);
+            Integer[] resArray = modes.toArray(new Integer[0]);
             return Arrays.stream(resArray).mapToInt(Integer::valueOf).toArray();
         }
 
@@ -57,16 +57,15 @@ public class P501FindModeInBinarySearchTree {
         public void inOrder(TreeNode root) {
             if (root == null) return;
             inOrder(root.left);
-            if (lastTimes == 0)
-                lastTimes = 1;
-            if (root.val != curVal)
-                curTimes = 0;
-            curVal = root.val;
-            curTimes++;
-            if (curTimes == lastTimes)
+            //如果当前数字是第一个或者出现了一个新的数字
+            if (curTimes == 0 || root.val != curVal) {
+                curTimes = 1;//当前数字出现的次数置1
+                curVal = root.val;//更新当前记录值
+            } else ++curTimes;
+            if (curTimes == maxTimes)
                 modes.add(curVal);
-            if (curTimes > lastTimes) {
-                lastTimes = curTimes;
+            if (curTimes > maxTimes) {
+                maxTimes = curTimes;
                 modes.clear();
                 modes.add(curVal);
             }

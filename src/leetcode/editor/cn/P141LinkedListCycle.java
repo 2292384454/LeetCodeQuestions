@@ -46,47 +46,43 @@ public class P141LinkedListCycle {
     public static void main(String[] args) {
         Solution solution = new P141LinkedListCycle().new Solution();
         // TO TEST
-        ListNode head = new P141LinkedListCycle().new ListNode(3);
+        ListNode head = new ListNode(3);
         ListNode p = head;
-        p.next = new P141LinkedListCycle().new ListNode(2);
+        p.next = new ListNode(2);
         p = p.next;
         ListNode thenode = p;
-        p.next = new P141LinkedListCycle().new ListNode(0);
+        p.next = new ListNode(0);
         p = p.next;
-        p.next = new P141LinkedListCycle().new ListNode(-4);
+        p.next = new ListNode(-4);
         p = p.next;
         p.next = thenode;
         System.out.println(solution.hasCycle(head));
         System.out.println("pause");
     }
 
-
-    class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
-
     //leetcode submit region begin(Prohibit modification and deletion)
+
+    /**
+     * class ListNode {
+     * int val;
+     * ListNode next;
+     * <p>
+     * ListNode(int x) {
+     * val = x;
+     * next = null;
+     * }
+     * }
+     */
     public class Solution {
         public boolean hasCycle(ListNode head) {
-            if (head == null || head.next == null) return false;
-            ListNode pre = head, p = head.next;
-            pre.next = null;
-            while (p.next != null) {
-                ListNode temp = p.next;
-                p.next = pre;
-                pre = p;
-                p = temp;
+            //快慢指针
+            ListNode fast = head, slow = head;
+            while (fast != null && fast.next != null && slow != null) {
+                fast = fast.next.next;
+                slow = slow.next;
+                if (fast == slow) return true;
             }
-            if (p == head)
-                return true;
-            else
-                return false;
+            return false;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

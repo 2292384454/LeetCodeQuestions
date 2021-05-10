@@ -33,13 +33,12 @@ public class P206ReverseLinkedList {
     class Solution {
         public ListNode reverseList(ListNode head) {
             if (head == null) return null;
-            ListNode virtualHead = new ListNode(), p = head.next;
-            virtualHead.next = head;
+            ListNode virtualHead = new ListNode(), p = head;
             while (p != null) {
-                head.next = p.next;
+                ListNode next = p.next;
                 p.next = virtualHead.next;
                 virtualHead.next = p;
-                p = head.next;
+                p = next;
             }
             return virtualHead.next;
         }

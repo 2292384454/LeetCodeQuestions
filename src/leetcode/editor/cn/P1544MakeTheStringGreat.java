@@ -52,9 +52,6 @@
 // 👍 19 👎 0
 
 package leetcode.editor.cn;
-
-import java.util.Map;
-
 //Java：整理字符串
 public class P1544MakeTheStringGreat {
     public static void main(String[] args) {

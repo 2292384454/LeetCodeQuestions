@@ -21,27 +21,38 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
 
 //Java：最短无序连续子数组
 public class P581ShortestUnsortedContinuousSubarray {
     public static void main(String[] args) {
         Solution solution = new P581ShortestUnsortedContinuousSubarray().new Solution();
         // TO TEST
+        int[] nums = new int[]{2, 3, 3, 2, 4};
+        System.out.println(solution.findUnsortedSubarray(nums));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findUnsortedSubarray(int[] nums) {
-            int sorted[] = Arrays.copyOf(nums, nums.length), start = -1, end = -2;
-            Arrays.sort(sorted);
-            for (int i = 0; i < sorted.length; i++) {
-                if ((sorted[i] ^ nums[i]) != 0) {
-                    if (start == -1) start = i;
+            //初始化
+            int len = nums.length;
+            int min = Integer.MAX_VALUE;
+            int max = Integer.MIN_VALUE;
+            int begin = 0, end = -1;
+            //遍历
+            for (int i = 0; i < len; i++) {
+                if (nums[i] < max) {      //从左到右维持最大值，寻找右边界end
                     end = i;
+                } else {
+                    max = nums[i];
+                }
+                if (nums[len - i - 1] > min) {    //从右到左维持最小值，寻找左边界begin
+                    begin = len - i - 1;
+                } else {
+                    min = nums[len - i - 1];
                 }
             }
-            return end - start + 1;
+            return end - begin + 1;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

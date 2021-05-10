@@ -49,7 +49,6 @@ public class P29DivideTwoIntegers {
             b = b < 0 ? -b : b;
             //方法一：
             //示例：60/8=(60-32)/8+4=(60-32-16)/8+2+4=(60-32-16-8)/8+1+2+4=1+2+4=7
-            /*
             while (a >= b) {
                 long cnt = 1, base = b;
                 while (a > (base << 1)) {
@@ -59,8 +58,8 @@ public class P29DivideTwoIntegers {
                 ans += cnt;
                 a -= base;
             }
-            */
             //方法二：乘法二分查找
+            /*
             long left = 0, right = a;
             while (left <= right) {
                 long mid = left + (right - left) / 2, temp = mul(mid, b);
@@ -73,12 +72,12 @@ public class P29DivideTwoIntegers {
                     ans = mid;
                     break;
                 }
-            }
+            }*/
 
             ans = ((dividend < 0) ^ (divisor < 0)) ? -ans : ans;
             return (int) ((Integer.MAX_VALUE < ans || ans < Integer.MIN_VALUE) ? Integer.MAX_VALUE : ans);
         }
-
+        /*
         public long mul(long a, long k) {
             long ans = 0;
             while (k > 0) {
@@ -87,7 +86,7 @@ public class P29DivideTwoIntegers {
                 a <<= 1;
             }
             return ans;
-        }
+        }*/
     }
 //leetcode submit region end(Prohibit modification and deletion)
 

@@ -26,6 +26,7 @@
 
 package leetcode.editor.cn;
 
+import java.util.Arrays;
 import java.util.List;
 
 //Java：三角形最小路径和
@@ -38,22 +39,19 @@ public class P120Triangle {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minimumTotal(List<List<Integer>> triangle) {
-            int high = triangle.size();//三角形的总行数，也是最后一行的元素个数
-            int[] currentLength = new int[high];//辅助数组，第i个元素记录循环过程中从顶点到当前层第i个点的最短路径长度（i=0,1,2,...,当前层数，层数从0开始记录）
-            currentLength[0] = triangle.get(0).get(0);//辅助数组的第0个元素先置成顶点的值
-            for (int i = 1; i < high; i++) {//从第1层遍历到最底层
-                currentLength[i] = currentLength[i - 1] + triangle.get(i).get(i);//从顶点到这一层的最右点
-                for (int j = i - 1; j > 0; j--) {
-                    int len1 = currentLength[j] + triangle.get(i).get(j);
-                    int len2 = currentLength[j - 1] + triangle.get(i).get(j);
-                    currentLength[j] = Math.min(len1, len2);
+            if (triangle == null || triangle.size() == 0) return 0;
+            int n = triangle.size();
+            int[] dp = new int[n + 1];//dp[k]记录截止当前层，到达结点k的最短路径长度(1<=k<=n)。dp[0]给计算每层最左边节点时用来占位。
+            Arrays.fill(dp, 99999999);
+            dp[1] = triangle.get(0).get(0);
+            for (int i = 1; i < n; i++) {
+                for (int j = i + 1; j > 0; j--) {
+                    dp[j] = Math.min(dp[j], dp[j - 1]) + triangle.get(i).get(j - 1);
                 }
-                currentLength[0] = currentLength[0] + triangle.get(i).get(0);//从顶点到这一层的最左点
             }
-            int result = currentLength[0];
-            for (int i = 0; i < high; i++)
-                result = Math.min(result, currentLength[i]);
-            return result;
+            int min = Integer.MAX_VALUE;
+            for (int x : dp) if (x < min) min = x;
+            return min;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
