@@ -45,19 +45,28 @@ public class P575DistributeCandies {
     class Solution {
         public int distributeCandies(int[] candies) {
             int len = candies.length;
-            if (len == 0) return 0;
+            if (len == 0) {
+                return 0;
+            }
             int min = 100000, max = -100000, result = 0;//min和max分别为最小的糖果编号与最大的糖果编号
             for (int x : candies) {
-                if (x < min) min = x;
-                if (x > max) max = x;
+                if (x < min) {
+                    min = x;
+                }
+                if (x > max) {
+                    max = x;
+                }
             }
             short candies_count[] = new short[max - min + 1];
-            for (int x : candies)
+            for (int x : candies) {
                 candies_count[x - min]++;//统计每种糖果出现的次数
+            }
             //对每种糖果都先选一个，如果糖果还没选完就够了，那么返回结果即可。
             //如果选完了还没够，那么最后的结果也只能是糖果的总种类数
             for (int i = 0; i < candies_count.length; i++) {
-                if (result == candies.length / 2) return result;
+                if (result == candies.length / 2) {
+                    return result;
+                }
                 if (candies_count[i] > 0) {
                     result++;
                 }

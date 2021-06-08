@@ -48,14 +48,16 @@ public class P1002FindCommonCharacters {
             List<String> result = new ArrayList<>();
             int[] char_count = new int[26];
             char[] chars = A[0].toCharArray();
-            for (char aChar : chars)
+            for (char aChar : chars) {
                 char_count[aChar - 'a']++;
+            }
 
             for (String str : A) {
                 int[] char_count_temp = new int[26];
                 chars = str.toCharArray();
-                for (char aChar : chars)
+                for (char aChar : chars) {
                     char_count_temp[aChar - 'a']++;
+                }
                 for (int i = 0; i < 26; i++) {
                     char_count[i] = Math.min(char_count[i], char_count_temp[i]);
                 }

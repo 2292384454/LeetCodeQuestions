@@ -31,11 +31,18 @@ public class P383RansomNote {
             char ran[] = ransomNote.toCharArray(), mag[] = magazine.toCharArray();
             int char_count[] = new int[26], ran_len = ransomNote.length(), mag_len = magazine.length(), max_len = Math.max(ran_len, mag_len);
             for (int i = 0; i < max_len; i++) {
-                if (i < ran_len) char_count[ran[i] - 'a']--;
-                if (i < mag_len) char_count[mag[i] - 'a']++;
+                if (i < ran_len) {
+                    char_count[ran[i] - 'a']--;
+                }
+                if (i < mag_len) {
+                    char_count[mag[i] - 'a']++;
+                }
             }
-            for (char x : ran)
-                if (char_count[x - 'a'] < 0) return false;
+            for (char x : ran) {
+                if (char_count[x - 'a'] < 0) {
+                    return false;
+                }
+            }
             return true;
         }
     }

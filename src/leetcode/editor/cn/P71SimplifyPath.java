@@ -50,7 +50,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 //Java：简化路径
@@ -71,8 +70,9 @@ public class P71SimplifyPath {
             for (String s : names) {
                 switch (s) {
                     case "..":
-                        if (!myStack.isEmpty())
+                        if (!myStack.isEmpty()) {
                             myStack.pop();
+                        }
                         break;
                     case ".":
                     case "":
@@ -81,10 +81,12 @@ public class P71SimplifyPath {
                         myStack.push(s);
                 }
             }
-            if (myStack.isEmpty())
+            if (myStack.isEmpty()) {
                 return "/";
-            for (String s : myStack)
+            }
+            for (String s : myStack) {
                 result.append("/").append(s);
+            }
             return result.toString();
         }
 /*

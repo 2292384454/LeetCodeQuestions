@@ -38,10 +38,11 @@ public class P217ContainsDuplicate {
         public boolean containsDuplicate(int[] nums) {
             Map<Integer, Boolean> num_appear = new HashMap<>();
             for (int x : nums) {
-                if (num_appear.containsKey(x))
+                if (num_appear.containsKey(x)) {
                     return true;
-                else
+                } else {
                     num_appear.put(x, true);
+                }
             }
             return false;
         }

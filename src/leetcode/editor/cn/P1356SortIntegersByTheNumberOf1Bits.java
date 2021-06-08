@@ -71,21 +71,24 @@ public class P1356SortIntegersByTheNumberOf1Bits {
     class Solution {
         public int[] sortByBits(int[] arr) {
             Integer[] arrInteger = new Integer[arr.length];
-            for (int i = 0; i < arr.length; i++)
+            for (int i = 0; i < arr.length; i++) {
                 arrInteger[i] = arr[i];
+            }
             Arrays.sort(arrInteger, new Comparator<Integer>() {
                 @Override
                 public int compare(Integer o1, Integer o2) {
                     int subOfOne = countOfOne(o1) - countOfOne(o2);
-                    if (subOfOne != 0)
+                    if (subOfOne != 0) {
                         return subOfOne;
-                    else
+                    } else {
                         return o1 - o2;
+                    }
                 }
             });
             int[] result = new int[arr.length];
-            for (int i = 0; i < arr.length; i++)
+            for (int i = 0; i < arr.length; i++) {
                 result[i] = arrInteger[i];
+            }
             return result;
         }
 

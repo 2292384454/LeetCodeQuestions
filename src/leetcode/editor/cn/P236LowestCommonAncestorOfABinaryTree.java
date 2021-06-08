@@ -71,7 +71,9 @@ public class P236LowestCommonAncestorOfABinaryTree {
 
         //后续遍历确定是否p或者q在以root为根的树中
         private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
-            if (root == null) return false;
+            if (root == null) {
+                return false;
+            }
             boolean lSon = dfs(root.left, p, q);
             boolean rRon = dfs(root.right, p, q);
             //如果p和q分别在root的左右子树 或者 root为p、q之一而另一个在root的子树中

@@ -36,8 +36,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：买卖股票的最佳时机 IV
 public class P188BestTimeToBuyAndSellStockIv {
     public static void main(String[] args) {
@@ -48,16 +46,16 @@ public class P188BestTimeToBuyAndSellStockIv {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxProfit(int k, int[] prices) {
-            //buy[i]和sell[i]分别存储截止当前日期，最后一次操作为第i次买入/卖出能取得的最大收益(1<=i<=k)
-            int[] buy = new int[k + 1], sell = new int[k + 1];
-            Arrays.fill(buy, Integer.MIN_VALUE);
+            //buy和sell分别存储截止当前日期，最后一次操作为买入/卖出能取得的最大收益，lock存储截止当前日期，最后一次操作为冷冻时的最大收益
+            int buy = -prices[0], sell = 0, lock = 0;
             for (int price : prices) {
-                for (int i = 1; i <= k; ++i) {
-                    buy[i] = Math.max(buy[i], sell[i - 1] - price);
-                    sell[i] = Math.max(sell[i], buy[i] + price);
-                }
+                int buyNow = Math.max(buy, lock - price);
+                int sellNow = Math.max(sell, buy + price);
+                lock = sell;
+                buy = buyNow;
+                sell = sellNow;
             }
-            return sell[k];
+            return sell;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

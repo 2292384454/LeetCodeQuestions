@@ -63,8 +63,9 @@ public class P804UniqueMorseCodeWords {
                 long x = 0;
                 for (char c : word.toCharArray()) {
                     String code = codes[c - 'a'];
-                    for (char bit : code.toCharArray())
+                    for (char bit : code.toCharArray()) {
                         x = x * 2 + (bit == '1' ? 1 : 0);
+                    }
                 }
                 if (!nums.contains(x)) {
                     nums.add(x);

@@ -70,22 +70,30 @@ public class P844BackspaceStringCompare {
             int top1 = -1, top2 = -1, j = 0;
             for (top1 = -1, j = 0; j < s_chars.length; j++) {
                 if (s_chars[j] == '#') {
-                    if (top1 > -1)
+                    if (top1 > -1) {
                         top1--;
-                } else
+                    }
+                } else {
                     s_chars[++top1] = s_chars[j];
+                }
             }
             for (top2 = -1, j = 0; j < t_chars.length; j++) {
                 if (t_chars[j] == '#') {
-                    if (top2 > -1)
+                    if (top2 > -1) {
                         top2--;
-                } else
+                    }
+                } else {
                     t_chars[++top2] = t_chars[j];
+                }
             }
-            if (top1 != top2) return false;
-            for (j = 0; j <= top1; j++)
-                if (s_chars[j] != t_chars[j])
+            if (top1 != top2) {
+                return false;
+            }
+            for (j = 0; j <= top1; j++) {
+                if (s_chars[j] != t_chars[j]) {
                     return false;
+                }
+            }
             return true;
         }
     }

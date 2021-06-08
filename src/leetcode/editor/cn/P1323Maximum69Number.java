@@ -55,8 +55,9 @@ public class P1323Maximum69Number {
         public int maximum69Number(int num) {
             int temp = 3, add = 0, cp = num;
             while (num > 0) {
-                if (num % 10 == 6)
+                if (num % 10 == 6) {
                     add = temp;
+                }
                 temp *= 10;
                 num /= 10;
             }

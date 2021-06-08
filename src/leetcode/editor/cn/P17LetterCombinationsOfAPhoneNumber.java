@@ -56,18 +56,26 @@ public class P17LetterCombinationsOfAPhoneNumber {
         public List<String> letterCombinations(String digits) {
             List<String> ans = new ArrayList<>();
             int len = digits.length();
-            if (len == 0) return ans;
+            if (len == 0) {
+                return ans;
+            }
             int num = digits.charAt(len - 1) - '0', start = (num - 2) * 3, count = 3;
-            if (num == 7 || num == 9) count++;
-            if (num > 7) start++;
+            if (num == 7 || num == 9) {
+                count++;
+            }
+            if (num > 7) {
+                start++;
+            }
             if (digits.length() == 1) {
-                for (int i = start; i < start + count; i++)
+                for (int i = start; i < start + count; i++) {
                     ans.add((char) (i + 'a') + "");
+                }
             } else {
                 List<String> pre = letterCombinations(digits.substring(0, len - 1));
                 for (String str : pre) {
-                    for (int i = start; i < start + count; i++)
+                    for (int i = start; i < start + count; i++) {
                         ans.add(str + (char) (i + 'a'));
+                    }
                 }
             }
             return ans;

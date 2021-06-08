@@ -35,7 +35,9 @@ public class P674LongestContinuousIncreasingSubsequence {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findLengthOfLCIS(int[] nums) {
-            if (nums.length < 2) return nums.length;
+            if (nums.length < 2) {
+                return nums.length;
+            }
             int result = 0, temp = 1;
             for (int i = 1; i < nums.length; i++) {
                 while (i < nums.length && nums[i] > nums[i - 1]) {

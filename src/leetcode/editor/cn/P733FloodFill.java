@@ -40,15 +40,17 @@ public class P733FloodFill {
         // TO TEST
         int image[][] = new int[][]{{1, 1, 1}, {1, 1, 0}};
         for (int nums[] : image) {
-            for (int x : nums)
+            for (int x : nums) {
                 System.out.print(x + "\t");
+            }
             System.out.println();
         }
         image = solution.floodFill(image, 1, 0, 456213);
         System.out.println("变换之后：");
         for (int nums[] : image) {
-            for (int x : nums)
+            for (int x : nums) {
                 System.out.print(x + "\t");
+            }
             System.out.println();
         }
     }
@@ -57,8 +59,9 @@ public class P733FloodFill {
     class Solution {
         public int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
             int originColor = image[sr][sc];
-            if (originColor != newColor)
+            if (originColor != newColor) {
                 bfs(image, sr, sc, newColor, originColor);
+            }
             return image;
         }
 

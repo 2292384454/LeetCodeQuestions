@@ -49,17 +49,21 @@ public class P496NextGreaterElementI {
     class Solution {
         public int[] nextGreaterElement(int[] nums1, int[] nums2) {
             int result[] = new int[nums1.length];
-            if (nums2.length == 0)
+            if (nums2.length == 0) {
                 return result;
+            }
             //找到nums2中最大元素，用来确定num2_index的长度
             int max_num2 = nums2[0];
-            for (int x : nums2)
-                if (x > max_num2)
+            for (int x : nums2) {
+                if (x > max_num2) {
                     max_num2 = x;
+                }
+            }
             //num2_index记录nums2中每一个元素的索引
             int num2_index[] = new int[max_num2 + 1];
-            for (int i = 0; i < nums2.length; i++)
+            for (int i = 0; i < nums2.length; i++) {
                 num2_index[nums2[i]] = i;
+            }
             //对nums1中元素进行遍历
             for (int i = 0; i < nums1.length; i++) {
                 result[i] = -1;//预设值-1
@@ -67,10 +71,12 @@ public class P496NextGreaterElementI {
                 //对nums2中元素，从索引num2_index[nums1[i]] + 1开始遍历
                 for (j = num2_index[nums1[i]] + 1; j < nums2.length; j++)
                     //找到第一个比nums1[i]大的元素，赋值后跳出循环
+                {
                     if (nums2[j] > nums1[i]) {
                         result[i] = nums2[j];
                         break;
                     }
+                }
             }
             return result;
         }

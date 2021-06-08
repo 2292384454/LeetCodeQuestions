@@ -49,10 +49,12 @@ public class P1470ShuffleTheArray {
         public int[] shuffle(int[] nums, int n) {
             int len = nums.length;
             int[] result = new int[len];
-            for (int i = 0; i < len / 2; i++)
+            for (int i = 0; i < len / 2; i++) {
                 result[i * 2] = nums[i];
-            for (int j = len / 2; j < len; j++)
+            }
+            for (int j = len / 2; j < len; j++) {
                 result[2 * j - len + 1] = nums[j];
+            }
             return result;
         }
     }

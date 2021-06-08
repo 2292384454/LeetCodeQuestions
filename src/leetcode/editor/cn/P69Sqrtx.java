@@ -26,8 +26,9 @@ public class P69Sqrtx {
     public static void main(String[] args) {
         Solution solution = new P69Sqrtx().new Solution();
         // TO TEST
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 50; i++) {
             System.out.println(i + "的运算结果是：" + solution.mySqrt(i) + "，实际结果是：" + (int) Math.sqrt(i));
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -37,12 +38,13 @@ public class P69Sqrtx {
             long left = 0, right = x / 2 + 1, mid = (left + right) / 2;//二分查找初始值，运用了关系式sqrt(x)<x/2+1，定义成long类型防止溢出
             while (left <= right) {
                 mid = (left + right) / 2;
-                if (mid * mid < x)
+                if (mid * mid < x) {
                     left = mid + 1;
-                else if (mid * mid > x)
+                } else if (mid * mid > x) {
                     right = mid - 1;
-                else
+                } else {
                     return (int) mid;
+                }
             }
             return (int) (left - 1);
         }

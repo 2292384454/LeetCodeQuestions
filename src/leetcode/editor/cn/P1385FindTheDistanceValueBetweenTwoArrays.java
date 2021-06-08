@@ -61,8 +61,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：两个数组间的距离值
 public class P1385FindTheDistanceValueBetweenTwoArrays {
     public static void main(String[] args) {
@@ -85,8 +83,9 @@ public class P1385FindTheDistanceValueBetweenTwoArrays {
                         break;
                     }
                 }
-                if (flag)
+                if (flag) {
                     count++;
+                }
             }
             return count;
         }

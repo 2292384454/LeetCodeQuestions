@@ -53,12 +53,15 @@ public class P559MaximumDepthOfNAryTree {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxDepth(Node root) {
-            if (root == null) return 0;
+            if (root == null) {
+                return 0;
+            }
             int maxDepth = 0;
             for (Node p : root.children) {
                 int depth = maxDepth(p);
-                if (depth > maxDepth)
+                if (depth > maxDepth) {
                     maxDepth = depth;
+                }
             }
             return maxDepth + 1;
         }

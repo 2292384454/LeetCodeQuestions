@@ -52,7 +52,9 @@ public class P482LicenseKeyFormatting {
                 if (count == K && i != strbuilder.length() - 1) {
                     strbuilder = strbuilder.insert(i + 1, "-");
                     count = 0;
-                } else count++;
+                } else {
+                    count++;
+                }
             }
             return strbuilder.reverse().toString();
         }

@@ -60,8 +60,12 @@ public class P1332RemovePalindromicSubsequences {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int removePalindromeSub(String s) {
-            if ("".equals(s)) return 0;//如果s为空字符串返回0
-            if (s.equals(new StringBuilder(s).reverse().toString())) return 1;//如果s是回文字符串返回1
+            if ("".equals(s)) {
+                return 0;//如果s为空字符串返回0
+            }
+            if (s.equals(new StringBuilder(s).reverse().toString())) {
+                return 1;//如果s是回文字符串返回1
+            }
             return 2;//否则返回2
         }
     }

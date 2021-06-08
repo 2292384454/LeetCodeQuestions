@@ -27,7 +27,9 @@ public class P53MaximumSubarray {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxSubArray(int[] nums) {
-            if (nums.length == 0) return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
             int max = nums[0];    // 全局最大值
             int subMax = nums[0];  // 前一个子组合的最大值,状态压缩
             for (int i = 1; i < nums.length; i++) {

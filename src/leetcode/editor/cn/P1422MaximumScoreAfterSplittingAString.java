@@ -55,18 +55,21 @@ public class P1422MaximumScoreAfterSplittingAString {
     class Solution {
         public int maxScore(String s) {
             int zeroCount = 0, oneCount = 0, result = 0;
-            for (char c : s.toCharArray())
-                if (c == '1')
+            for (char c : s.toCharArray()) {
+                if (c == '1') {
                     oneCount++;
+                }
+            }
             char first = s.charAt(0);
             zeroCount += (1 - (first - '0'));
             oneCount -= (first - '0');
             result = Math.max(result, zeroCount + oneCount);
             for (int i = 1; i < s.length() - 1; i++) {
-                if (s.charAt(i) == '0')
+                if (s.charAt(i) == '0') {
                     zeroCount++;
-                else
+                } else {
                     oneCount--;
+                }
                 result = Math.max(result, zeroCount + oneCount);
             }
             return result;

@@ -47,7 +47,6 @@
 package leetcode.editor.cn;
 
 import java.util.HashSet;
-import java.util.Set;
 
 //Java：模拟行走机器人
 public class P874WalkingRobotSimulation {
@@ -64,24 +63,27 @@ public class P874WalkingRobotSimulation {
         public int robotSim(int[] commands, int[][] obstacles) {
             HashSet<String> obstacleSet = new HashSet<>();
             //将所有障碍物坐标组合成字符串存入set中方便查询
-            for (int[] arr : obstacles) obstacleSet.add(arr[0] + "，" + arr[1]);
+            for (int[] arr : obstacles) {
+                obstacleSet.add(arr[0] + "，" + arr[1]);
+            }
             int CurrentDirection = 0, result = 0, x = 0, y = 0;//CurrentDirection为0,1,2,3分别表示"up", "left", "down", "right"方向
             for (int command : commands) {
-                if (command == -2)
+                if (command == -2) {
                     CurrentDirection = (CurrentDirection + 1) % 4;
-                else if (command == -1)
+                } else if (command == -1) {
                     CurrentDirection = (CurrentDirection + 3) % 4;
-                else {
+                } else {
                     int step = 0;
                     while (step < command) {
-                        if (CurrentDirection == 0 && !obstacleSet.contains(x + "，" + (y + 1)))
+                        if (CurrentDirection == 0 && !obstacleSet.contains(x + "，" + (y + 1))) {
                             y++;
-                        else if (CurrentDirection == 1 && !obstacleSet.contains((x - 1) + "，" + y))
+                        } else if (CurrentDirection == 1 && !obstacleSet.contains((x - 1) + "，" + y)) {
                             x--;
-                        else if (CurrentDirection == 2 && !obstacleSet.contains(x + "，" + (y - 1)))
+                        } else if (CurrentDirection == 2 && !obstacleSet.contains(x + "，" + (y - 1))) {
                             y--;
-                        else if (CurrentDirection == 3 && !obstacleSet.contains((x + 1) + "，" + y))
+                        } else if (CurrentDirection == 3 && !obstacleSet.contains((x + 1) + "，" + y)) {
                             x++;
+                        }
                         step++;
                     }
                     result = Math.max(result, x * x + y * y);

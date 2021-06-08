@@ -30,13 +30,17 @@ public class P504Base7 {
     class Solution {
         public String convertToBase7(int num) {
             int abs_num = Math.abs(num);
-            if (num == 0) return "0";
+            if (num == 0) {
+                return "0";
+            }
             StringBuilder res = new StringBuilder();
             while (abs_num > 0) {
                 res.append((char) (abs_num % 7 + '0'));
                 abs_num /= 7;
             }
-            if (num < 0) res.append('-');
+            if (num < 0) {
+                res.append('-');
+            }
             return res.reverse().toString();
         }
     }

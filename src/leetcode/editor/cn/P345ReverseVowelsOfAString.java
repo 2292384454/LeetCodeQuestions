@@ -39,7 +39,9 @@ public class P345ReverseVowelsOfAString {
         public String reverseVowels(String s) {
             char s_Array[] = s.toCharArray();
             int len = s_Array.length;
-            if (len == 0) return s;
+            if (len == 0) {
+                return s;
+            }
             HashSet<Character> vowels = new HashSet<Character>() {{
                 add('a');
                 add('o');
@@ -54,8 +56,9 @@ public class P345ReverseVowelsOfAString {
             }};
             for (int i = 0, j = len - 1; i < j; i++) {
                 if (vowels.contains(s_Array[i])) {
-                    while (!vowels.contains(s_Array[j]) && i < j)
+                    while (!vowels.contains(s_Array[j]) && i < j) {
                         j--;
+                    }
                     char temp = s_Array[i];
                     s_Array[i] = s_Array[j];
                     s_Array[j] = temp;

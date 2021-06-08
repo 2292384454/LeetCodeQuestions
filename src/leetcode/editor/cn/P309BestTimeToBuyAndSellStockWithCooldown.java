@@ -28,16 +28,16 @@ public class P309BestTimeToBuyAndSellStockWithCooldown {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxProfit(int[] prices) {
+            int len = prices.length;
             //buy和sell分别存储截止当前日期，最后一次操作为买入/卖出能取得的最大收益，lock存储截止当前日期，最后一次操作为冷冻时的最大收益
-            int buy = -prices[0], sell = 0, lock = 0;
-            for (int price : prices) {
-                int buyNow = Math.max(buy, lock - price);
-                int sellNow = Math.max(sell, buy + price);
-                lock = sell;
-                buy = buyNow;
-                sell = sellNow;
+            int[] buy = new int[len], sell = new int[len], lock = new int[len];
+            buy[0] = -prices[0];
+            for (int i = 1; i < len; i++) {
+                buy[i] = Math.max(buy[i - 1], lock[i - 1] - prices[i]);
+                sell[i] = Math.max(sell[i - 1], buy[i - 1] + prices[i]);
+                lock[i] = Math.max(lock[i - 1], sell[i - 1]);
             }
-            return sell;
+            return Math.max(Math.max(buy[len - 1], sell[len - 1]), lock[len - 1]);
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

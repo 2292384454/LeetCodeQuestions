@@ -34,15 +34,22 @@ public class P506RelativeRanks {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String[] findRelativeRanks(int[] nums) {
-            if (nums.length == 0) return new String[0];
+            if (nums.length == 0) {
+                return new String[0];
+            }
             int len = nums.length, max_grade = 0, min_grade = 10000;
             for (int x : nums) {
-                if (x > max_grade) max_grade = x;
-                if (x < min_grade) min_grade = x;
+                if (x > max_grade) {
+                    max_grade = x;
+                }
+                if (x < min_grade) {
+                    min_grade = x;
+                }
             }
             int num_index[] = new int[(max_grade - min_grade + 1)];
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < len; i++) {
                 num_index[nums[i] - min_grade] = i;
+            }
             Arrays.sort(nums);
             String res[] = new String[len];
             for (int i = 0; i < len; i++) {

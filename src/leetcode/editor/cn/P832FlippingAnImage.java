@@ -33,8 +33,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：翻转图像
 public class P832FlippingAnImage {
     public static void main(String[] args) {
@@ -47,8 +45,9 @@ public class P832FlippingAnImage {
         public int[][] flipAndInvertImage(int[][] A) {
             for (int i = 0; i < A.length; i++) {
                 reverse(A[i]);
-                for (int j = 0; j < A[i].length; j++)
+                for (int j = 0; j < A[i].length; j++) {
                     A[i][j] = 1 - A[i][j];
+                }
             }
             return A;
         }

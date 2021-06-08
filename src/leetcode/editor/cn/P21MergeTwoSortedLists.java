@@ -11,8 +11,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.List;
-
 //Java：合并两个有序链表
 public class P21MergeTwoSortedLists {
     public static void main(String[] args) {
@@ -44,10 +42,12 @@ public class P21MergeTwoSortedLists {
             ListNode p = l1, q = l2, result = new ListNode(), r = result, temp = null;
             while (p != null || q != null) {
                 int p_val = Integer.MAX_VALUE, q_val = Integer.MAX_VALUE;
-                if (p != null)
+                if (p != null) {
                     p_val = p.val;
-                if (q != null)
+                }
+                if (q != null) {
                     q_val = q.val;
+                }
                 if (p_val < q_val) {
                     temp = new ListNode(p_val);
                     r.next = temp;

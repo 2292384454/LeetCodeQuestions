@@ -36,8 +36,12 @@ public class P1523CountOddNumbersInAnIntervalRange {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int countOdds(int low, int high) {
-            if ((low & 1) != 0) low--;
-            if ((high & 1) != 0) high++;
+            if ((low & 1) != 0) {
+                low--;
+            }
+            if ((high & 1) != 0) {
+                high++;
+            }
             return (high - low) / 2;
         }
     }

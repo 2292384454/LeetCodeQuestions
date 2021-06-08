@@ -46,12 +46,14 @@ public class P1539KthMissingPositiveNumber {
     class Solution {
         public int findKthPositive(int[] arr, int k) {
             int num = arr[0] - 1;
-            if (num >= k)
+            if (num >= k) {
                 return k;
+            }
             for (int i = 1; i < arr.length; i++) {
                 int n = (arr[i] - arr[i - 1] - 1);
-                if (num + n >= k)
+                if (num + n >= k) {
                     return arr[i - 1] + k - num;
+                }
                 num += n;
             }
             return arr[arr.length - 1] + k - num;

@@ -74,10 +74,12 @@ public class P1389CreateTargetArrayInTheGivenOrder {
             LinkedList<Integer> targetList = new LinkedList<>();
             int[] result = new int[nums.length];
             int j = 0;
-            for (int i = 0; i < nums.length; i++)
+            for (int i = 0; i < nums.length; i++) {
                 targetList.add(index[i], nums[i]);
-            for (int x : targetList)
+            }
+            for (int x : targetList) {
                 result[j++] = x;
+            }
             return result;
         }
     }

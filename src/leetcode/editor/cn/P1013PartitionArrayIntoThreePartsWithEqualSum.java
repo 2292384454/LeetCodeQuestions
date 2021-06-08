@@ -60,8 +60,9 @@ public class P1013PartitionArrayIntoThreePartsWithEqualSum {
             }
             for (int i = 0; i < len; i++) {
                 for (int j = i + 2; j < len; j++) {
-                    if (prefixSum[i] == suffixSum[j] && prefixSum[i] == prefixSum[len - 1] - prefixSum[i] - suffixSum[j])
+                    if (prefixSum[i] == suffixSum[j] && prefixSum[i] == prefixSum[len - 1] - prefixSum[i] - suffixSum[j]) {
                         return true;
+                    }
                 }
             }
             return false;

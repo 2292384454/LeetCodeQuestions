@@ -80,8 +80,9 @@ public class P669TrimABinarySearchTree {
                 } else {
                     return trimBST(root.left, low, high);
                 }
-            } else
+            } else {
                 return null;
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

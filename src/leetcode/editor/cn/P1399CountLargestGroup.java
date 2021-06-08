@@ -66,9 +66,11 @@ public class P1399CountLargestGroup {
                 sumOfNum[temp]++;
                 maxSum = Math.max(maxSum, sumOfNum[temp]);
             }
-            for (int x : sumOfNum)
-                if (maxSum == x)
+            for (int x : sumOfNum) {
+                if (maxSum == x) {
                     result++;
+                }
+            }
             return result;
         }
     }

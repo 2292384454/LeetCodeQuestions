@@ -50,7 +50,9 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 //Java：数组形式的整数加法
 public class P989AddToArrayFormOfInteger {
@@ -77,8 +79,9 @@ public class P989AddToArrayFormOfInteger {
                 result.add(c % 10);
                 carry = c / 10;
             }
-            if (carry > 0)
+            if (carry > 0) {
                 result.add(carry);
+            }
             Collections.reverse(result);
             return result;
         }

@@ -61,11 +61,13 @@ public class P1252CellsWithOddValuesInAMatrix {
                 col[indices[i][1]]++;
             }
             int ans = 0;
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-                    if ((row[i] + col[j]) % 2 > 0)
+                    if ((row[i] + col[j]) % 2 > 0) {
                         ans++;
+                    }
                 }
+            }
             return ans;
 
         }

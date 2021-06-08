@@ -60,8 +60,9 @@ public class P1437CheckIfAll1sAreAtLeastLengthKPlacesAway {
             int i = 0;
             for (i = 0; i < nums.length; i++) {
                 if (nums[i] == 1) {
-                    if (i - lastOne - 1 < k)
+                    if (i - lastOne - 1 < k) {
                         return false;
+                    }
                     lastOne = i;
                 }
             }

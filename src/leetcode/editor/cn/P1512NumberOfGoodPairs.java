@@ -49,11 +49,14 @@ public class P1512NumberOfGoodPairs {
     class Solution {
         public int numIdenticalPairs(int[] nums) {
             int hash[] = new int[101], result = 0;
-            for (int x : nums)
+            for (int x : nums) {
                 hash[x]++;
-            for (int x : hash)
-                if (x >= 2)
+            }
+            for (int x : hash) {
+                if (x >= 2) {
                     result += x * (x - 1) / 2;
+                }
+            }
             ;
             return result;
         }

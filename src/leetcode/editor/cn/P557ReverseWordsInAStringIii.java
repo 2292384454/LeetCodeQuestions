@@ -34,12 +34,15 @@ public class P557ReverseWordsInAStringIii {
             StringBuilder result = new StringBuilder();
             char s_chars[] = s.toCharArray();
             for (int i = 0, begin = 0, end = 0; i <= s_chars.length; i++) {
-                if (i == 0 || (i > 0 && i < s_chars.length && s_chars[i - 1] == ' '))
+                if (i == 0 || (i > 0 && i < s_chars.length && s_chars[i - 1] == ' ')) {
                     begin = i;
-                if (i == s_chars.length || s_chars[i] == ' ')
+                }
+                if (i == s_chars.length || s_chars[i] == ' ') {
                     end = i;
-                if (begin < end)
+                }
+                if (begin < end) {
                     result.append(reverse(s.substring(begin, end)) + " ");
+                }
             }
             return result.toString().trim();
         }

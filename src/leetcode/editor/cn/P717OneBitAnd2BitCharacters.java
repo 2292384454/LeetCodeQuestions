@@ -44,11 +44,16 @@ public class P717OneBitAnd2BitCharacters {
     class Solution {
         public boolean isOneBitCharacter(int[] bits) {
             int i = 0, len = bits.length;
-            if (len == 1) return true;
+            if (len == 1) {
+                return true;
+            }
             for (i = 0; i < len; i++) {
-                if (i == len - 2 && bits[i] == 1) return false;
-                if (i < len - 1 && bits[i] == 1)
+                if (i == len - 2 && bits[i] == 1) {
+                    return false;
+                }
+                if (i < len - 1 && bits[i] == 1) {
                     i++;
+                }
             }
             return true;
         }

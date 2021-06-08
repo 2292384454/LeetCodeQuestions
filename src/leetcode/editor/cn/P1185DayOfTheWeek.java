@@ -37,11 +37,6 @@
 
 package leetcode.editor.cn;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 //Java：一周中的第几天
 public class P1185DayOfTheWeek {
     public static void main(String[] args) {
@@ -66,14 +61,16 @@ public class P1185DayOfTheWeek {
             int result = 0;
             for (int i = 1971; i < year; i++) {
                 result += 365;
-                if (i % 400 == 0 || (i % 4 == 0 && i % 100 != 0))
+                if (i % 400 == 0 || (i % 4 == 0 && i % 100 != 0)) {
                     result++;
+                }
             }
             for (int i = 0; i < month - 1; i++) {
                 result += days[i];
             }
-            if (month > 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+            if (month > 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))) {
                 result++;
+            }
             result += day;
             return result;
         }

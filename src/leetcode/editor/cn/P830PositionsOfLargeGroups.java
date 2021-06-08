@@ -72,10 +72,12 @@ public class P830PositionsOfLargeGroups {
             int i = 0, j = i + 1;
             while (i < chars.length) {
                 j = i + 1;
-                while (j < chars.length && chars[j] == chars[i])
+                while (j < chars.length && chars[j] == chars[i]) {
                     j++;
-                if (j - i >= 3)
+                }
+                if (j - i >= 3) {
                     result.add(new ArrayList<>(Arrays.asList(i, j - 1)));
+                }
                 i = j;
             }
             return result;

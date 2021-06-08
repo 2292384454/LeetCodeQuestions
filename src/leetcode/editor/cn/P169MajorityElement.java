@@ -31,7 +31,9 @@ public class P169MajorityElement {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int majorityElement(int[] nums) {
-            if (nums.length == 0) return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
             Arrays.sort(nums);
             return nums[nums.length / 2];
         }

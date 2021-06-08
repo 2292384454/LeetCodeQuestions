@@ -30,8 +30,9 @@ public class P136SingleNumber {
     class Solution {
         public int singleNumber(int[] nums) {
             int thenum = 0;
-            for (int x : nums)
+            for (int x : nums) {
                 thenum = thenum ^ x;
+            }
             return thenum;
         }
     }

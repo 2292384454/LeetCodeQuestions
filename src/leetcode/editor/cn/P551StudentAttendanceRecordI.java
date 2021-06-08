@@ -36,15 +36,20 @@ public class P551StudentAttendanceRecordI {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean checkRecord(String s) {
-            if (s == "") return true;
+            if (s == "") {
+                return true;
+            }
             char s_chars[] = s.toCharArray();
             for (int i = 0, A_count = 0; i < s_chars.length; i++) {
                 if (s_chars[i] == 'A') {
                     A_count++;
-                    if (A_count > 1) return false;
+                    if (A_count > 1) {
+                        return false;
+                    }
                 }
-                if (i + 2 < s_chars.length && (s_chars[i] == 'L') && (s_chars[i + 1] == 'L') && (s_chars[i + 2] == 'L'))
+                if (i + 2 < s_chars.length && (s_chars[i] == 'L') && (s_chars[i + 1] == 'L') && (s_chars[i + 2] == 'L')) {
                     return false;
+                }
             }
             return true;
         }

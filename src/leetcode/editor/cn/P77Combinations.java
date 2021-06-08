@@ -43,12 +43,14 @@ public class P77Combinations {
                 ans.add(copy);
                 return;
             } else if (k == (n - start + 1)) {
-                for (int i = start; i <= n; i++)
+                for (int i = start; i <= n; i++) {
                     copy.add(i);
+                }
                 ans.add(copy);
                 return;
-            } else if (k > (n - start + 1))
+            } else if (k > (n - start + 1)) {
                 return;
+            }
             help(start + 1, n, k, copy);
             copy.add(start);
             help(start + 1, n, k - 1, copy);

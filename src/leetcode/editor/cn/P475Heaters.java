@@ -47,12 +47,16 @@ public class P475Heaters {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findRadius(int[] houses, int[] heaters) {
-            if (houses.length == 0 || heaters.length == 0) return 0;
+            if (houses.length == 0 || heaters.length == 0) {
+                return 0;
+            }
             Arrays.sort(houses);//先对房屋和加热器的位置进行排序
             Arrays.sort(heaters);
             int result = 0;
             for (int i = 0, j = 0; i < houses.length && j < heaters.length; i++) {
-                while (j < heaters.length - 1 && houses[i] > heaters[j]) j++;
+                while (j < heaters.length - 1 && houses[i] > heaters[j]) {
+                    j++;
+                }
                 if (j == 0) {
                     result = Math.max(result, Math.abs(heaters[j] - houses[i]));
                 } else {

@@ -43,7 +43,9 @@ public class P189RotateArray {
     class Solution {
         public void rotate(int[] nums, int k) {
             k = k % nums.length;
-            if (nums.length < 2 || k == 0) return;
+            if (nums.length < 2 || k == 0) {
+                return;
+            }
             reverseArray(nums, 0, nums.length);
             reverseArray(nums, 0, k);
             reverseArray(nums, k, nums.length);

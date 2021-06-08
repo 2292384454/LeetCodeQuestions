@@ -48,7 +48,9 @@ public class P605CanPlaceFlowers {
                     n -= 1;//种花
                     flowerbed[i] = 1;
                 }
-                if (flowerbed[i] == 1) i++;
+                if (flowerbed[i] == 1) {
+                    i++;
+                }
             }
             return n <= 0;
         }

@@ -59,7 +59,9 @@ public class P27RemoveElement {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int removeElement(int[] nums, int val) {
-            if (nums.length == 0) return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
             int result = nums.length;
             for (int i = 0; i < result; i++) {
                 if (nums[i] == val) {

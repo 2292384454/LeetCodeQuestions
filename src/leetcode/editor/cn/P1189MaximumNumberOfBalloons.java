@@ -60,8 +60,9 @@ public class P1189MaximumNumberOfBalloons {
                 put('n', 1);
             }};//"balloon"中b出现1次，a出现1次，l出现2次，o出现2次，n出现1次
             int char_count[] = new int[26];
-            for (char c : text.toCharArray())
+            for (char c : text.toCharArray()) {
                 char_count[c - 'a']++;
+            }
             for (char c : map.keySet()) {
                 result = Math.min(result, char_count[c - 'a'] / map.get(c));
             }

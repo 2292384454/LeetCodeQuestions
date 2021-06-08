@@ -53,7 +53,9 @@ public class P89GrayCode {
         public List<Integer> grayCode(int n) {
             ArrayList<Integer> ans = new ArrayList<>();
             ans.add(0);
-            if (n == 0) return ans;
+            if (n == 0) {
+                return ans;
+            }
             for (int i = 1, num = 1; i <= n; i++, num *= 2) {
                 int size = ans.size();
                 for (int j = size - 1; j >= 0; j--) {

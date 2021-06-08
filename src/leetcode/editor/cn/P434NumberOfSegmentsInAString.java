@@ -24,7 +24,9 @@ public class P434NumberOfSegmentsInAString {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int countSegments(String s) {
-            if (s.length() == 0) return 0;
+            if (s.length() == 0) {
+                return 0;
+            }
             int result = 0;
             s.trim();//去除开头和结尾的多余空格
 
@@ -40,9 +42,12 @@ public class P434NumberOfSegmentsInAString {
             //方法二：进行循环,100%
             char s_array[] = s.toCharArray();
             for (int i = 0; i < s_array.length; i++) {
-                if (i + 1 >= s_array.length && s_array[i] != ' ') return ++result;
-                if (s_array[i] != ' ' && s_array[i + 1] == ' ')
+                if (i + 1 >= s_array.length && s_array[i] != ' ') {
+                    return ++result;
+                }
+                if (s_array[i] != ' ' && s_array[i + 1] == ' ') {
                     result++;
+                }
             }
             return result;
         }

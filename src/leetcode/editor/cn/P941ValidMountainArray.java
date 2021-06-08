@@ -62,15 +62,22 @@ public class P941ValidMountainArray {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean validMountainArray(int[] arr) {
-            if (arr.length < 3) return false;//如果数组长度小于3，那么一定不是山脉数组
+            if (arr.length < 3) {
+                return false;//如果数组长度小于3，那么一定不是山脉数组
+            }
             int i = 1;
             while (i < arr.length && arr[i] > arr[i - 1])//找到山顶（如果是山脉数组）
+            {
                 i++;
+            }
             if (i == 1 || i == arr.length)//如果山顶在第一个位置或者越界，那么返回false
+            {
                 return false;
+            }
             while (i < arr.length) {//判断从山顶往后是不是都是严格递减的
-                if (arr[i] >= arr[i - 1])
+                if (arr[i] >= arr[i - 1]) {
                     return false;
+                }
                 i++;
             }
             return true;

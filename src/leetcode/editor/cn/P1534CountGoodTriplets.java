@@ -43,8 +43,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：统计好三元组
 public class P1534CountGoodTriplets {
     public static void main(String[] args) {
@@ -58,12 +56,17 @@ public class P1534CountGoodTriplets {
     class Solution {
         public int countGoodTriplets(int[] arr, int a, int b, int c) {
             int count = 0;
-            for (int i = 0; i < arr.length - 2; i++)
-                for (int j = i + 1; j < arr.length; j++)
-                    if (Math.abs(arr[j] - arr[i]) <= a)
-                        for (int k = j + 1; k < arr.length; k++)
-                            if (Math.abs(arr[k] - arr[j]) <= b && Math.abs(arr[k] - arr[i]) <= c)
+            for (int i = 0; i < arr.length - 2; i++) {
+                for (int j = i + 1; j < arr.length; j++) {
+                    if (Math.abs(arr[j] - arr[i]) <= a) {
+                        for (int k = j + 1; k < arr.length; k++) {
+                            if (Math.abs(arr[k] - arr[j]) <= b && Math.abs(arr[k] - arr[i]) <= c) {
                                 count++;
+                            }
+                        }
+                    }
+                }
+            }
             return count;
         }
     }

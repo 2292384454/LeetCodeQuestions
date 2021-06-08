@@ -94,17 +94,21 @@ public class P1275FindWinnerOnATicTacToeGame {
             for (int i = 0; i < moves.length; i++) {
                 if ((i & 1) == 0) {
                     A[i / 2] = moves[i];
-                    if (i / 2 >= 2 && hasWin(A, i / 2))
+                    if (i / 2 >= 2 && hasWin(A, i / 2)) {
                         return "A";
+                    }
                 } else {
                     B[(i - 1) / 2] = moves[i];
-                    if ((i - 1) / 2 >= 2 && hasWin(B, (i - 1) / 2))
+                    if ((i - 1) / 2 >= 2 && hasWin(B, (i - 1) / 2)) {
                         return "B";
+                    }
                 }
             }
-            if (moves.length == 9)
+            if (moves.length == 9) {
                 return "Draw";
-            else return "Pending";
+            } else {
+                return "Pending";
+            }
         }
 
         /**
@@ -116,8 +120,9 @@ public class P1275FindWinnerOnATicTacToeGame {
             for (int i = 0; i + 1 < n; i++) {
                 for (int j = i + 1; j < n; j++) {
                     //判断三点共线
-                    if ((A[n][0] - A[i][0]) * (A[i][1] - A[j][1]) == (A[i][0] - A[j][0]) * (A[n][1] - A[i][1]))
+                    if ((A[n][0] - A[i][0]) * (A[i][1] - A[j][1]) == (A[i][0] - A[j][0]) * (A[n][1] - A[i][1])) {
                         return true;
+                    }
                 }
             }
             return false;

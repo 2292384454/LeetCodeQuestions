@@ -50,11 +50,13 @@ public class P374GuessNumberHigherOrLower {
             int left = 1, right = n, mid = left + (right - left) / 2;
             while (left <= right) {
                 mid = left + (right - left) / 2;
-                if (guess(mid) == 0) return mid;
-                else if (guess(mid) == -1)
+                if (guess(mid) == 0) {
+                    return mid;
+                } else if (guess(mid) == -1) {
                     right = mid - 1;
-                else
+                } else {
                     left = mid + 1;
+                }
             }
             return -1;
         }

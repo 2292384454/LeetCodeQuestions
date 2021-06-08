@@ -50,14 +50,16 @@ public class P1360NumberOfDaysBetweenTwoDates {
             int result = 0;
             for (int i = 1971; i < year; i++) {
                 result += 365;
-                if (i % 400 == 0 || (i % 4 == 0 && i % 100 != 0))
+                if (i % 400 == 0 || (i % 4 == 0 && i % 100 != 0)) {
                     result++;
+                }
             }
             for (int i = 0; i < month - 1; i++) {
                 result += days[i];
             }
-            if (month > 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+            if (month > 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))) {
                 result++;
+            }
             result += day;
             return result;
         }

@@ -47,8 +47,9 @@ public class P1046LastStoneWeight {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lastStoneWeight(int[] stones) {
-            if (stones.length == 2)
+            if (stones.length == 2) {
                 return Math.abs(stones[1] - stones[0]);
+            }
             int[] heap = new int[2], indexOfHeap = new int[2];//heap为大根堆,indexOfHeap存储heap中元素在stones的原下标
             int len = stones.length;
             while (len > 1) {
@@ -77,10 +78,14 @@ public class P1046LastStoneWeight {
                 heap[0] = 0;
                 heap[1] = 0;
             }
-            if (len == 0) return 0;
-            for (int x : stones)
-                if (x != 0)
+            if (len == 0) {
+                return 0;
+            }
+            for (int x : stones) {
+                if (x != 0) {
                     return x;
+                }
+            }
             return 0;
         }
     }

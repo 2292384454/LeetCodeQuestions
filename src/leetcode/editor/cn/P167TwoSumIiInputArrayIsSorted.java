@@ -31,12 +31,13 @@ public class P167TwoSumIiInputArrayIsSorted {
         public int[] twoSum(int[] numbers, int target) {
             int left = 0, right = numbers.length - 1;
             while (left < right) {
-                if (numbers[left] + numbers[right] == target)
+                if (numbers[left] + numbers[right] == target) {
                     return new int[]{left + 1, right + 1};//加一是因为返回的下标值（index1 和 index2）不是从零开始的。
-                else if (numbers[left] + numbers[right] < target)
+                } else if (numbers[left] + numbers[right] < target) {
                     left++;
-                else
+                } else {
                     right--;
+                }
             }
             return null;
         }

@@ -32,7 +32,9 @@ public class P796RotateString {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean rotateString(String A, String B) {
-            if (A.length() != B.length()) return false;
+            if (A.length() != B.length()) {
+                return false;
+            }
             String str = A + A;
             return str.contains(B);
         }

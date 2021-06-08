@@ -29,7 +29,9 @@ public class P172FactorialTrailingZeroes {
     class Solution {
         public int trailingZeroes(int n) {
             //计算n除以5的x次幂的和，x从1取到正无穷
-            if (n == 0) return 0;
+            if (n == 0) {
+                return 0;
+            }
             int result = 0;
             while (n > 0) {
                 result += (n / 5);

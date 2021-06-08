@@ -30,7 +30,9 @@ public class P594LongestHarmoniousSubsequence {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int findLHS(int[] nums) {
-            if (nums.length == 0) return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
             int result = 0;
             HashMap<Integer, Short> num_count = new HashMap<>();
             for (int x : nums) {
@@ -39,9 +41,11 @@ public class P594LongestHarmoniousSubsequence {
             }
             Integer keys[] = num_count.keySet().toArray(new Integer[num_count.size()]);
             Arrays.sort(keys);
-            for (int i = 1; i < keys.length; i++)
-                if (keys[i] - keys[i - 1] == 1)
+            for (int i = 1; i < keys.length; i++) {
+                if (keys[i] - keys[i - 1] == 1) {
                     result = Math.max(result, num_count.get(keys[i - 1]) + num_count.get(keys[i]));
+                }
+            }
             return result;
         }
     }

@@ -68,10 +68,11 @@ public class P811SubdomainVisitCount {
                 String names[] = tempstrs[1].split("\\.");
                 StringBuilder domain = new StringBuilder();
                 for (int i = names.length - 1; i >= 0; i--) {
-                    if (i < names.length - 1)
+                    if (i < names.length - 1) {
                         domain.insert(0, names[i] + ".");
-                    else
+                    } else {
                         domain.insert(0, names[i]);
+                    }
                     int trueCount = domain_count.containsKey(domain.toString()) ? domain_count.get(domain.toString()) + count : count;
                     domain_count.put(domain.toString(), trueCount);
                 }

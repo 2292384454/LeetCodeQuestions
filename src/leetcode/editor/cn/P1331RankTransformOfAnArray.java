@@ -61,8 +61,9 @@ public class P1331RankTransformOfAnArray {
             HashMap<Integer, Integer> num_sortedindex = new HashMap<>();
             for (int i = 0, index = 1; i < arr.length; index++) {
                 num_sortedindex.put(cp[i], index);
-                while (i + 1 < arr.length && cp[i] == cp[i + 1])
+                while (i + 1 < arr.length && cp[i] == cp[i + 1]) {
                     i++;
+                }
                 i++;
             }
             for (int i = 0; i < arr.length; i++) {

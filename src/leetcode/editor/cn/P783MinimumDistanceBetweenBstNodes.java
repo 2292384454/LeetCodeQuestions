@@ -34,8 +34,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Stack;
-
 //Java：二叉搜索树节点最小距离
 public class P783MinimumDistanceBetweenBstNodes {
     public static void main(String[] args) {
@@ -66,8 +64,9 @@ public class P783MinimumDistanceBetweenBstNodes {
                 }
                 if (top != -1) {
                     p = mystack[top--];
-                    if (pre != null)
+                    if (pre != null) {
                         min = Math.min(min, p.val - pre.val);
+                    }
                     pre = p;
                     p = p.right;
                 }

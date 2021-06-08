@@ -31,10 +31,13 @@ public class P643MaximumAverageSubarrayI {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public double findMaxAverage(int[] nums, int k) {
-            if (nums.length < k) return 0;
+            if (nums.length < k) {
+                return 0;
+            }
             double result = 0.0, sum = 0.0;
-            for (int i = 0; i < k; i++)
+            for (int i = 0; i < k; i++) {
                 sum += nums[i];
+            }
             result = sum;
             for (int i = k; i < nums.length; i++) {
                 sum = sum - nums[i - k] + nums[i];

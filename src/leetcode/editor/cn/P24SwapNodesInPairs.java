@@ -62,8 +62,9 @@ public class P24SwapNodesInPairs {
      */
     class Solution {
         public ListNode swapPairs(ListNode head) {
-            if (head == null || head.next == null)
+            if (head == null || head.next == null) {
                 return head;
+            }
             ListNode l1 = head, l2 = head.next;
             head = l2;
             while (l2 != null && l1 != l2) {

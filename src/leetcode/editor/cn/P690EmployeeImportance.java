@@ -47,13 +47,15 @@ public class P690EmployeeImportance {
     class Solution {
         public int getImportance(List<Employee> employees, int id) {
             int result = 0, i = 0;
-            for (i = 0; i < employees.size(); i++)
+            for (i = 0; i < employees.size(); i++) {
                 if (employees.get(i).id == id) {
                     result += employees.get(i).importance;
                     break;
                 }
-            for (Integer x : employees.get(i).subordinates)
+            }
+            for (Integer x : employees.get(i).subordinates) {
                 result += getImportance(employees, x);
+            }
 
             return result;
         }

@@ -32,7 +32,6 @@
 package leetcode.editor.cn;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 //Java：二进制手表
@@ -54,11 +53,12 @@ public class P401BinaryWatch {
             List<String> result = new ArrayList<>();
             for (short i = 0; i <= num; i++) {
                 if (i < 4 && (num - i) < 6) {
-                    for (short x : hournums[i])
+                    for (short x : hournums[i]) {
                         for (short y : minutenums[num - i]) {
                             String minuteString = y < 10 ? "0" + y : y + "";
                             result.add(x + ":" + minuteString);
                         }
+                    }
                 }
             }
             return result;

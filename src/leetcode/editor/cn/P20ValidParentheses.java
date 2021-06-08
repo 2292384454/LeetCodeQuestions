@@ -54,7 +54,9 @@ public class P20ValidParentheses {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isValid(String s) {
-            if (s.length() == 0) return true;
+            if (s.length() == 0) {
+                return true;
+            }
             Stack<Character> mystack = new Stack<>();
             HashMap<Character, Character> mymap = new HashMap<Character, Character>() {{
                 put(')', '(');
@@ -63,15 +65,19 @@ public class P20ValidParentheses {
             }};
             mystack.push(s.charAt(0));
             for (int i = 1; i < s.length(); i++) {
-                if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{')
+                if (s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{') {
                     mystack.push(s.charAt(i));
-                else if (mystack.empty()) return false;
-                else if (mystack.pop() != mymap.get(s.charAt(i))) return false;
+                } else if (mystack.empty()) {
+                    return false;
+                } else if (!mystack.pop().equals(mymap.get(s.charAt(i)))) {
+                    return false;
+                }
             }
-            if (mystack.empty())
+            if (mystack.empty()) {
                 return true;
-            else
+            } else {
                 return false;
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

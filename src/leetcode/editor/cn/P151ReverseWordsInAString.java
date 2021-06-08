@@ -57,19 +57,25 @@ public class P151ReverseWordsInAString {
             String result = new String(), temp = new String();
             char array[] = s.toCharArray();
             int len = array.length;
-            if (s == null) return null;
+            if (s == null) {
+                return null;
+            }
             for (int i = 0; i < len; ) {
                 if (i > 0 && array[i] != ' ' && array[i - 1] == ' ') {
                     temp = "";
-                    while (i < len && array[i] != ' ')
+                    while (i < len && array[i] != ' ') {
                         temp += array[i++];
+                    }
                     result = temp + " " + result;
                 } else if (i == 0 && array[i] != ' ') {
                     temp = "";
-                    while (i < len && array[i] != ' ')
+                    while (i < len && array[i] != ' ') {
                         temp += array[i++];
+                    }
                     result = temp + " " + result;
-                } else i++;
+                } else {
+                    i++;
+                }
             }
             return result.trim();
         }

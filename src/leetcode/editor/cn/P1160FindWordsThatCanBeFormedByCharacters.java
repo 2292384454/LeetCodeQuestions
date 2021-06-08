@@ -54,8 +54,9 @@ public class P1160FindWordsThatCanBeFormedByCharacters {
         public int countCharacters(String[] words, String chars) {
             final int len = 26;
             final int[] char_count = new int[len];
-            for (char c : chars.toCharArray())
+            for (char c : chars.toCharArray()) {
                 char_count[c - 'a']++;
+            }
             int result = 0;
             for (String s : words) {
                 boolean canbespelt = true;
@@ -66,8 +67,9 @@ public class P1160FindWordsThatCanBeFormedByCharacters {
                         break;
                     }
                 }
-                if (canbespelt)
+                if (canbespelt) {
                     result += s.length();
+                }
             }
             return result;
         }

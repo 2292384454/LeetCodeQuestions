@@ -78,16 +78,19 @@ public class P1337TheKWeakestRowsInAMatrix {
             int m = mat.length, n = mat[0].length;
             int[] result = new int[k];
             int[] counts = new int[m];
-            for (int i = 0; i < m; i++)
+            for (int i = 0; i < m; i++) {
                 counts[i] = countOfOne(mat[i]);
+            }
             //count[i]的范围都在[0,n]范围内，找到counts数组中前k小的数
             int c = 0, kk = 0;
             while (kk < k) {
                 for (int i = 0; i < m; i++) {
                     if (counts[i] == c) {
-                        if (kk < k)
+                        if (kk < k) {
                             result[kk++] = i;
-                        else return result;
+                        } else {
+                            return result;
+                        }
                     }
                 }
                 c++;
@@ -105,10 +108,13 @@ public class P1337TheKWeakestRowsInAMatrix {
             int left = 0, right = arr.length - 1, mid;
             while (left <= right) {
                 mid = (left + right) / 2;
-                if ((mid + 1 < arr.length && arr[mid] == 1 && arr[mid + 1] == 0) || mid + 1 == arr.length && arr[mid] == 1)
+                if ((mid + 1 < arr.length && arr[mid] == 1 && arr[mid + 1] == 0) || mid + 1 == arr.length && arr[mid] == 1) {
                     return mid + 1;
-                else if (arr[mid] == 1) left = mid + 1;
-                else right = mid - 1;
+                } else if (arr[mid] == 1) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
             }
             return left;
         }

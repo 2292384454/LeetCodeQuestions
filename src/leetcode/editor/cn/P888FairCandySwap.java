@@ -64,10 +64,12 @@ public class P888FairCandySwap {
             Arrays.sort(A);
             Arrays.sort(B);
             int A_sum = 0, B_sum = 0;
-            for (int a : A)
+            for (int a : A) {
                 A_sum += a;
-            for (int b : B)
+            }
+            for (int b : B) {
                 B_sum += b;
+            }
             int[] morePerson = A_sum > B_sum ? A : B;
             int[] lessPerson = A_sum <= B_sum ? A : B;
             int sub = Math.abs(A_sum - B_sum) / 2, big = 0, small = 0;
@@ -80,10 +82,11 @@ public class P888FairCandySwap {
                     break;
                 }
             }
-            if (morePerson == A)
+            if (morePerson == A) {
                 return new int[]{big, small};
-            else
+            } else {
                 return new int[]{small, big};
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -38,21 +38,29 @@ public class P81SearchInRotatedSortedArrayIi {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean search(int[] nums, int target) {
-            if (nums.length == 0) return false;//数组长度为0
-            if (nums[0] == target) return true;//数组第一个元素就是target（主要为了防止数组元素全部相等的情况）
+            if (nums.length == 0) {
+                return false;//数组长度为0
+            }
+            if (nums[0] == target) {
+                return true;//数组第一个元素就是target（主要为了防止数组元素全部相等的情况）
+            }
             int low = 0, high = nums.length - 1, mid;
             if (nums[low] == nums[high]) {//如果数组刚好第一个元素与最后一个元素相等
-                while (high >= 0 && nums[high] == nums[low]) high--;//就跳过最后的所有与nums[0]相等的元素
+                while (high >= 0 && nums[high] == nums[low]) {
+                    high--;//就跳过最后的所有与nums[0]相等的元素
+                }
             }
 
             while (low <= high) {
                 mid = (high + low) / 2;
-                if (nums[mid] == target)
+                if (nums[mid] == target) {
                     return true;
-                if ((nums[mid] < target && target < nums[0]) || (nums[0] <= nums[mid] && (nums[mid] < target || target < nums[0])))
+                }
+                if ((nums[mid] < target && target < nums[0]) || (nums[0] <= nums[mid] && (nums[mid] < target || target < nums[0]))) {
                     low = mid + 1;
-                else
+                } else {
                     high = mid - 1;
+                }
             }
             return false;
 

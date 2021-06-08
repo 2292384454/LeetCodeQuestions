@@ -45,8 +45,9 @@ public class P447NumberOfBoomerangs {
                         DisSquared_count.put(DisSquared, count + 1);
                     }
                 }
-                for (int num : DisSquared_count.values())
+                for (int num : DisSquared_count.values()) {
                     result += (num * (num - 1));
+                }
             }
             return result;
         }

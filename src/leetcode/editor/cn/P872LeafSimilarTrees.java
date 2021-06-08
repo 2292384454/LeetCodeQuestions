@@ -110,9 +110,9 @@ public class P872LeafSimilarTrees {
                         if (q.left == null && q.right == null) {
                             leaf2 = q;
                             //如果leaf1!=leaf2，返回false
-                            if (leaf1.val != leaf2.val)
+                            if (leaf1.val != leaf2.val) {
                                 return false;
-                            else {
+                            } else {
                                 //如果leaf1==leaf2，跳出对root2的遍历，下一次从本次跳出的位置开始遍历
                                 q = q.right;
                                 break;

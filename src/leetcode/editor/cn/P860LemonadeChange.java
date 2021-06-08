@@ -72,8 +72,9 @@ public class P860LemonadeChange {
                         countOfRbanknote[0]++;
                         break;
                     case 10:
-                        if (countOfRbanknote[0] < 1)
+                        if (countOfRbanknote[0] < 1) {
                             return false;
+                        }
                         countOfRbanknote[0]--;
                         countOfRbanknote[1]++;
                         break;
@@ -85,7 +86,9 @@ public class P860LemonadeChange {
                         } else if (countOfRbanknote[0] >= 3) {
                             countOfRbanknote[0] -= 3;
                             countOfRbanknote[2]++;
-                        } else return false;
+                        } else {
+                            return false;
+                        }
                 }
             }
             return true;

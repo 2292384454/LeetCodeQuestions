@@ -39,10 +39,11 @@ public class P905SortArrayByParity {
         public int[] sortArrayByParity(int[] A) {
             LinkedList<Integer> even = new LinkedList<>(), odd = new LinkedList<>();
             for (int a : A) {
-                if (a % 2 == 0)
+                if (a % 2 == 0) {
                     even.add(a);
-                else
+                } else {
                     odd.add(a);
+                }
             }
             even.addAll(odd);
             Integer[] result = even.toArray(new Integer[0]);

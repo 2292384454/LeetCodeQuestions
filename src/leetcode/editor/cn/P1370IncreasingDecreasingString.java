@@ -77,8 +77,9 @@ public class P1370IncreasingDecreasingString {
         public String sortString(String s) {
             StringBuilder result = new StringBuilder();
             int[] char_count = new int[26];
-            for (char c : s.toCharArray())
+            for (char c : s.toCharArray()) {
                 char_count[c - 'a']++;
+            }
             while (true) {
                 for (int i = 0; i < char_count.length; i++) {
                     if (char_count[i] > 0) {
@@ -93,8 +94,9 @@ public class P1370IncreasingDecreasingString {
                         fin += (char_count[i]--);
                     }
                 }
-                if (fin == 0)
+                if (fin == 0) {
                     break;
+                }
             }
             return result.toString();
         }

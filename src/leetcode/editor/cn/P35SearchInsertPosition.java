@@ -42,10 +42,11 @@ public class P35SearchInsertPosition {
     class Solution {
         public int searchInsert(int[] nums, int target) {
             int result = Arrays.binarySearch(nums, target);
-            if (result >= 0)
+            if (result >= 0) {
                 return result;
-            else
+            } else {
                 return -1 - result;
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

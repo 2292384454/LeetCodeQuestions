@@ -41,8 +41,9 @@ public class P392IsSubsequence {
             char s_array[] = s.toCharArray(), t_array[] = t.toCharArray();
             int i = 0, j = 0;
             for (; i < s_array.length && j < t_array.length; j++) {
-                if (s_array[i] == t_array[j])
+                if (s_array[i] == t_array[j]) {
                     i++;
+                }
             }
             return i == s_array.length;
         }

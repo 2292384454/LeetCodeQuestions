@@ -60,28 +60,38 @@ public class P925LongPressedName {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isLongPressedName(String name, String typed) {
-            if (name.length() == 0 && typed.length() == 0) return true;
-            else if (name.length() == 0) return false;
+            if (name.length() == 0 && typed.length() == 0) {
+                return true;
+            } else if (name.length() == 0) {
+                return false;
+            }
             char[] name_array = name.toCharArray(), typed_array = typed.toCharArray();
-            if (name_array[0] != typed_array[0]) return false;
+            if (name_array[0] != typed_array[0]) {
+                return false;
+            }
             int i = 0, j = 0;
             while (true) {
                 while (i < name_array.length && j < typed_array.length && name_array[i] == typed_array[j]) {
                     i++;
                     j++;
                 }
-                if (i == name_array.length || j == typed_array.length)
+                if (i == name_array.length || j == typed_array.length) {
                     break;
+                }
                 while (i < name_array.length && j < typed_array.length && name_array[i] != typed_array[j]) {
-                    if (typed_array[j] != typed_array[j - 1])
+                    if (typed_array[j] != typed_array[j - 1]) {
                         return false;
+                    }
                     j++;
                 }
             }
-            if (i != name_array.length) return false;
+            if (i != name_array.length) {
+                return false;
+            }
             while (j < typed_array.length) {
-                if (typed_array[j] != name_array[i - 1])
+                if (typed_array[j] != name_array[i - 1]) {
                     return false;
+                }
                 j++;
             }
             return true;

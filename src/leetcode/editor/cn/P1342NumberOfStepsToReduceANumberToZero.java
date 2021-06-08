@@ -55,7 +55,9 @@ public class P1342NumberOfStepsToReduceANumberToZero {
     class Solution {
         public int numberOfSteps(int num) {
             //返回num的二进制位数加上num的二进制中1的个数再减一即可
-            if (num == 0) return 0;
+            if (num == 0) {
+                return 0;
+            }
             int result = 0;
             while (num > 0) {
                 result += 1;

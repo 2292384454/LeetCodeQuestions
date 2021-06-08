@@ -91,22 +91,28 @@ public class P748ShortestCompletingWord {
             char c[] = licensePlate.toCharArray();
             int char_count[] = new int[26], tempCounts[], len = 15;
             for (char x : c) {
-                if (x >= 'a' && x <= 'z')
+                if (x >= 'a' && x <= 'z') {
                     char_count[x - 'a']++;
-                if (x >= 'A' && x <= 'Z')
+                }
+                if (x >= 'A' && x <= 'Z') {
                     char_count[x - 'A']++;
+                }
             }
             for (String str : words) {
-                if (str.length() >= len)
+                if (str.length() >= len) {
                     continue;
+                }
                 tempCounts = Arrays.copyOf(char_count, 26);
                 c = str.toCharArray();
-                for (char x : c)
+                for (char x : c) {
                     tempCounts[x - 'a']--;
+                }
                 int i = 0;
-                for (i = 0; i < 26; i++)
-                    if (tempCounts[i] > 0)
+                for (i = 0; i < 26; i++) {
+                    if (tempCounts[i] > 0) {
                         break;
+                    }
+                }
                 if (i == 26) {
                     result = str;
                     len = str.length();

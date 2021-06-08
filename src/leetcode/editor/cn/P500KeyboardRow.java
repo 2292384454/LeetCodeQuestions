@@ -38,17 +38,20 @@ public class P500KeyboardRow {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String[] findWords(String[] words) {
-            if (words.length == 0) return words;
+            if (words.length == 0) {
+                return words;
+            }
             int char_keylinenum[] = new int[60];
             ArrayList<String> result = new ArrayList<>();
             char array[][] = {{'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'},
                     {'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'},
                     {'z', 'x', 'c', 'v', 'b', 'n', 'm'}};
-            for (int i = 0; i < array.length; i++)
+            for (int i = 0; i < array.length; i++) {
                 for (char x : array[i]) {
                     char_keylinenum[x - 'A'] = i;
                     char_keylinenum[x - 'a'] = i;
                 }
+            }
             for (String str : words) {
                 char[] str_array = str.toCharArray();
                 if (str_array.length == 0) {
@@ -59,11 +62,13 @@ public class P500KeyboardRow {
                 int i = 0;
                 for (i = 0; i < str_array.length; i++) {
                     index = str_array[i] - 'a' >= 0 ? str_array[i] - 'a' : str_array[i] - 'A';
-                    if (char_keylinenum[index] != linenumm)
+                    if (char_keylinenum[index] != linenumm) {
                         break;
+                    }
                 }
-                if (i == str_array.length)
+                if (i == str_array.length) {
                     result.add(str);
+                }
             }
             return result.toArray(new String[result.size()]);
         }

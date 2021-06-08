@@ -58,7 +58,9 @@ public class P720LongestWordInDictionary {
             for (int i = 0; i < words.length; i++) {
                 int len = words[i].length();
                 if (i == 0 || !words[i].equals(words[i - 1]))//去重
+                {
                     lenIsIndex[len - 1][lenofEveryIndex[len - 1]++] = words[i];
+                }
             }
             for (int i = 0; i < lenofEveryIndex[0]; i++) {
                 candidates[0][i] = lenIsIndex[0][i];
@@ -69,14 +71,17 @@ public class P720LongestWordInDictionary {
                     String str = candidates[i][j];
                     for (int k = 0; k < lenofEveryIndex[i + 1]; k++) {
                         String sub = lenIsIndex[i + 1][k].substring(0, i + 1);
-                        if (str.equals(sub))
+                        if (str.equals(sub)) {
                             candidates[i + 1][lenofCandidates[i + 1]++] = lenIsIndex[i + 1][k];
+                        }
                     }
                 }
             }
-            for (int i = lenofCandidates.length - 1; i >= 0; i--)
-                if (lenofCandidates[i] > 0)
+            for (int i = lenofCandidates.length - 1; i >= 0; i--) {
+                if (lenofCandidates[i] > 0) {
                     return candidates[i][0];
+                }
+            }
             return "";
         }
     }

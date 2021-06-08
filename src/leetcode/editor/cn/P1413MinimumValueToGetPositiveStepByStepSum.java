@@ -63,8 +63,9 @@ public class P1413MinimumValueToGetPositiveStepByStepSum {
             int sum = 0;
             for (int x : nums) {
                 sum += x;
-                if (sum + startValue < 1)
+                if (sum + startValue < 1) {
                     startValue = 1 - sum;
+                }
             }
             return startValue;
         }

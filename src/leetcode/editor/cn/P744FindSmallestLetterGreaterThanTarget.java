@@ -67,22 +67,27 @@ public class P744FindSmallestLetterGreaterThanTarget {
         public char nextGreatestLetter(char[] letters, char target) {
             int len = letters.length, low = 0, high = len - 1, mid = low + (high - low) / 2;
             if (target >= letters[len - 1] || target < letters[0])//循环比较的处理
+            {
                 return letters[0];
+            }
             while (low <= high) {
                 mid = low + (high - low) / 2;
                 if (letters[mid] == target) {
-                    while (mid < len && letters[mid] == target)
+                    while (mid < len && letters[mid] == target) {
                         mid++;
+                    }
                     return letters[mid % len];
                 } else if (letters[mid] < target) {
                     char temp = letters[mid];
-                    while (mid < len && letters[mid] == temp)
+                    while (mid < len && letters[mid] == temp) {
                         mid++;
+                    }
                     low = mid;
                 } else {
                     char temp = letters[mid];
-                    while (mid >= 0 && letters[mid] == temp)
+                    while (mid >= 0 && letters[mid] == temp) {
                         mid--;
+                    }
                     high = mid;
                 }
             }

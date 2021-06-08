@@ -65,8 +65,9 @@ public class P884UncommonWordsFromTwoSentences {
                 str_count.put(B_str, counts);
             }
             for (String str : str_count.keySet()) {
-                if (str_count.get(str)[0] + str_count.get(str)[1] == 1)
+                if (str_count.get(str)[0] + str_count.get(str)[1] == 1) {
                     result.add(str);
+                }
             }
             return result.toArray(new String[0]);
         }

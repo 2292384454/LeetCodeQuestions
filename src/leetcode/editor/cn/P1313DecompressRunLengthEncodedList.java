@@ -36,7 +36,6 @@
 package leetcode.editor.cn;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 //Java：解压缩编码列表
 public class P1313DecompressRunLengthEncodedList {
@@ -51,8 +50,9 @@ public class P1313DecompressRunLengthEncodedList {
         public int[] decompressRLElist(int[] nums) {
             ArrayList<Integer> resultList = new ArrayList<>();
             for (int i = 0; i < nums.length; i += 2) {
-                for (int j = 0; j < nums[i]; j++)
+                for (int j = 0; j < nums[i]; j++) {
                     resultList.add(nums[i + 1]);
+                }
             }
             int[] result = new int[resultList.size()];
             for (int i = 0; i < resultList.size(); i++) {

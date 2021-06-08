@@ -32,9 +32,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-
 //Java：丑数
 public class P263UglyNumber {
     public static void main(String[] args) {

@@ -51,8 +51,9 @@ public class P67AddBinary {
                 result.insert(0, (char) (temp % 2 + '0'));
                 carry = (short) (temp / 2);
             }
-            if (carry != 0)
+            if (carry != 0) {
                 result.insert(0, (char) (carry + '0'));
+            }
             return result.toString();
         }
     }

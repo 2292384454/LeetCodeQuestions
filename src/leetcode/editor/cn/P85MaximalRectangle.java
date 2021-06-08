@@ -67,18 +67,23 @@ public class P85MaximalRectangle {
     class Solution {
         public int maximalRectangle(char[][] matrix) {
             int rows = matrix.length;
-            if (rows == 0) return 0;
+            if (rows == 0) {
+                return 0;
+            }
             int cols = matrix[0].length;
-            if (cols == 0) return 0;
+            if (cols == 0) {
+                return 0;
+            }
             //二维数组中元素f[i][j]存储记录matrix第i行中，以第j列结尾有几个连续的1
             int[][] f = new int[rows][cols], areas = new int[rows][cols];
             for (int i = 0; i < rows; i++) {
                 int temp = 0;//temp记录当前第i行中，以第j列结尾有几个连续的1
                 for (int j = 0; j < cols; j++) {
-                    if (matrix[i][j] == '1')
+                    if (matrix[i][j] == '1') {
                         f[i][j] = ++temp;
-                    else
+                    } else {
                         temp = 0;
+                    }
                 }
             }
             int ans = 0;

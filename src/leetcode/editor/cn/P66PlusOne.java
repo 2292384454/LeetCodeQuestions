@@ -38,13 +38,15 @@ public class P66PlusOne {
             for (int i = len - 1; i >= 0; i--) {
                 result[i] = (digits[i] + carry) % 10;
                 carry = (digits[i] + carry) / 10;
-                if (carry == 0)
+                if (carry == 0) {
                     return result;
+                }
             }
             int newresult[] = new int[len + 1];
             newresult[0] = 1;
-            for (int i = 1; i < len + 1; i++)
+            for (int i = 1; i < len + 1; i++) {
                 newresult[i] = result[i - 1];
+            }
             return newresult;
         }
     }

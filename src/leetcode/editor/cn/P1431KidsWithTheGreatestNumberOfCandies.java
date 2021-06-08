@@ -45,7 +45,6 @@
 package leetcode.editor.cn;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 //Java：拥有最多糖果的孩子
@@ -59,11 +58,13 @@ public class P1431KidsWithTheGreatestNumberOfCandies {
     class Solution {
         public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
             int maxNum = 0;
-            for (int x : candies)
+            for (int x : candies) {
                 maxNum = Math.max(maxNum, x);
+            }
             List<Boolean> result = new ArrayList<>();
-            for (int candy : candies)
+            for (int candy : candies) {
                 result.add(candy + extraCandies >= maxNum);
+            }
             return result;
         }
     }

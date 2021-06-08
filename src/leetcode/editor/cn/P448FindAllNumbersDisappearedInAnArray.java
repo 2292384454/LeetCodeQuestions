@@ -18,7 +18,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -39,9 +38,11 @@ public class P448FindAllNumbersDisappearedInAnArray {
                 int appearedIndex = Math.abs(nums[i]) - 1;
                 nums[appearedIndex] = 0 - Math.abs(nums[appearedIndex]);
             }
-            for (int i = 0; i < nums.length; i++)
-                if (nums[i] > 0)
+            for (int i = 0; i < nums.length; i++) {
+                if (nums[i] > 0) {
                     result.add(i + 1);
+                }
+            }
             return result;
         }
     }

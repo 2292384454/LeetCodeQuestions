@@ -29,10 +29,11 @@ public class P278FirstBadVersion {
 
     public class VersionControl {
         boolean isBadVersion(int n) {
-            if (n < 4)
+            if (n < 4) {
                 return true;
-            else
+            } else {
                 return false;
+            }
         }
     }
     //leetcode submit region begin(Prohibit modification and deletion)

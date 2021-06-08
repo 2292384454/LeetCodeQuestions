@@ -36,8 +36,9 @@ public class P389FindTheDifference {
             String newstr = s + t;
             char str_array[] = newstr.toCharArray();
             int result = 0;
-            for (char x : str_array)
+            for (char x : str_array) {
                 result = result ^ x;
+            }
             return (char) result;
         }
     }

@@ -56,10 +56,10 @@ public class P155MinStack {
          * initialize your data structure here.
          */
         LinkedList<Integer> elements;
-        int top = -1;
+        int top;
 
         public MinStack() {
-            elements = new LinkedList();
+            elements = new LinkedList<>();
             top = -1;
         }
 
@@ -72,24 +72,28 @@ public class P155MinStack {
             if (top > -1) {
                 elements.removeLast();
                 top--;
-            } else
+            } else {
                 throw new IndexOutOfBoundsException();
+            }
         }
 
         public int top() {
-            if (top > -1)
+            if (top > -1) {
                 return elements.getLast();
-            else
+            } else {
                 throw new IndexOutOfBoundsException();
+            }
         }
 
         public int getMin() {
-            if (top == -1)
+            if (top == -1) {
                 throw new IndexOutOfBoundsException();
+            }
             int minvalue = Integer.MAX_VALUE;
             for (int x : elements) {
-                if (x < minvalue)
+                if (x < minvalue) {
                     minvalue = x;
+                }
             }
             return minvalue;
         }

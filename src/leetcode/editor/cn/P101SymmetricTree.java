@@ -50,14 +50,22 @@ public class P101SymmetricTree {
      */
     class Solution {
         public boolean isSymmetric(TreeNode root) {
-            if (root == null) return true;
+            if (root == null) {
+                return true;
+            }
             return isSameTree(root.left, root.right);
         }
 
         public boolean isSameTree(TreeNode p, TreeNode q) {
-            if (p == null && q == null) return true;
-            if (p == null || q == null) return false;
-            if (p.val != q.val) return false;
+            if (p == null && q == null) {
+                return true;
+            }
+            if (p == null || q == null) {
+                return false;
+            }
+            if (p.val != q.val) {
+                return false;
+            }
             return isSameTree(p.right, q.left) && isSameTree(p.left, q.right);
         }
     }

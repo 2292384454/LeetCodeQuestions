@@ -41,8 +41,12 @@ public class P70ClimbingStairs {
         */
         public int climbStairs(int n) {
             int a_i_2 = 1, a_i_1 = 2, a_i = a_i_2 + a_i_1;
-            if (n == 1) return a_i_2;
-            if (n == 2) return a_i_1;
+            if (n == 1) {
+                return a_i_2;
+            }
+            if (n == 2) {
+                return a_i_1;
+            }
             for (int i = 3; i <= n; i++) {
                 a_i = a_i_2 + a_i_1;
                 a_i_2 = a_i_1;

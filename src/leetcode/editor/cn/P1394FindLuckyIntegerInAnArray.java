@@ -67,11 +67,14 @@ public class P1394FindLuckyIntegerInAnArray {
         public int findLucky(int[] arr) {
             int[] num_count = new int[501];
             int result = -1;
-            for (int x : arr)
+            for (int x : arr) {
                 num_count[x]++;
-            for (int i = 1; i < num_count.length; i++)
-                if (i == num_count[i])
+            }
+            for (int i = 1; i < num_count.length; i++) {
+                if (i == num_count[i]) {
                     result = Math.max(result, i);
+                }
+            }
             return result;
         }
     }

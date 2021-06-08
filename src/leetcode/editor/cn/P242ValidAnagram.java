@@ -34,11 +34,14 @@ public class P242ValidAnagram {
     class Solution {
         public boolean isAnagram(String s, String t) {
             char[] s_Array = s.toCharArray(), t_Array = t.toCharArray();
-            if (s_Array.length != t_Array.length) return false;
+            if (s_Array.length != t_Array.length) {
+                return false;
+            }
             Arrays.sort(s_Array);
             Arrays.sort(t_Array);
-            if (Arrays.equals(s_Array, t_Array))
+            if (Arrays.equals(s_Array, t_Array)) {
                 return true;
+            }
             return false;
         }
     }

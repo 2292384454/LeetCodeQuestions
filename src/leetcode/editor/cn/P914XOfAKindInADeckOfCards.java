@@ -71,25 +71,34 @@ public class P914XOfAKindInADeckOfCards {
     class Solution {
         public boolean hasGroupsSizeX(int[] deck) {
             int[] num_count = new int[10001];//记录每一个数字出现的次数
-            for (int x : deck)
+            for (int x : deck) {
                 num_count[x]++;
+            }
             int i = 0;
             while (num_count[i] == 0)//找到从小到大第一个出现的数字
+            {
                 i++;
+            }
             int X = num_count[i];
-            if (X == 1) return false;
-            for (; i < num_count.length; i++)
-                if (num_count[i] == 1)
+            if (X == 1) {
+                return false;
+            }
+            for (; i < num_count.length; i++) {
+                if (num_count[i] == 1) {
                     return false;
-                else {//找到所有出现次数的最大公约数，如果这个最大公约数存在并且大于1就返回true，否则返回false
+                } else {//找到所有出现次数的最大公约数，如果这个最大公约数存在并且大于1就返回true，否则返回false
                     int j = 0;
-                    for (j = Math.min(X, num_count[i]); j >= 2; j--)
+                    for (j = Math.min(X, num_count[i]); j >= 2; j--) {
                         if (X % j == 0 && num_count[i] % j == 0) {
                             X = j;
                             break;
                         }
-                    if (j == 1) return false;
+                    }
+                    if (j == 1) {
+                        return false;
+                    }
                 }
+            }
             return true;
         }
     }

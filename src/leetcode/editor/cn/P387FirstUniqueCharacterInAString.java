@@ -31,11 +31,13 @@ public class P387FirstUniqueCharacterInAString {
         public int firstUniqChar(String s) {
             int char_count[] = new int[26];
             char s_array[] = s.toCharArray();
-            for (char x : s_array)
+            for (char x : s_array) {
                 char_count[x - 'a']++;
+            }
             for (int i = 0; i < s_array.length; i++) {
-                if (char_count[s_array[i] - 'a'] == 1)
+                if (char_count[s_array[i] - 'a'] == 1) {
                     return i;
+                }
             }
             return -1;
         }

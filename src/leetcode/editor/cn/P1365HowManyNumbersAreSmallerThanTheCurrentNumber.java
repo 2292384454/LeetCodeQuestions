@@ -52,8 +52,9 @@ public class P1365HowManyNumbersAreSmallerThanTheCurrentNumber {
         Solution solution = new P1365HowManyNumbersAreSmallerThanTheCurrentNumber().new Solution();
         // TO TEST
         int[] result = solution.smallerNumbersThanCurrent(new int[]{8, 1, 2, 2, 3});
-        for (int x : result)
+        for (int x : result) {
             System.out.print(x + " ");
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

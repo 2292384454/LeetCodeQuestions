@@ -49,12 +49,13 @@ public class P700SearchInABinarySearchTree {
 
     class Solution {
         public TreeNode searchBST(TreeNode root, int val) {
-            if (root == null || root.val == val)
+            if (root == null || root.val == val) {
                 return root;
-            else if (root.val < val)
+            } else if (root.val < val) {
                 return searchBST(root.right, val);
-            else
+            } else {
                 return searchBST(root.left, val);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

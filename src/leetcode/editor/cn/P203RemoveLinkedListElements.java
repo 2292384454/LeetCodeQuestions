@@ -46,14 +46,17 @@ public class P203RemoveLinkedListElements {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public ListNode removeElements(ListNode head, int val) {
-            if (head == null) return null;
+            if (head == null) {
+                return null;
+            }
             ListNode p = new ListNode(0), q = p;
             p.next = head;
             while (p.next != null) {
-                if (p.next.val == val)
+                if (p.next.val == val) {
                     p.next = p.next.next;
-                else
+                } else {
                     p = p.next;
+                }
             }
             return q.next;
         }

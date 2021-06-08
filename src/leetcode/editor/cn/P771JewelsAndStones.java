@@ -37,10 +37,12 @@ public class P771JewelsAndStones {
         public int numJewelsInStones(String J, String S) {
             byte char_count[] = new byte[100], result = 0;
             char S_Array[] = S.toCharArray(), J_Array[] = J.toCharArray();
-            for (char x : S_Array)
+            for (char x : S_Array) {
                 char_count[x - 'A']++;
-            for (char x : J_Array)
+            }
+            for (char x : J_Array) {
                 result += (char_count[x - 'A']);
+            }
             return result;
         }
     }

@@ -93,13 +93,18 @@ public class P160IntersectionOfTwoLinkedLists {
             ListNode longList = len_A > len_B ? headA : headB;//longList用来遍历较长的链表
             ListNode shortList = len_A > len_B ? headB : headA;//shortList用来遍历较短的链表
             for (int i = 0; i < Math.abs(len_A - len_B); i++)//较长的链表先向后遍历Math.abs(len_A - len_B)个长度
+            {
                 longList = longList.next;
+            }
             while (longList != null && shortList != null && longList != shortList) {//开始同步遍历
                 longList = longList.next;
                 shortList = shortList.next;
             }
-            if (longList == shortList) return longList;
-            else return null;
+            if (longList == shortList) {
+                return longList;
+            } else {
+                return null;
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

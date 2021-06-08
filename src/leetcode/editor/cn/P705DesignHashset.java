@@ -35,8 +35,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：设计哈希集合
 public class P705DesignHashset {
     public static void main(String[] args) {

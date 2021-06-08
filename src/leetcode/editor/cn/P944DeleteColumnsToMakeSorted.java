@@ -66,8 +66,9 @@ public class P944DeleteColumnsToMakeSorted {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minDeletionSize(String[] A) {
-            if (A.length == 0)
+            if (A.length == 0) {
                 return 0;
+            }
             int len = A.length, str_len = A[0].length(), result = 0;
             for (int j = 0; j < str_len; j++) {
                 for (int i = 0; i < len - 1; i++) {

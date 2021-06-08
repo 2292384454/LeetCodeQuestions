@@ -25,8 +25,9 @@ public class P1TwoSum {
         int nums[] = {2, 3, 3};
         int target = 6;
         int test[] = solution.twoSum(nums, target);
-        for (int x : test)
+        for (int x : test) {
             System.out.println(x);
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)

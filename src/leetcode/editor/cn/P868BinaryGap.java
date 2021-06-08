@@ -82,9 +82,9 @@ public class P868BinaryGap {
             int count = 0, result = 0;
             while (n > 0) {
                 int bit = n & 1;
-                if (!has1 && bit == 1)
+                if (!has1 && bit == 1) {
                     has1 = true;
-                else if (has1 && bit == 1) {
+                } else if (has1 && bit == 1) {
                     count++;
                     result = Math.max(count, result);
                     count = 0;

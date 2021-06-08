@@ -50,11 +50,14 @@ public class P671SecondMinimumNodeInABinaryTree {
      */
     class Solution {
         public int findSecondMinimumValue(TreeNode root) {
-            if (root == null || root.left == null || root.right == null || root.left.val == root.right.val) return -1;
-            if (root.val == root.left.val)
+            if (root == null || root.left == null || root.right == null || root.left.val == root.right.val) {
+                return -1;
+            }
+            if (root.val == root.left.val) {
                 return Math.min(helper(root.left, root.val, root.right.val), root.right.val);
-            else
+            } else {
                 return Math.min(helper(root.right, root.val, root.left.val), root.left.val);
+            }
         }
 
         /**
@@ -64,9 +67,12 @@ public class P671SecondMinimumNodeInABinaryTree {
          * @return 返回以root为根节点的树中在区间(low, high)中的最小值
          */
         public int helper(TreeNode root, int low, int high) {
-            if (root == null) return high;
-            if (root.val < high && root.val > low)
+            if (root == null) {
+                return high;
+            }
+            if (root.val < high && root.val > low) {
                 high = root.val;
+            }
             high = Math.min(helper(root.left, low, high), high);
             high = Math.min(helper(root.right, low, high), high);
             return high;

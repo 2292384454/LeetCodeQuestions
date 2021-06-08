@@ -53,7 +53,9 @@ public class P806NumberOfLinesToWriteString {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] numberOfLines(int[] widths, String S) {
-            if (S == null) return new int[2];
+            if (S == null) {
+                return new int[2];
+            }
             int result[] = new int[]{1, 0}, currentLine = 0;
             char S_chars[] = S.toCharArray();
             for (char x : S_chars) {

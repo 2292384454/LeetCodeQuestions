@@ -46,13 +46,16 @@ public class P724FindPivotIndex{
 class Solution {
     public int pivotIndex(int[] nums) {
         int sumOfAll=0,sum=0;
-        for(int x:nums)
+        for(int x:nums) {
             sumOfAll+=x;
+        }
         for(int i=0;i<nums.length;i++){
-            if(i>0)
+            if(i>0) {
                 sum+=nums[i-1];
-            if(sum*2==(sumOfAll-nums[i]))
+            }
+            if(sum*2==(sumOfAll-nums[i])) {
                 return i;
+            }
         }
         return -1;
     }

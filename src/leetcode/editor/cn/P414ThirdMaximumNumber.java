@@ -35,10 +35,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-
 //Java：第三大的数
 public class P414ThirdMaximumNumber {
     public static void main(String[] args) {

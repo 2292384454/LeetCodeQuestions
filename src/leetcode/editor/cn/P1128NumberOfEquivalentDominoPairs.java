@@ -30,7 +30,6 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 //Java：等价多米诺骨牌对的数量
 public class P1128NumberOfEquivalentDominoPairs {

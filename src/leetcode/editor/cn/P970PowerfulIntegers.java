@@ -61,10 +61,11 @@ public class P970PowerfulIntegers {
             for (int i = 0; i <= iMax; i++) {
                 for (int j = 0; j <= jMax; j++) {
                     int temp = (int) (Math.pow(x, i) + Math.pow(y, j));
-                    if (temp <= bound)
+                    if (temp <= bound) {
                         set.add(temp);
-                    else
+                    } else {
                         break;
+                    }
                 }
             }
             return new ArrayList<>(set);

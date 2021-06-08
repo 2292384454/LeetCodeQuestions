@@ -49,15 +49,19 @@ public class P538ConvertBstToGreaterTree {
         int sum = 0;//定义成员变量（做全局变量）
 
         public TreeNode convertBST(TreeNode root) {
-            if (root == null) return null;
-            if (root.right != null)
+            if (root == null) {
+                return null;
+            }
+            if (root.right != null) {
                 root.right = convertBST(root.right);
+            }
             {
                 sum += root.val;
                 root.val = sum;
             }
-            if (root.left != null)
+            if (root.left != null) {
                 root.left = convertBST(root.left);
+            }
             return root;
         }
     }

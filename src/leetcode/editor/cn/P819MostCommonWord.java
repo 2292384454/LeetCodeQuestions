@@ -37,7 +37,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.HashMap;
 
 //Java：最常见的单词
 public class P819MostCommonWord {
@@ -57,9 +57,9 @@ public class P819MostCommonWord {
             HashMap<String, Integer> word_count = new HashMap<>();
             StringBuilder temp = new StringBuilder();
             for (char c : characters) {
-                if (Character.isLetter(c))
+                if (Character.isLetter(c)) {
                     temp.append(c);
-                else {
+                } else {
                     String str = temp.toString().toLowerCase();
                     if (!isbanned(str, banned) && !str.equals("")) {
                         int count = word_count.containsKey(str) ? word_count.get(str) : 0;
@@ -84,9 +84,11 @@ public class P819MostCommonWord {
         }
 
         public boolean isbanned(String word, String[] banned) {
-            for (String x : banned)
-                if (x.equals(word))
+            for (String x : banned) {
+                if (x.equals(word)) {
                     return true;
+                }
+            }
             return false;
         }
     }

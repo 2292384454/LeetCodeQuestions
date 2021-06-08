@@ -68,15 +68,17 @@ public class P933NumberOfRecentCalls {
         public int ping(int t) {
             int result = 0, sub = t - current_t;
             for (int i = 0; i < counter.length; i++) {
-                if (i + sub < counter.length)
+                if (i + sub < counter.length) {
                     counter[i] = counter[i + sub];
-                else
+                } else {
                     counter[i] = 0;
+                }
             }
             counter[counter.length - 1]++;
             current_t = t;
-            for (int x : counter)
+            for (int x : counter) {
                 result += x;
+            }
             return result;
         }
     }

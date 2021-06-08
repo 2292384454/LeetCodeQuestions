@@ -63,16 +63,21 @@ public class P1507ReformatDate {
             String[] dateArray = date.split(" ");
             String[] months = new String[]{"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
             HashMap<String, Integer> monthMap = new HashMap<>();
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < 12; i++) {
                 monthMap.put(months[i], i + 1);
+            }
             int day = new Integer(dateArray[0].substring(0, dateArray[0].length() - 2));
             int month = monthMap.get(dateArray[1]);
             int year = new Integer(dateArray[2]);
 
             result.append(year).append("-");
-            if (month < 10) result.append("0");
+            if (month < 10) {
+                result.append("0");
+            }
             result.append(month).append("-");
-            if (day < 10) result.append("0");
+            if (day < 10) {
+                result.append("0");
+            }
             result.append(day);
             return result.toString();
         }

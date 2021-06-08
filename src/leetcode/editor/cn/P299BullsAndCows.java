@@ -43,21 +43,28 @@ public class P299BullsAndCows {
     public static void main(String[] args) {
         Solution solution = new P299BullsAndCows().new Solution();
         // TO TEST
+        String secret = "1123", guess = "0111";
+        System.out.println(solution.getHint(secret, guess));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String getHint(String secret, String guess) {
             char[] s = secret.toCharArray(), g = guess.toCharArray();
-            int x = 0, y = 0, num[] = new int[10];//num[]中存储0到9每个数字出现的次数
+            int x = 0, y = 0;
+            // num[]中存储0到9每个数字出现的次数，在guess中出现就+1，在secret中出现就-1
+            // 最终num中存储所有猜错的数字猜错的次数（当num[i]>0时）
+            int[] num = new int[10];
             for (int i = 0; i < s.length; i++) {
                 num[g[i] - '0']++;
                 num[s[i] - '0']--;
                 x += ((s[i] == g[i]) ? 1 : 0);
             }
-            for (int n : num)
-                if (n > 0)
+            for (int n : num) {
+                if (n > 0) {
                     y += n;
+                }
+            }
             y = s.length - y - x;
             return x + "A" + y + "B";
         }

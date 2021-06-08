@@ -42,7 +42,9 @@ public class P7ReverseInteger {
                 temp = x % 10;
                 newresult = result * 10 + temp;
                 if ((newresult - temp) / 10 != result)//判断是否溢出
+                {
                     return 0;
+                }
                 result = newresult;
                 x /= 10;
             }

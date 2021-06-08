@@ -44,14 +44,18 @@ public class P290WordPattern {
         public boolean wordPattern(String pattern, String str) {
             String words[] = str.split(" ");
             char patternArray[] = pattern.toCharArray();
-            if (words.length != patternArray.length) return false;
+            if (words.length != patternArray.length) {
+                return false;
+            }
             HashMap<Character, String> mymap = new HashMap<>();
             HashMap<String, Character> mymap2 = new HashMap<>();
             for (int i = 0; i < words.length; i++) {
-                if (mymap.containsKey(patternArray[i]) && !mymap.get(patternArray[i]).equals(words[i]))
+                if (mymap.containsKey(patternArray[i]) && !mymap.get(patternArray[i]).equals(words[i])) {
                     return false;
-                if (mymap2.containsKey(words[i]) && !mymap2.get(words[i]).equals(patternArray[i]))
+                }
+                if (mymap2.containsKey(words[i]) && !mymap2.get(words[i]).equals(patternArray[i])) {
                     return false;
+                }
                 mymap.put(patternArray[i], words[i]);
                 mymap2.put(words[i], patternArray[i]);
             }

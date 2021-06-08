@@ -19,10 +19,7 @@
 
 package leetcode.editor.cn;
 
-import com.sun.java.swing.plaf.windows.WindowsTextAreaUI;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 //Java：杨辉三角
@@ -38,17 +35,21 @@ public class P118PascalsTriangle {
     class Solution {
         public List<List<Integer>> generate(int numRows) {
             List<List<Integer>> result = new ArrayList<>();
-            if (numRows == 0) return result;
+            if (numRows == 0) {
+                return result;
+            }
             for (int i = 1; i <= numRows; i++) {
                 List<Integer> tempList = new ArrayList<Integer>() {{
                     add(1);
                 }};
                 if (i > 2) {
-                    for (int j = 1; j < i - 1; j++)
+                    for (int j = 1; j < i - 1; j++) {
                         tempList.add(result.get(i - 2).get(j - 1) + result.get(i - 2).get(j));
+                    }
                 }
-                if (i > 1)
+                if (i > 1) {
                     tempList.add(1);
+                }
                 result.add(tempList);
             }
             return result;

@@ -122,30 +122,39 @@ public class P8StringToIntegerAtoi {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int myAtoi(String s) {
-            if (s.length() == 0)
+            if (s.length() == 0) {
                 return 0;
+            }
             long ans = 0;
             int i = 0;
             boolean isNegative = false;
-            while (i < s.length() && s.charAt(i) == ' ') i++;
-            if (i >= s.length()) return 0;
+            while (i < s.length() && s.charAt(i) == ' ') {
+                i++;
+            }
+            if (i >= s.length()) {
+                return 0;
+            }
             if (s.charAt(i) == '-') {
                 i++;
                 isNegative = true;
-            } else if (s.charAt(i) == '+') i++;
+            } else if (s.charAt(i) == '+') {
+                i++;
+            }
             while (i < s.length()) {
-                if (s.charAt(i) > '9' || s.charAt(i) < '0')
+                if (s.charAt(i) > '9' || s.charAt(i) < '0') {
                     break;
+                }
                 ans = ans * 10 - (s.charAt(i++) - '0');
                 if (ans < Integer.MIN_VALUE) {
                     ans = Integer.MIN_VALUE;
                     break;
                 }
             }
-            if (!isNegative && ans == Integer.MIN_VALUE)
+            if (!isNegative && ans == Integer.MIN_VALUE) {
                 ans = Integer.MAX_VALUE;
-            else if (!isNegative)
+            } else if (!isNegative) {
                 ans = -ans;
+            }
             return (int) ans;
         }
     }

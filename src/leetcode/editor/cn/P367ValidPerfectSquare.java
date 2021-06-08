@@ -28,8 +28,9 @@ public class P367ValidPerfectSquare {
     class Solution {
         public boolean isPerfectSquare(int num) {//牛顿法
             long r = num;
-            while (r * r > num)
+            while (r * r > num) {
                 r = (r + num / r) / 2;
+            }
             return r * r == num;
         }
     }

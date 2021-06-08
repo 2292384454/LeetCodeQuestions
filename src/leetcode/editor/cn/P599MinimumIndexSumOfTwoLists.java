@@ -58,8 +58,9 @@ public class P599MinimumIndexSumOfTwoLists {
                         result.add(list1[j]);
                     }
                 }
-                if (result.size() != 0)
+                if (result.size() != 0) {
                     break;
+                }
             }
             return result.toArray(new String[result.size()]);
         }

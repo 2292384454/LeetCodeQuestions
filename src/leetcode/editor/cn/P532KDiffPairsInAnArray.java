@@ -57,27 +57,38 @@ public class P532KDiffPairsInAnArray {
             //lastLeft和lastRight用来排除重复数对多次计数
             for (int left = 0, right = 1, lastLeft = 0, lastRight = 1; left < nums.length & right < nums.length; ) {
                 //保证left指针指向的元素不会在指针移动了的情况下连续取到重复的值
-                while (left - 1 >= 0 && left != lastLeft && left < nums.length && nums[left] == nums[lastLeft])
+                while (left - 1 >= 0 && left != lastLeft && left < nums.length && nums[left] == nums[lastLeft]) {
                     left++;
+                }
                 //保证left始终在right的左边
-                while (right <= left) right++;
-                //保证right指针指向的元素不会在指针移动了的情况下连续取到重复的值
-                while (right - 1 >= 1 && right != lastRight && right < nums.length && nums[right] == nums[lastRight])
+                while (right <= left) {
                     right++;
+                }
+                //保证right指针指向的元素不会在指针移动了的情况下连续取到重复的值
+                while (right - 1 >= 1 && right != lastRight && right < nums.length && nums[right] == nums[lastRight]) {
+                    right++;
+                }
                 //记录下left和right指针的位置
                 lastLeft = left;
                 lastRight = right;
                 //防止溢出
-                if (left >= nums.length || right >= nums.length) break;
+                if (left >= nums.length || right >= nums.length) {
+                    break;
+                }
                 //计数
                 if (nums[right] - nums[left] == k) {
                     count++;
                     left++;
                     right++;
-                } else if (nums[right] - nums[left] < k) right++;//如果这个差小于k那么说明要右移right的指针增大减数
-                else left++;//如果这个差大于k那么说明要右移left的指针增大被减数
+                } else if (nums[right] - nums[left] < k) {
+                    right++;//如果这个差小于k那么说明要右移right的指针增大减数
+                } else {
+                    left++;//如果这个差大于k那么说明要右移left的指针增大被减数
+                }
                 //保证left始终在right的左边
-                while (right <= left) right++;
+                while (right <= left) {
+                    right++;
+                }
             }
             return count;
         }

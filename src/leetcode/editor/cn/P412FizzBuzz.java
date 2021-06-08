@@ -46,17 +46,21 @@ public class P412FizzBuzz {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<String> fizzBuzz(int n) {
-            if (n <= 0) return null;
+            if (n <= 0) {
+                return null;
+            }
             List<String> result = new ArrayList<>();
-            for (int i = 1; i <= n; i++)
-                if (i % 3 == 0 && i % 5 == 0)
+            for (int i = 1; i <= n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
                     result.add("FizzBuzz");
-                else if (i % 3 == 0)
+                } else if (i % 3 == 0) {
                     result.add("Fizz");
-                else if (i % 5 == 0)
+                } else if (i % 5 == 0) {
                     result.add("Buzz");
-                else
+                } else {
                     result.add(i + "");
+                }
+            }
             return result;
         }
     }

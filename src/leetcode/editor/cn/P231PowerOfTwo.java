@@ -31,14 +31,18 @@ public class P231PowerOfTwo {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isPowerOfTwo(int n) {
-            if (n <= 0) return false;
+            if (n <= 0) {
+                return false;
+            }
             boolean result = false;
             while (n > 0) {
-                if ((n & 1) == 1)
-                    if (result == true)
+                if ((n & 1) == 1) {
+                    if (result == true) {
                         return false;
-                    else
+                    } else {
                         result = true;
+                    }
+                }
                 n = n >>> 1;
             }
             return result;

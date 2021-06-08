@@ -48,8 +48,9 @@ public class P1556ThousandSeparator {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String thousandSeparator(int n) {
-            if (n == 0)
+            if (n == 0) {
                 return "0";
+            }
             int count = 0;
             StringBuilder result = new StringBuilder();
             while (n > 0) {

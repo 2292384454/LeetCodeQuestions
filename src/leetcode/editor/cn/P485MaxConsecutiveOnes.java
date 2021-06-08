@@ -36,8 +36,9 @@ public class P485MaxConsecutiveOnes {
                 if (x == 0) {
                     result = Math.max(result, count);
                     count = 0;
-                } else
+                } else {
                     count += x;
+                }
             }
             result = Math.max(result, count);
             return result;

@@ -66,8 +66,9 @@ public class P824GoatLatin {
                         break;
                     }
                 }
-                if (j == vowels.length)
+                if (j == vowels.length) {
                     words[i] = words[i].substring(1) + words[i].charAt(0) + "ma";
+                }
                 words[i] += tail;
                 result.append(words[i]).append(" ");
             }

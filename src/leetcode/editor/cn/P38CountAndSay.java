@@ -39,15 +39,14 @@
 
 package leetcode.editor.cn;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 //Java：外观数列
 public class P38CountAndSay {
     public static void main(String[] args) {
         Solution solution = new P38CountAndSay().new Solution();
         // TO TEST
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 20; i++) {
             System.out.println(solution.countAndSay(i));
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
@@ -55,10 +54,11 @@ public class P38CountAndSay {
         public String countAndSay(int n) {
             String result = "";
             for (int i = 1; i <= n; i++) {
-                if (i == 1)
+                if (i == 1) {
                     result = "1";
-                else
+                } else {
                     result = description(result);
+                }
             }
             return result;
         }

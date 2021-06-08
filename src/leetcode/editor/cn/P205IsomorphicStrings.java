@@ -27,7 +27,8 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 //Java：同构字符串
 public class P205IsomorphicStrings {
@@ -40,14 +41,17 @@ public class P205IsomorphicStrings {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isIsomorphic(String s, String t) {
-            if (s == null) return true;
+            if (s == null) {
+                return true;
+            }
             Map<Character, Character> sTot = new HashMap<>();
             char[] s_array = s.toCharArray(), t_array = t.toCharArray();
             for (int i = 0; i < s_array.length; i++) {
-                if (!sTot.containsKey(s_array[i]) && !sTot.containsValue(t_array[i]))
+                if (!sTot.containsKey(s_array[i]) && !sTot.containsValue(t_array[i])) {
                     sTot.put(s_array[i], t_array[i]);
-                else if (!sTot.containsKey(s_array[i]) || !sTot.containsValue(t_array[i]) || t_array[i] != sTot.get(s_array[i]))
+                } else if (!sTot.containsKey(s_array[i]) || !sTot.containsValue(t_array[i]) || t_array[i] != sTot.get(s_array[i])) {
                     return false;
+                }
             }
             return true;
         }

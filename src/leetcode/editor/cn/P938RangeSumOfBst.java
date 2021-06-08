@@ -56,14 +56,16 @@ public class P938RangeSumOfBst {
      */
     class Solution {
         public int rangeSumBST(TreeNode root, int low, int high) {
-            if (root == null)
+            if (root == null) {
                 return 0;
-            if (root.val < low)
+            }
+            if (root.val < low) {
                 return rangeSumBST(root.right, low, high);
-            else if (root.val <= high)
+            } else if (root.val <= high) {
                 return root.val + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high);
-            else
+            } else {
                 return rangeSumBST(root.left, low, high);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

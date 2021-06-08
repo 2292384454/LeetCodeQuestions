@@ -22,7 +22,9 @@ public class ListNode {
      * @param nums 链表值
      */
     ListNode(int[] nums) {
-        if (nums == null || nums.length == 0) return;
+        if (nums == null || nums.length == 0) {
+            return;
+        }
         ListNode p = null, next = null;
         for (int i = nums.length - 1; i >= 0; i--) {
             p = new ListNode(nums[i], next);

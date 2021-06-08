@@ -56,13 +56,16 @@ public class P105ConstructBinaryTreeFromPreorderAndInorderTraversal {
             this.preorder = preorder;
             this.inorder = inorder;
             //map中存储inorder数组中的数和索引的映射关系
-            for (int i = 0; i < inorder.length; i++)
+            for (int i = 0; i < inorder.length; i++) {
                 map.put(inorder[i], i);
+            }
             return buildTreeHelper(0, preorder.length, 0);
         }
 
         private TreeNode buildTreeHelper(int pre_start, int pre_end, int in_start) {
-            if (pre_start >= pre_end) return null;
+            if (pre_start >= pre_end) {
+                return null;
+            }
             //先序遍历数组有效部分的第一个数就是二叉树的根节点的值
             int root_val = preorder[pre_start];
             TreeNode root = new TreeNode(root_val);

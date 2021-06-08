@@ -49,11 +49,13 @@ public class P441ArrangingCoins {
             long mid = (high + low) / 2;
             while (low <= high) {
                 mid = (high + low) / 2;
-                if (mid * (mid + 1) / 2 <= n && (mid + 2) * (mid + 1) / 2 > n)
+                if (mid * (mid + 1) / 2 <= n && (mid + 2) * (mid + 1) / 2 > n) {
                     return (int) mid;
-                else if ((mid + 2) * (mid + 1) / 2 <= n)
+                } else if ((mid + 2) * (mid + 1) / 2 <= n) {
                     low = (int) mid + 1;
-                else high = (int) mid - 1;
+                } else {
+                    high = (int) mid - 1;
+                }
             }
             return (int) mid;
         }

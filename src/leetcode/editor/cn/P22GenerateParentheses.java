@@ -49,8 +49,9 @@ public class P22GenerateParentheses {
 
         public void help(String str, int left, int right) {
             if (left == 0) {
-                for (int i = 0; i < right; i++)
+                for (int i = 0; i < right; i++) {
                     str += ")";
+                }
                 ans.add(str);
             } else if (left == right) {
                 help(str + "(", left - 1, right);

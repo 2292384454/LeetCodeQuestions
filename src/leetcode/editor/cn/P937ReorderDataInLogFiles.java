@@ -63,10 +63,11 @@ public class P937ReorderDataInLogFiles {
             int letterCount = 0;
             for (int i = 0; i < logs.length; i++) {
                 String[] temp = logs[i].split(" ", 2);
-                if (Character.isDigit(temp[1].charAt(0)))
+                if (Character.isDigit(temp[1].charAt(0))) {
                     numlogs[digitalLogCount++] = temp;
-                else
+                } else {
                     letterlogs[letterCount++] = temp;
+                }
             }
             Arrays.sort(letterlogs, 0, letterCount, new Comparator<String[]>() {
                 @Override
@@ -78,10 +79,12 @@ public class P937ReorderDataInLogFiles {
                     return aa[1].compareTo(bb[1]);
                 }
             });
-            for (int i = 0; i < letterCount; i++)
+            for (int i = 0; i < letterCount; i++) {
                 result[i] = letterlogs[i][0] + " " + letterlogs[i][1];
-            for (int i = 0; i < digitalLogCount; i++)
+            }
+            for (int i = 0; i < digitalLogCount; i++) {
                 result[i + letterCount] = numlogs[i][0] + " " + numlogs[i][1];
+            }
             return result;
         }
     }

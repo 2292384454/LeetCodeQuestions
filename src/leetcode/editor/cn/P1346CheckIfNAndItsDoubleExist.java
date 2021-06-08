@@ -56,8 +56,9 @@ public class P1346CheckIfNAndItsDoubleExist {
         public boolean checkIfExist(int[] arr) {
             boolean[] hasnum = new boolean[6001];
             for (int x : arr) {
-                if ((x * 2 + 3000 < 6001 && hasnum[x * 2 + 3000]) || ((x & 1) == 0) && hasnum[x / 2 + 3000])
+                if ((x * 2 + 3000 < 6001 && hasnum[x * 2 + 3000]) || ((x & 1) == 0) && hasnum[x / 2 + 3000]) {
                     return true;
+                }
                 hasnum[x + 3000] = true;
             }
             return false;

@@ -22,7 +22,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.Arrays;
 
 //Java：最长回文串
 public class P409LongestPalindrome {
@@ -35,21 +35,29 @@ public class P409LongestPalindrome {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int longestPalindrome(String s) {
-            if (s == "") return 0;
+            if (s == "") {
+                return 0;
+            }
             int result = 0;
             short char_count[] = new short[60];
             boolean hasodd = false;
             char s_array[] = s.toCharArray();
-            for (char x : s_array)
+            for (char x : s_array) {
                 char_count[x - 'A']++;
+            }
             Arrays.sort(char_count);
             for (int i = char_count.length - 1; i >= 0; i--) {
-                if (char_count[i] == 0) break;
-                if (char_count[i] % 2 == 0) result += char_count[i];
-                else if (!hasodd) {
+                if (char_count[i] == 0) {
+                    break;
+                }
+                if (char_count[i] % 2 == 0) {
+                    result += char_count[i];
+                } else if (!hasodd) {
                     result += char_count[i];
                     hasodd = true;
-                } else result += (char_count[i] - 1);
+                } else {
+                    result += (char_count[i] - 1);
+                }
             }
             return result;
         }

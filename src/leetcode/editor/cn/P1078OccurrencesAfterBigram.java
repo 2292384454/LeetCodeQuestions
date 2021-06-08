@@ -48,8 +48,9 @@ public class P1078OccurrencesAfterBigram {
             ArrayList<String> result = new ArrayList<>();
             String[] words = text.split(" ");
             for (int i = 2; i < words.length; i++) {
-                if (words[i - 2].equals(first) && words[i - 1].equals(second))
+                if (words[i - 2].equals(first) && words[i - 1].equals(second)) {
                     result.add(words[i]);
+                }
             }
             return result.toArray(new String[0]);
         }

@@ -88,40 +88,48 @@ public class P999AvailableCapturesForRook {
     class Solution {
         public int numRookCaptures(char[][] board) {
             int x = 0, y = 0, result1 = 0, result2 = 0, result3 = 0, result4 = 0;
-            for (int i = 0; i < board.length; i++)
-                for (int j = 0; j < board[0].length; j++)
+            for (int i = 0; i < board.length; i++) {
+                for (int j = 0; j < board[0].length; j++) {
                     if (board[i][j] == 'R') {
                         x = i;
                         y = j;
                         break;
                     }
+                }
+            }
             for (int i = 0; i < x; i++) {
-                if (board[i][y] == 'p')
+                if (board[i][y] == 'p') {
                     result1 = 1;
-                if (board[i][y] == 'B')
+                }
+                if (board[i][y] == 'B') {
                     result1 = 0;
+                }
             }
             for (int i = x + 1; i < board.length; i++) {
                 if (board[i][y] == 'p') {
                     result2 = 1;
                     break;
                 }
-                if (board[i][y] == 'B')
+                if (board[i][y] == 'B') {
                     break;
+                }
             }
             for (int j = 0; j < y; j++) {
-                if (board[x][j] == 'p')
+                if (board[x][j] == 'p') {
                     result3 = 1;
-                if (board[x][j] == 'B')
+                }
+                if (board[x][j] == 'B') {
                     result3 = 0;
+                }
             }
             for (int j = y + 1; j < board[0].length; j++) {
                 if (board[x][j] == 'p') {
                     result4 = 1;
                     break;
                 }
-                if (board[x][j] == 'B')
+                if (board[x][j] == 'B') {
                     break;
+                }
             }
             return result1 + result2 + result3 + result4;
         }

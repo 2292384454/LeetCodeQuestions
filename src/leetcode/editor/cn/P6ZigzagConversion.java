@@ -74,21 +74,24 @@ public class P6ZigzagConversion {
             while (index < s.length()) {
                 for (i = 0; i < numRows; i++) {
                     array[i][j] = s.charAt(index++);
-                    if (index >= s.length())
+                    if (index >= s.length()) {
                         break LOOP;
+                    }
                 }
                 i--;
                 while (i > 1) {
                     array[--i][++j] = s.charAt(index++);
-                    if (index >= s.length())
+                    if (index >= s.length()) {
                         break LOOP;
+                    }
                 }
                 j++;
             }
             for (int k = 0; k < numRows; k++) {
                 for (int l = 0; l <= j; l++) {
-                    if (array[k][l] != '\u0000')
+                    if (array[k][l] != '\u0000') {
                         result.append(array[k][l]);
+                    }
                 }
             }
             return result.toString();

@@ -29,7 +29,9 @@ public class P342PowerOfFour {
     class Solution {
         public boolean isPowerOfFour(int num) {
             int temp = 1;
-            if (num <= 0) return false;
+            if (num <= 0) {
+                return false;
+            }
             return num == temp || num == temp << 2 || num == temp << 4 || num == temp << 6 || num == temp << 8
                     || num == temp << 10 || num == temp << 12 || num == temp << 14 || num == temp << 16 || num == temp << 18
                     || num == temp << 20 || num == temp << 22 || num == temp << 24 || num == temp << 26 || num == temp << 28

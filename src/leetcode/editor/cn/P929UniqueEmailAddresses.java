@@ -57,10 +57,11 @@ public class P929UniqueEmailAddresses {
                 StringBuilder name = new StringBuilder();
                 char[] chars = str.split("@")[0].toCharArray();
                 for (char c : chars) {
-                    if (c == '+')
+                    if (c == '+') {
                         break;
-                    else if (c != '.')
+                    } else if (c != '.') {
                         name.append(c);
+                    }
                 }
                 name.append('@').append(domain);
                 emailsAdress.add(name.toString());

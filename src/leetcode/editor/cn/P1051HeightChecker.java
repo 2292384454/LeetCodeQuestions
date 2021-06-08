@@ -58,8 +58,9 @@ public class P1051HeightChecker {
             int[] A = Arrays.copyOf(heights, heights.length);
             Arrays.sort(heights);
             for (int i = 0; i < A.length; i++) {
-                if (heights[i] != A[i])
+                if (heights[i] != A[i]) {
                     result++;
+                }
             }
             return result;
         }

@@ -8,8 +8,10 @@
 2. add 保持PriorityQueue中k个元素，并返回为k的队首元素
 
 ### 代码
+
 ```java
 import java.util.*;
+
 class KthLargest {
     private PriorityQueue<Integer> PriorityQueue;
     private int fixed_k;
@@ -18,7 +20,9 @@ class KthLargest {
     public KthLargest(int k, int[] nums) {
         fixed_k = k;
         PriorityQueue = new PriorityQueue<>(k);
-        for (int val : nums) add(val);
+        for (int val : nums) {
+            add(val);
+        }
     }
 
     public int add(int val) {
@@ -38,9 +42,9 @@ class KthLargest {
 
 // 
 class Solution {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int k = 3;
-        int[] arr = {4,5,8,2};   
+        int[] arr = {4, 5, 8, 2};
         KthLargest KthLargest = new KthLargest(k, arr);
         System.out.println(KthLargest.add(3));
         System.out.println(KthLargest.add(5));

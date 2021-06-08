@@ -45,10 +45,11 @@ public class P1137NThTribonacciNumber {
     class Solution {
         public int tribonacci(int n) {
             int[] nums = new int[]{0, 1, 1};
-            if (n < 2)
+            if (n < 2) {
                 return n;
-            else if (n == 2) return 1;
-            else {
+            } else if (n == 2) {
+                return 1;
+            } else {
                 for (int i = 3; i <= n; i++) {
                     int Tn = nums[0] + nums[1] + nums[2];
                     nums[0] = nums[1];

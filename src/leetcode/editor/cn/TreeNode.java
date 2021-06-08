@@ -23,7 +23,9 @@ public class TreeNode {
      * @return 返回根据nums数组创建的二叉树
      */
     public static TreeNode constructTree(Integer[] nums) {
-        if (nums.length == 0) return new TreeNode(0);
+        if (nums.length == 0) {
+            return new TreeNode(0);
+        }
         Deque<TreeNode> nodeQueue = new LinkedList<>();
         // 创建一个根节点
         TreeNode root = new TreeNode(nums[0]);
@@ -45,14 +47,18 @@ public class TreeNode {
 //            }
             for (int i = startIndex; i < startIndex + lineNodeNum; i = i + 2) {
                 // 说明已经将nums中的数字用完，此时应停止遍历，并可以直接返回root
-                if (i == nums.length) return root;
+                if (i == nums.length) {
+                    return root;
+                }
                 cur = nodeQueue.poll();
                 if (nums[i] != null) {
                     cur.left = new TreeNode(nums[i]);
                     nodeQueue.offer(cur.left);
                 }
                 // 同上，说明已经将nums中的数字用完，此时应停止遍历，并可以直接返回root
-                if (i + 1 == nums.length) return root;
+                if (i + 1 == nums.length) {
+                    return root;
+                }
                 if (nums[i + 1] != null) {
                     cur.right = new TreeNode(nums[i + 1]);
                     nodeQueue.offer(cur.right);

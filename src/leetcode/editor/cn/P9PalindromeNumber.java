@@ -43,7 +43,9 @@ public class P9PalindromeNumber {
                 temp = x % 10;
                 newresult = result * 10 + temp;
                 if ((newresult - temp) / 10 != result)//判断是否溢出
+                {
                     return 0;
+                }
                 result = newresult;
                 x /= 10;
             }
@@ -53,7 +55,9 @@ public class P9PalindromeNumber {
         public boolean isPalindrome(int x) {
             if (x >= 0) {
                 int reversed = reverse(x);
-                if (x == reversed) return true;
+                if (x == reversed) {
+                    return true;
+                }
             }
             return false;
         }

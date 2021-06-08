@@ -114,20 +114,22 @@ class Solution {
     }
 
     private void inOrder(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return;
+        }
         inOrder(root.left);
-        if (pre != null && pre.val == root.val)
+        if (pre != null && pre.val == root.val) {
             currCount++;
-        else
+        } else {
             currCount = 1;
+        }
         if (currCount > maxCount) {
             maxCount = currCount;
             retCount = 1;
-        }
-        else if (currCount == maxCount) {
-            if (ret != null)
+        } else if (currCount == maxCount) {
+            if (ret != null) {
                 ret[retCount] = root.val;
+            }
             retCount++;
         }
         pre = root;

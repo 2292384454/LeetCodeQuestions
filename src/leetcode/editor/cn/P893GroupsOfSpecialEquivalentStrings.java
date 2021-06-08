@@ -75,14 +75,16 @@ public class P893GroupsOfSpecialEquivalentStrings {
             for (String str : A) {
                 int[][] c_count = new int[2][26];
                 for (int i = 0; i < str.length(); i++) {
-                    if (i % 2 == 1)
+                    if (i % 2 == 1) {
                         c_count[0][str.charAt(i) - 'a']++;
-                    else
+                    } else {
                         c_count[1][str.charAt(i) - 'a']++;
+                    }
                 }
                 for (int[][] x : stringC_count) {
-                    if (Arrays.equals(x[0], c_count[0]) && Arrays.equals(x[1], c_count[1]))
+                    if (Arrays.equals(x[0], c_count[0]) && Arrays.equals(x[1], c_count[1])) {
                         continue Out;
+                    }
                 }
                 stringC_count.add(c_count);
             }

@@ -36,8 +36,6 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 //Java：独一无二的出现次数
 public class P1207UniqueNumberOfOccurrences {
@@ -59,8 +57,9 @@ public class P1207UniqueNumberOfOccurrences {
                     i++;
                     n++;
                 }
-                if (times[n]) return false;
-                else {
+                if (times[n]) {
+                    return false;
+                } else {
                     times[n] = true;
                     n = 1;
                     i++;

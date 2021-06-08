@@ -39,10 +39,11 @@ public class P628MaximumProductOfThreeNumbers {
         public int maximumProduct(int[] nums) {
             int len = nums.length;
             Arrays.sort(nums);
-            if (nums[0] >= 0)
+            if (nums[0] >= 0) {
                 return nums[len - 1] * nums[len - 2] * nums[len - 3];
-            else
+            } else {
                 return Math.max(nums[len - 1] * nums[len - 2] * nums[len - 3], nums[0] * nums[1] * nums[len - 1]);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

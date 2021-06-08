@@ -56,14 +56,20 @@ public class P18FourSum {
             List<List<Integer>> result = new ArrayList<>();
             List<Integer> temp;
             int len = nums.length;
-            if (len < 3) return result;
+            if (len < 3) {
+                return result;
+            }
             for (int i = 0; i < len - 2; i++) {
                 if (i == 0 || nums[i] != nums[i - 1]) {
                     for (int j = i + 1, k = len - 1; j < len - 1 && k > j; j++) {
                         if (j == i + 1 || nums[j] != nums[j - 1]) {
                             // 向左移动指针，直到 a+b+c 不大于 target
-                            while (nums[i] + nums[j] + nums[k] > target && k > j) k--;
-                            if (j == k) break;
+                            while (nums[i] + nums[j] + nums[k] > target && k > j) {
+                                k--;
+                            }
+                            if (j == k) {
+                                break;
+                            }
                             if (nums[i] + nums[j] + nums[k] == target) {
                                 temp = new ArrayList<>();
                                 temp.add(nums[i]);

@@ -53,10 +53,11 @@ public class P961NRepeatedElementInSize2nArray {
         public int repeatedNTimes(int[] A) {
             Arrays.sort(A);
             int len = A.length;
-            if (A[0] == A[len / 2 - 1])
+            if (A[0] == A[len / 2 - 1]) {
                 return A[0];
-            else
+            } else {
                 return A[len / 2];
+            }
 
         }
     }

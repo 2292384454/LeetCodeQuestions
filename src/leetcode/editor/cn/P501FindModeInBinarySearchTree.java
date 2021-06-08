@@ -55,15 +55,20 @@ public class P501FindModeInBinarySearchTree {
 
         //中序遍历
         public void inOrder(TreeNode root) {
-            if (root == null) return;
+            if (root == null) {
+                return;
+            }
             inOrder(root.left);
             //如果当前数字是第一个或者出现了一个新的数字
             if (curTimes == 0 || root.val != curVal) {
                 curTimes = 1;//当前数字出现的次数置1
                 curVal = root.val;//更新当前记录值
-            } else ++curTimes;
-            if (curTimes == maxTimes)
+            } else {
+                ++curTimes;
+            }
+            if (curTimes == maxTimes) {
                 modes.add(curVal);
+            }
             if (curTimes > maxTimes) {
                 maxTimes = curTimes;
                 modes.clear();

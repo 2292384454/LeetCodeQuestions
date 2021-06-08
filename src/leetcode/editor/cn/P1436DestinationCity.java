@@ -48,7 +48,6 @@
 package leetcode.editor.cn;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -68,14 +67,17 @@ public class P1436DestinationCity {
                 int num1 = citys.getOrDefault(p.get(1), 0);
                 citys.put(p.get(0), num0 - 1);
                 citys.put(p.get(1), num1 + 1);
-                if (citys.get(p.get(0)) == 0)
+                if (citys.get(p.get(0)) == 0) {
                     citys.remove(p.get(0));
-                if (citys.get(p.get(1)) == 0)
+                }
+                if (citys.get(p.get(1)) == 0) {
                     citys.remove(p.get(1));
+                }
             }
             for (String k : citys.keySet()) {
-                if (citys.get(k) >= 0)
+                if (citys.get(k) >= 0) {
                     return k;
+                }
             }
             return "";
         }

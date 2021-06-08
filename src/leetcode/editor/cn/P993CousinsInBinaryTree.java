@@ -74,7 +74,9 @@ public class P993CousinsInBinaryTree {
      */
     class Solution {
         public boolean isCousins(TreeNode root, int x, int y) {
-            if (root == null || x == y) return false;
+            if (root == null || x == y) {
+                return false;
+            }
             TreeNode parent_x = null, parent_y = null, p = null;
             Queue<TreeNode> myqueue = new LinkedList<>();
             myqueue.add(root);
@@ -82,17 +84,26 @@ public class P993CousinsInBinaryTree {
                 int count = myqueue.size();
                 for (int i = 0; i < count; i++) {
                     p = myqueue.poll();
-                    if (p.left != null) myqueue.add(p.left);
-                    if (p.right != null) myqueue.add(p.right);
-                    if ((p.right != null && p.right.val == x) || (p.left != null && p.left.val == x))
+                    if (p.left != null) {
+                        myqueue.add(p.left);
+                    }
+                    if (p.right != null) {
+                        myqueue.add(p.right);
+                    }
+                    if ((p.right != null && p.right.val == x) || (p.left != null && p.left.val == x)) {
                         parent_x = p;
-                    if ((p.right != null && p.right.val == y) || (p.left != null && p.left.val == y))
+                    }
+                    if ((p.right != null && p.right.val == y) || (p.left != null && p.left.val == y)) {
                         parent_y = p;
+                    }
                 }
                 if ((parent_x != null && parent_y == null) || (parent_y != null && parent_x == null))//如果在这一层找到了x的双亲但是没找到y的双亲，那么返回false
+                {
                     return false;
-                else if (parent_x != null && parent_y != null && parent_x != parent_y)//如果这一层找到了x和y的双亲且他们互不相等，那么返回true
+                } else if (parent_x != null && parent_y != null && parent_x != parent_y)//如果这一层找到了x和y的双亲且他们互不相等，那么返回true
+                {
                     return true;
+                }
             }
             return false;
         }

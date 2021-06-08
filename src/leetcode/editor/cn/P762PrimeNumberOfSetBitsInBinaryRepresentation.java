@@ -66,9 +66,11 @@ public class P762PrimeNumberOfSetBitsInBinaryRepresentation {
 
         public int countPrimeSetBits(int L, int R) {
             int result = 0;
-            for (int i = L; i <= R; i++)
-                if (isPrimeSetBits(i))
+            for (int i = L; i <= R; i++) {
+                if (isPrimeSetBits(i)) {
                     result++;
+                }
+            }
             return result;
         }
 

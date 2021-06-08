@@ -51,10 +51,12 @@ public class P1047RemoveAllAdjacentDuplicatesInString {
                         repeated = true;
                         temp = true;
                     }
-                    if (temp)
+                    if (temp) {
                         i++;
-                    if (i < preSB.length())
+                    }
+                    if (i < preSB.length()) {
                         newSB.append(preSB.charAt(i));
+                    }
                 }
                 preSB = newSB;
                 newSB = new StringBuilder();

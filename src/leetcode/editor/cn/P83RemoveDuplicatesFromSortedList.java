@@ -48,10 +48,11 @@ public class P83RemoveDuplicatesFromSortedList {
             ListNode p = head;
             if (head != null) {
                 while (p.next != null) {
-                    if (p.val == p.next.val)
+                    if (p.val == p.next.val) {
                         p.next = p.next.next;
-                    else
+                    } else {
                         p = p.next;
+                    }
                 }
             }
             return head;

@@ -37,15 +37,23 @@ public class P404SumOfLeftLeaves {
         int result = 0;
 
         public int sumOfLeftLeaves(TreeNode root) {
-            if (root == null) return 0;
+            if (root == null) {
+                return 0;
+            }
             preOrderTraverse(root, 0);
             return this.result;
         }
 
         public void preOrderTraverse(TreeNode root, int flag) {
-            if (flag == 1 && root.left == null && root.right == null) this.result += root.val;
-            if (root.left != null) preOrderTraverse(root.left, 1);
-            if (root.right != null) preOrderTraverse(root.right, 0);
+            if (flag == 1 && root.left == null && root.right == null) {
+                this.result += root.val;
+            }
+            if (root.left != null) {
+                preOrderTraverse(root.left, 1);
+            }
+            if (root.right != null) {
+                preOrderTraverse(root.right, 0);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

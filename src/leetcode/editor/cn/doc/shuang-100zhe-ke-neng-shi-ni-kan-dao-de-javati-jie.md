@@ -1,4 +1,5 @@
 ![image.png](https://pic.leetcode-cn.com/d818ecc00961e28b3f8ea2b5633adffc7e9d9b942f1a725c61a6d58d4cebdb88-image.png)
+
 ```java
 class Solution {
     int[] _365M = new int[]{31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -10,8 +11,12 @@ class Solution {
 
     int calculateDays(int year, int month, int day) {
         int dayC1 = day - 1;
-        for (int i = month; i > 1; i--) dayC1 += _365M[i - 1 - 1];
-        if ((year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) && month > 2) dayC1++;
+        for (int i = month; i > 1; i--) {
+            dayC1 += _365M[i - 1 - 1];
+        }
+        if ((year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) && month > 2) {
+            dayC1++;
+        }
         dayC1 += (365 * (year - 1) + (year - 1) / 4 - (year - 1) / 100 + (year - 1) / 400);
         return dayC1;
     }

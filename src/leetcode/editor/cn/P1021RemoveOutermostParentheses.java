@@ -49,8 +49,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：删除最外层的括号
 public class P1021RemoveOutermostParentheses {
     public static void main(String[] args) {
@@ -67,14 +65,16 @@ public class P1021RemoveOutermostParentheses {
             int firstIndex = 0, top = -1;//栈顶指针
             for (int i = 0; i < sArray.length; i++) {
                 if (sArray[i] == '(') {//如果遍历到'('，将'('的位置入栈
-                    if (top == -1)
+                    if (top == -1) {
                         firstIndex = i;
+                    }
                     top++;
                 } else if (top != 0) {//如果遍历到')'并且栈顶指针没有指向第一个'('，那么出栈一个'('的位置
                     top--;
                 } else {//如果遍历到')'并且栈顶指针指向第一个'('，说明此时从第一个'('的下一个位置到当前遍历的位置的子串应当加入到结果中
-                    for (int j = firstIndex + 1; j < i; j++)
+                    for (int j = firstIndex + 1; j < i; j++) {
                         result.append(sArray[j]);
+                    }
                     top--;
                 }
             }

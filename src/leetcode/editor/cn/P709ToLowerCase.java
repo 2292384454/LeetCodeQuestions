@@ -37,8 +37,9 @@ public class P709ToLowerCase {
         public String toLowerCase(String str) {
             char str_c[] = str.toCharArray();
             for (int i = 0; i < str_c.length; i++) {
-                if (str_c[i] >= 'A' && str_c[i] <= 'Z')
+                if (str_c[i] >= 'A' && str_c[i] <= 'Z') {
                     str_c[i] = (char) (str_c[i] - 'A' + 'a');
+                }
             }
             return new String(str_c);
         }

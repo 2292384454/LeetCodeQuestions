@@ -57,15 +57,18 @@ public class P788RotatedDigits {
             for (int i = 1; i <= N; i++) {
                 int n = i, count1 = 0, count2 = 0;
                 while (n > 0) {
-                    if (hao1.contains(n % 10))
+                    if (hao1.contains(n % 10)) {
                         count1++;
-                    else if (hao2.contains(n % 10))
+                    } else if (hao2.contains(n % 10)) {
                         count2++;
-                    else break;
+                    } else {
+                        break;
+                    }
                     n /= 10;
                 }
-                if (n == 0 && count2 > 0)
+                if (n == 0 && count2 > 0) {
                     result++;
+                }
             }
             return result;
         }

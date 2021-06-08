@@ -41,19 +41,28 @@ public class P16ThreeSumClosest {
             Arrays.sort(nums);//先将数组排序
             int ans = Integer.MAX_VALUE;
             int len = nums.length;
-            if (len < 3) return ans;
+            if (len < 3) {
+                return ans;
+            }
             for (int i = 0; i < len - 2; i++) {
                 if (i == 0 || nums[i] != nums[i - 1]) {
                     for (int j = i + 1, k = len - 1; j < len - 1 && k > j; j++) {
                         if (j == i + 1 || nums[j] != nums[j - 1]) {
                             // 向左移动指针，直到 a+b+c 不大于 target
-                            while (nums[i] + nums[j] + nums[k] > target && k > j) k--;
-                            if (k + 1 < len)
-                                if (nums[i] + nums[j] + nums[k + 1] - target < Math.abs(ans - target))
+                            while (nums[i] + nums[j] + nums[k] > target && k > j) {
+                                k--;
+                            }
+                            if (k + 1 < len) {
+                                if (nums[i] + nums[j] + nums[k + 1] - target < Math.abs(ans - target)) {
                                     ans = nums[i] + nums[j] + nums[k + 1];
-                            if (j == k) break;
-                            if (target - nums[i] - nums[j] - nums[k] < Math.abs(ans - target))
+                                }
+                            }
+                            if (j == k) {
+                                break;
+                            }
+                            if (target - nums[i] - nums[j] - nums[k] < Math.abs(ans - target)) {
                                 ans = nums[i] + nums[j] + nums[k];
+                            }
                         }
                     }
                 }

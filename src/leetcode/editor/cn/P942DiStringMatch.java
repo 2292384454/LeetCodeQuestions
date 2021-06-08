@@ -68,10 +68,11 @@ public class P942DiStringMatch {
             p = root;
             while (p != null) {
                 result[index++] = p.val;
-                if (p.left != null)
+                if (p.left != null) {
                     p = p.left;
-                else
+                } else {
                     p = p.right;
+                }
             }
             return result;
         }

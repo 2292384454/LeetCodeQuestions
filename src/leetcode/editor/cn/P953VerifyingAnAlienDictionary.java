@@ -54,11 +54,13 @@ public class P953VerifyingAnAlienDictionary {
     class Solution {
         public boolean isAlienSorted(String[] words, String order) {
             int[] character_order = new int[26];
-            for (int i = 0; i < order.length(); i++)
+            for (int i = 0; i < order.length(); i++) {
                 character_order[order.charAt(i) - 'a'] = i;
+            }
             for (int i = 0; i < words.length - 1; i++) {
-                if (!compare(words[i], words[i + 1], character_order))
+                if (!compare(words[i], words[i + 1], character_order)) {
                     return false;
+                }
             }
             return true;
         }
@@ -66,10 +68,11 @@ public class P953VerifyingAnAlienDictionary {
         public boolean compare(String s1, String s2, int[] character_order) {
             int i = 0;
             for (; i < s1.length() && i < s2.length(); i++) {
-                if (character_order[s1.charAt(i) - 'a'] < character_order[s2.charAt(i) - 'a'])
+                if (character_order[s1.charAt(i) - 'a'] < character_order[s2.charAt(i) - 'a']) {
                     return true;
-                else if (character_order[s1.charAt(i) - 'a'] > character_order[s2.charAt(i) - 'a'])
+                } else if (character_order[s1.charAt(i) - 'a'] > character_order[s2.charAt(i) - 'a']) {
                     return false;
+                }
             }
             return i != s2.length() || i >= s1.length();
         }

@@ -60,8 +60,9 @@ public class P5LongestPalindromicSubstring {
                 StringBuilder temp = new StringBuilder();
                 for (int j = i; j < s.length(); j++) {
                     temp.append(s.charAt(j));
-                    if (temp.length() > result.length() && isPalindrome(temp.toString()))
+                    if (temp.length() > result.length() && isPalindrome(temp.toString())) {
                         result = temp.toString();
+                    }
                 }
             }
             return result;
@@ -70,8 +71,9 @@ public class P5LongestPalindromicSubstring {
         public boolean isPalindrome(String s) {
             int len = s.length();
             for (int i = 0; i < len / 2; i++) {
-                if (s.charAt(i) != s.charAt(len - 1 - i))
+                if (s.charAt(i) != s.charAt(len - 1 - i)) {
                     return false;
+                }
             }
             return true;
         }

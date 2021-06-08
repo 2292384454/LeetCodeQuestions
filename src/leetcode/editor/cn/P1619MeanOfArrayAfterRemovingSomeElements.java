@@ -59,8 +59,6 @@
 package leetcode.editor.cn;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 //Java：删除某些元素后的数组均值
 public class P1619MeanOfArrayAfterRemovingSomeElements {

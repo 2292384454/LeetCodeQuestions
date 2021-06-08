@@ -39,7 +39,9 @@ public class P120Triangle {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minimumTotal(List<List<Integer>> triangle) {
-            if (triangle == null || triangle.size() == 0) return 0;
+            if (triangle == null || triangle.size() == 0) {
+                return 0;
+            }
             int n = triangle.size();
             int[] dp = new int[n + 1];//dp[k]记录截止当前层，到达结点k的最短路径长度(1<=k<=n)。dp[0]给计算每层最左边节点时用来占位。
             Arrays.fill(dp, 99999999);
@@ -50,7 +52,11 @@ public class P120Triangle {
                 }
             }
             int min = Integer.MAX_VALUE;
-            for (int x : dp) if (x < min) min = x;
+            for (int x : dp) {
+                if (x < min) {
+                    min = x;
+                }
+            }
             return min;
         }
     }

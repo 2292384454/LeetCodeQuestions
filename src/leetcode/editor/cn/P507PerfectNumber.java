@@ -31,13 +31,16 @@ public class P507PerfectNumber {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean checkPerfectNumber(int num) {
-            if (num <= 1) return false;
+            if (num <= 1) {
+                return false;
+            }
             int count = 0;
             for (int i = 1; i <= Math.sqrt(num); i++) {
                 if (num % i == 0) {
                     count += i;
-                    if (i != Math.sqrt(num) && i != 1)
+                    if (i != Math.sqrt(num) && i != 1) {
                         count += (num / i);
+                    }
                 }
             }
             return num == count;

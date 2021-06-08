@@ -55,15 +55,18 @@ public class P1408StringMatchingInAnArray {
     class Solution {
         public List<String> stringMatching(String[] words) {
             List<String> list = new ArrayList<>();
-            if (words.length == 0) return list;
+            if (words.length == 0) {
+                return list;
+            }
             StringBuilder builder = new StringBuilder();
             for (String str : words) {
                 builder.append(str).append(",");
             }
 
             for (String str : words) {
-                if (builder.toString().indexOf(str) != builder.toString().lastIndexOf(str))
+                if (builder.toString().indexOf(str) != builder.toString().lastIndexOf(str)) {
                     list.add(str);
+                }
             }
             return list;
         }

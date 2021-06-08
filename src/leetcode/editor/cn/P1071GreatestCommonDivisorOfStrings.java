@@ -62,10 +62,12 @@ public class P1071GreatestCommonDivisorOfStrings {
                 }
                 String result = s2.substring(0, i);
                 StringBuilder temp = new StringBuilder();
-                for (int j = 0; j < (s1.length() / i); j++)
+                for (int j = 0; j < (s1.length() / i); j++) {
                     temp.append(result);
-                if (temp.toString().equals(s1))
+                }
+                if (temp.toString().equals(s1)) {
                     return result;
+                }
                 return "";
             }
             return "";

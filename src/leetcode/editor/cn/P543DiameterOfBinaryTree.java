@@ -22,8 +22,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.HashMap;
-
 //Java：二叉树的直径
 public class P543DiameterOfBinaryTree {
     public static void main(String[] args) {
@@ -48,7 +46,9 @@ public class P543DiameterOfBinaryTree {
         int Diameter = 0;
 
         public int diameterOfBinaryTree(TreeNode root) {
-            if (root == null) return 0;
+            if (root == null) {
+                return 0;
+            }
             hepler(root);
             return Diameter;
         }
@@ -59,8 +59,9 @@ public class P543DiameterOfBinaryTree {
                 int r = hepler(root.right);
                 Diameter = Math.max(Diameter, l + r);
                 return Math.max(l, r) + 1;
-            } else
+            } else {
                 return 0;
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

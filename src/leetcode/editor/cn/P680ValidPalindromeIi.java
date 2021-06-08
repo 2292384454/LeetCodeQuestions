@@ -41,9 +41,13 @@ public class P680ValidPalindromeIi {
                 if (s_array[i] == s_array[j]) {
                     i++;
                     j--;
-                } else break;
+                } else {
+                    break;
+                }
             }
-            if (i >= j) return true;
+            if (i >= j) {
+                return true;
+            }
             return isPalindrome(s.substring(0, i) + s.substring(i + 1, s_array.length))
                     || isPalindrome(s.substring(0, j) + s.substring(j + 1, s_array.length));
         }
@@ -55,7 +59,9 @@ public class P680ValidPalindromeIi {
                 if (s_array[i] == s_array[j]) {
                     i++;
                     j--;
-                } else return false;
+                } else {
+                    return false;
+                }
             }
             return true;
         }

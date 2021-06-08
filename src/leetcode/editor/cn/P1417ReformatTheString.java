@@ -52,8 +52,6 @@
 
 package leetcode.editor.cn;
 
-import jdk.nashorn.internal.parser.Lexer;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,21 +67,27 @@ public class P1417ReformatTheString {
         public String reformat(String s) {
             List<Character> digits = new ArrayList<>();
             List<Character> letters = new ArrayList<>();
-            for (char c : s.toCharArray())
-                if (Character.isDigit(c))
+            for (char c : s.toCharArray()) {
+                if (Character.isDigit(c)) {
                     digits.add(c);
-                else
+                } else {
                     letters.add(c);
-            if (Math.abs(digits.size() - letters.size()) > 1)
+                }
+            }
+            if (Math.abs(digits.size() - letters.size()) > 1) {
                 return "";
+            }
             StringBuilder builder = new StringBuilder();
             int i = 0;
-            for (i = 0; i < Math.min(digits.size(), letters.size()); i++)
+            for (i = 0; i < Math.min(digits.size(), letters.size()); i++) {
                 builder.append(digits.get(i)).append(letters.get(i));
-            if (i < digits.size())
+            }
+            if (i < digits.size()) {
                 builder.append(digits.get(i));
-            if (i < letters.size())
+            }
+            if (i < letters.size()) {
                 builder.insert(0, letters.get(i));
+            }
             return builder.toString();
         }
     }

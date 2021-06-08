@@ -55,10 +55,12 @@ public class P598RangeAdditionIi {
         public int maxCount(int m, int n, int[][] ops) {
             int a_min = m, b_min = n;
             for (int op[] : ops) {
-                if (op[0] < a_min)
+                if (op[0] < a_min) {
                     a_min = op[0];
-                if (op[1] < b_min)
+                }
+                if (op[1] < b_min) {
                     b_min = op[1];
+                }
             }
             return a_min * b_min;
         }

@@ -65,8 +65,9 @@ public class P1572MatrixDiagonalSum {
                 sum += mat[i][i];
                 sum += mat[i][n - i - 1];
             }
-            if ((n & 1) != 0)
+            if ((n & 1) != 0) {
                 sum -= mat[n / 2][n / 2];
+            }
             return sum;
         }
     }

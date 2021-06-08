@@ -56,13 +56,16 @@ public class P566ReshapeTheMatrix {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[][] matrixReshape(int[][] nums, int r, int c) {
-            if (nums == null || r * c != nums.length * nums[0].length || (r == nums.length && c == nums[0].length))
+            if (nums == null || r * c != nums.length * nums[0].length || (r == nums.length && c == nums[0].length)) {
                 return nums;
+            }
             int result[][] = new int[r][c];
             int h = nums.length, w = nums[0].length;
-            for (int i = 0; i < h; i++)
-                for (int j = 0; j < w; j++)
+            for (int i = 0; i < h; i++) {
+                for (int j = 0; j < w; j++) {
                     result[(i * w + j) / c][(i * w + j) % c] = nums[i][j];
+                }
+            }
             return result;
         }
     }

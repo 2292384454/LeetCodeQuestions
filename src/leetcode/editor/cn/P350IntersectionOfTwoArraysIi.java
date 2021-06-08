@@ -52,11 +52,15 @@ public class P350IntersectionOfTwoArraysIi {
             Arrays.sort(nums2);
             ArrayList<Integer> result = new ArrayList<>();
             for (int i = 0, j = 0; i < nums1.length && j < nums2.length; i++) {
-                while (j < nums2.length && nums2[j] < nums1[i])
+                while (j < nums2.length && nums2[j] < nums1[i]) {
                     j++;
-                if (j == nums2.length) break;
-                if (nums2[j] == nums1[i])
+                }
+                if (j == nums2.length) {
+                    break;
+                }
+                if (nums2[j] == nums1[i]) {
                     result.add(nums2[j++]);
+                }
             }
             Integer res[] = result.toArray(new Integer[result.size()]);
             return Arrays.stream(res).mapToInt(Integer::valueOf).toArray();//Integer[]转int[]

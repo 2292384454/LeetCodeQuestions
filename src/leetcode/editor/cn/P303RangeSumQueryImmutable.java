@@ -19,8 +19,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.HashMap;
-
 //Java：区域和检索 - 数组不可变
 public class P303RangeSumQueryImmutable {
     public static void main(String[] args) {
@@ -39,8 +37,9 @@ public class P303RangeSumQueryImmutable {
 
         public int sumRange(int i, int j) {
             int count = 0;
-            for (int k = i; k <= j; k++)
+            for (int k = i; k <= j; k++) {
                 count += nums[k];
+            }
             return count;
         }
     }

@@ -17,7 +17,10 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
 
 //Java：N叉树的前序遍历
 public class P589NAryTreePreorderTraversal {

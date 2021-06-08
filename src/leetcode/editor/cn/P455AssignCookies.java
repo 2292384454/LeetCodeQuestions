@@ -54,7 +54,9 @@ public class P455AssignCookies {
             Arrays.sort(s);
             int result = 0;
             for (int i = g.length - 1, j = s.length - 1; i >= 0 && j >= 0; j--) {
-                while (i >= 0 && g[i] > s[j]) i--;
+                while (i >= 0 && g[i] > s[j]) {
+                    i--;
+                }
                 if (i >= 0) {
                     i--;
                     result++;

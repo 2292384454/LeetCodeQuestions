@@ -23,20 +23,29 @@ public class P283MoveZeroes {
         // TO TEST
         int nums[] = {0, 1, 0, 3, 12, 41, 25, 3, 1, 5, 0, 1, 4, 0, 2, 5, 3, 0, 1, 0, 0, 2, 0, 4, 0, 0};
         solution.moveZeroes(nums);
-        for (int x : nums)
+        for (int x : nums) {
             System.out.print(x + " ");
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public void moveZeroes(int[] nums) {
-            if (nums.length == 0) return;
+            if (nums.length == 0) {
+                return;
+            }
             int i = 0, j = 0;
-            while (i < nums.length && j < nums.length) {
-                while (i < nums.length && nums[i] != 0) i++;//找到第一个零的位置
+            while (true) {
+                while (i < nums.length && nums[i] != 0) {
+                    i++;//找到第一个零的位置
+                }
                 j = i + 1;
-                while (j < nums.length && nums[j] == 0) j++;//找到i之后的第一个非零元素的位置
-                if (i >= nums.length || j >= nums.length) break;
+                while (j < nums.length && nums[j] == 0) {
+                    j++;//找到i之后的第一个非零元素的位置
+                }
+                if (i >= nums.length || j >= nums.length) {
+                    break;
+                }
                 nums[i] = nums[j];
                 nums[j] = 0;
             }

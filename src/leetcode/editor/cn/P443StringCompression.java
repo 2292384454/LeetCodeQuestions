@@ -75,7 +75,9 @@ public class P443StringCompression {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int compress(char[] chars) {
-            if (chars.length == 1) return 1;
+            if (chars.length == 1) {
+                return 1;
+            }
             int j = 0;
             for (int i = 1; i - 1 < chars.length && j < chars.length; i++) {
                 short count = 1;
@@ -84,7 +86,9 @@ public class P443StringCompression {
                     count++;
                     i++;
                 }
-                if (count == 1) continue;
+                if (count == 1) {
+                    continue;
+                }
                 boolean startcount = false;
                 for (int m = 1000; m > 1; m /= 10) {
                     int temp = (count % m) / (m / 10);

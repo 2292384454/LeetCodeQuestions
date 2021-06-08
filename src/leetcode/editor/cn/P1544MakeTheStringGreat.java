@@ -68,10 +68,11 @@ public class P1544MakeTheStringGreat {
             while (!hasDone(oldSB)) {
                 newSB = new StringBuilder();
                 for (int i = 0; i < oldSB.length(); ) {
-                    if (i + 1 < oldSB.length() && Math.abs(oldSB.charAt(i) - oldSB.charAt(i + 1)) == 'a' - 'A')
+                    if (i + 1 < oldSB.length() && Math.abs(oldSB.charAt(i) - oldSB.charAt(i + 1)) == 'a' - 'A') {
                         i += 2;
-                    else
+                    } else {
                         newSB.append(oldSB.charAt(i++));
+                    }
                 }
                 oldSB = newSB;
             }
@@ -80,8 +81,9 @@ public class P1544MakeTheStringGreat {
 
         public boolean hasDone(StringBuilder SB) {
             for (int i = 0; i < SB.length() - 1; i++) {
-                if (Math.abs(SB.charAt(i) - SB.charAt(i + 1)) == 'a' - 'A')
+                if (Math.abs(SB.charAt(i) - SB.charAt(i + 1)) == 'a' - 'A') {
                     return false;
+                }
             }
             return true;
         }

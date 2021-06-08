@@ -68,8 +68,9 @@ public class P1309DecryptStringFromAlphabetToIntegerMapping {
                 if (s_array[i] == '#') {
                     num = (s_array[i - 1] - '0') + (s_array[i - 2] - '0') * 10;
                     i -= 2;
-                } else
+                } else {
                     num = (s_array[i] - '0');
+                }
                 result.append((char) ('a' + num - 1));
             }
             return result.reverse().toString();

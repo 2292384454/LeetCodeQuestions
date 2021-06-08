@@ -44,8 +44,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Stack;
-
 //Java：完全二叉树的节点个数
 public class P222CountCompleteTreeNodes {
     public static void main(String[] args) {
@@ -74,7 +72,9 @@ public class P222CountCompleteTreeNodes {
     class Solution {
 
         public int countNodes(TreeNode root) {
-            if (root == null) return 0;
+            if (root == null) {
+                return 0;
+            }
             TreeNode p = root;
             //计算二叉树深度
             int totalDepth = 0;
@@ -86,9 +86,11 @@ public class P222CountCompleteTreeNodes {
             int low = 1 << (totalDepth - 1), high = (1 << totalDepth) - 1, mid = 0;
             while (low <= high) {
                 mid = low + (high - low) / 2;
-                if (exists(root, totalDepth, mid))
+                if (exists(root, totalDepth, mid)) {
                     low = mid + 1;
-                else high = mid - 1;
+                } else {
+                    high = mid - 1;
+                }
             }
             return low - 1;
         }

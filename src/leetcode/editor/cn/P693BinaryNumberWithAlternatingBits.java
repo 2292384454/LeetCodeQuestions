@@ -50,12 +50,15 @@ public class P693BinaryNumberWithAlternatingBits {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean hasAlternatingBits(int n) {
-            if (n == 0) return true;
+            if (n == 0) {
+                return true;
+            }
             int bit = n & 1;
             n = n >>> 1;
             while (n != 0) {
-                if ((n & 1) == bit)
+                if ((n & 1) == bit) {
                     return false;
+                }
                 bit = n & 1;
                 n = n >>> 1;
             }

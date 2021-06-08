@@ -42,8 +42,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：最小差值 I
 public class P908SmallestRangeI {
     public static void main(String[] args) {
@@ -57,25 +55,30 @@ public class P908SmallestRangeI {
             int max = Integer.MIN_VALUE, min = Integer.MAX_VALUE;//找到A中最大元素和最小元素
             int[] B = new int[A.length];
             for (int a : A) {
-                if (a < min)
+                if (a < min) {
                     min = a;
-                if (a > max)
+                }
+                if (a > max) {
                     max = a;
+                }
             }
             int average = (min + max) / 2;//计算A中最大元素与最小元素之差，B中所有数字尽可能往这个平均值上靠
             for (int i = 0; i < A.length; i++) {
-                if (A[i] < average)
+                if (A[i] < average) {
                     B[i] = Math.min(A[i] + K, average);
-                else
+                } else {
                     B[i] = Math.max(A[i] - K, average);
+                }
             }
             max = Integer.MIN_VALUE;//找到B中最大元素与最小元素
             min = Integer.MAX_VALUE;
             for (int b : B) {
-                if (b < min)
+                if (b < min) {
                     min = b;
-                if (b > max)
+                }
+                if (b > max) {
                     max = b;
+                }
             }
             return max - min;
         }

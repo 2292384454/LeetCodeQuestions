@@ -67,9 +67,9 @@ public class P606ConstructStringFromBinaryTree {
         public StringBuilder hleper(TreeNode t) {
             StringBuilder result = new StringBuilder();
             if (t != null) {
-                if (t.left == null && t.right == null)
+                if (t.left == null && t.right == null) {
                     result.append(t.val);
-                else if (t.right == null) {
+                } else if (t.right == null) {
                     result.append(t.val);
                     result.append("(");
                     result.append(tree2str(t.left));

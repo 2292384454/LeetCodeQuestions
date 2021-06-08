@@ -74,9 +74,12 @@ public class P997FindTheTownJudge {
                 array[temp[1] - 1][0]++;
                 array[temp[0] - 1][1] = 1;
             }
-            for (int i = 0; i < N; i++)
+            for (int i = 0; i < N; i++) {
                 if (array[i][0] == N - 1 && array[i][1] == 0)//如果有人被N-1个人信任，且他不信任任何人，那么他就是法官
+                {
                     return i + 1;
+                }
+            }
             return -1;
         }
     }

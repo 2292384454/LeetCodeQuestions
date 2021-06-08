@@ -34,10 +34,12 @@ public class P125ValidPalindrome {
             int len = array.length;
             for (int start = 0, end = len - 1; start <= end; ) {
                 if (Character.isLetter(array[start]) || Character.isDigit(array[start])) {
-                    while ((!Character.isLetter(array[end])) && (!Character.isDigit(array[end])) && end > start)
+                    while ((!Character.isLetter(array[end])) && (!Character.isDigit(array[end])) && end > start) {
                         end--;
-                    if (Character.toUpperCase(array[start]) != Character.toUpperCase(array[end]))
+                    }
+                    if (Character.toUpperCase(array[start]) != Character.toUpperCase(array[end])) {
                         return false;
+                    }
                     end--;
                 }
                 start++;

@@ -70,11 +70,13 @@ public class P653TwoSumIvInputIsABst {
             Integer valArray[] = valList.toArray(new Integer[valList.size()]);
             int left = 0, right = valArray.length - 1;
             while (left < right) {
-                if (valArray[left] + valArray[right] == k) return true;
-                else if (valArray[left] + valArray[right] > k)
+                if (valArray[left] + valArray[right] == k) {
+                    return true;
+                } else if (valArray[left] + valArray[right] > k) {
                     right = right - 1;
-                else
+                } else {
                     left = left + 1;
+                }
             }
             return false;
         }

@@ -51,10 +51,11 @@ public class P509FibonacciNumber {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int fib(int n) {
-            if (n <= 1)
+            if (n <= 1) {
                 return n;
-            else
+            } else {
                 return fib(n - 1) + fib(n - 2);
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

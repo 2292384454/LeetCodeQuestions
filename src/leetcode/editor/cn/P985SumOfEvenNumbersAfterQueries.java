@@ -53,16 +53,17 @@ public class P985SumOfEvenNumbersAfterQueries {
             int sumOfOdd = 0, sumOfEven = 0, index = 0;
             int[] result = new int[A.length];
             for (int x : A) {
-                if (x % 2 == 0)
+                if (x % 2 == 0) {
                     sumOfEven += x;
-                else
+                } else {
                     sumOfOdd += x;
+                }
             }
             for (int[] command : queries) {
                 if (A[command[1]] % 2 == 0) {
-                    if (command[0] % 2 == 0)
+                    if (command[0] % 2 == 0) {
                         sumOfEven += command[0];
-                    else {
+                    } else {
                         sumOfEven -= A[command[1]];
                         sumOfOdd += (A[command[1]] + command[0]);
                     }
@@ -70,8 +71,9 @@ public class P985SumOfEvenNumbersAfterQueries {
                     if (command[0] % 2 != 0) {
                         sumOfOdd -= A[command[1]];
                         sumOfEven += (A[command[1]] + command[0]);
-                    } else
+                    } else {
                         sumOfOdd += command[0];
+                    }
                 }
                 A[command[1]] += command[0];
                 result[index++] = sumOfEven;

@@ -72,12 +72,15 @@ public class P80RemoveDuplicatesFromSortedArrayIi {
     class Solution {
         public int removeDuplicates(int[] nums) {
             int len = nums.length;
-            if (nums.length < 3) return nums.length;
+            if (nums.length < 3) {
+                return nums.length;
+            }
             int i = 2, j = 2;
             while (i < len) {
                 if (nums[i] == nums[i - 1] && nums[i] == nums[i - 2]) {
-                    for (int k = j; k + 1 < nums.length; k++)
+                    for (int k = j; k + 1 < nums.length; k++) {
                         nums[k] = nums[k + 1];
+                    }
                     len--;
                 } else {
                     nums[i++] = nums[j++];

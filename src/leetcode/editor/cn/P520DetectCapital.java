@@ -40,11 +40,15 @@ public class P520DetectCapital {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean detectCapitalUse(String word) {
-            if (word == "") return true;
+            if (word == "") {
+                return true;
+            }
             String sub = word.substring(1);
-            if (word.charAt(0) >= 'a') return isAllLowercase(sub);
-            else
+            if (word.charAt(0) >= 'a') {
+                return isAllLowercase(sub);
+            } else {
                 return isAllLowercase(sub) || isAllUppercase(sub);
+            }
         }
 
         public boolean isAllUppercase(String word) {

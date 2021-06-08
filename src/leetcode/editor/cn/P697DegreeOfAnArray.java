@@ -45,28 +45,36 @@ public class P697DegreeOfAnArray {
         public int findShortestSubArray(int[] nums) {
             //定义了一个50000行3列的二维数组，数组的第0,1,2列分别存储index在nums中出现的次数，index第一次在nums中出现时的下标，index在nums中出现的最大间隔
             int maxNum = Integer.MIN_VALUE;
-            for (int x : nums)
-                if (x > maxNum)
+            for (int x : nums) {
+                if (x > maxNum) {
                     maxNum = x;
+                }
+            }
             int num_info[][] = new int[maxNum + 1][3], i = 0;
-            for (int m = 0; m < num_info.length; m++)
+            for (int m = 0; m < num_info.length; m++) {
                 num_info[m][1] = -1;
+            }
             for (int x : nums) {
                 num_info[x][0]++;
-                if (num_info[x][1] != -1)
+                if (num_info[x][1] != -1) {
                     num_info[x][2] = (i - num_info[x][1]);
-                else
+                } else {
                     num_info[x][1] = i;
+                }
                 i++;
             }
             int maxCount = 0;
-            for (int m = 0; m < num_info.length; m++)
-                if (num_info[m][0] > maxCount)
+            for (int m = 0; m < num_info.length; m++) {
+                if (num_info[m][0] > maxCount) {
                     maxCount = num_info[m][0];
+                }
+            }
             int minInterval = Integer.MAX_VALUE;
-            for (int m = 0; m < num_info.length; m++)
-                if (num_info[m][0] == maxCount && num_info[m][2] < minInterval)
+            for (int m = 0; m < num_info.length; m++) {
+                if (num_info[m][0] == maxCount && num_info[m][2] < minInterval) {
                     minInterval = num_info[m][2];
+                }
+            }
             return minInterval + 1;
         }
     }

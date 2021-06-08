@@ -43,7 +43,7 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.PriorityQueue;
 
 //Java：数据流中的第 K 大元素
 public class P703KthLargestElementInAStream {
@@ -66,7 +66,9 @@ public class P703KthLargestElementInAStream {
         public KthLargest(int k, int[] nums) {
             fixed_k = k;
             PriorityQueue = new PriorityQueue<>(k);
-            for (int val : nums) add(val);
+            for (int val : nums) {
+                add(val);
+            }
         }
 
         public int add(int val) {

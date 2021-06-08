@@ -85,8 +85,9 @@ public class P12IntegerToRoman {
             int index = 0;
             while (num > 0) {
                 int a = num / numArray[index];
-                for (int i = 0; i < a; i++)
+                for (int i = 0; i < a; i++) {
                     ansSB.append(strArray[index]);
+                }
                 num -= numArray[index] * a;
                 index++;
             }

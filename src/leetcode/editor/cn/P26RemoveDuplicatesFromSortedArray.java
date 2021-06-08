@@ -51,14 +51,17 @@ public class P26RemoveDuplicatesFromSortedArray {
         // TO TEST
         int[] test = {0, 0, 0, 0, 0, 0};
         int newlen = solution.removeDuplicates(test);
-        for (int i = 0; i < newlen; i++)
+        for (int i = 0; i < newlen; i++) {
             System.out.print(test[i] + ">>");
+        }
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int removeDuplicates(int[] nums) {
-            if (nums.length == 0) return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
             int result = nums.length;
             for (int i = 1; i < result; i++) {
                 if (nums[i] == nums[i - 1]) {

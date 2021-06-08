@@ -51,8 +51,9 @@ public class P747LargestNumberAtLeastTwiceOfOthers {
                     second = max;
                     max = nums[i];
                     maxIndex = i;
-                } else if (nums[i] > second)
+                } else if (nums[i] > second) {
                     second = nums[i];
+                }
             }
             return max >= 2 * second ? maxIndex : -1;
         }

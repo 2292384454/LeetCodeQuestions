@@ -49,8 +49,9 @@ public class P1374GenerateAStringWithCharactersThatHaveOddCounts {
     class Solution {
         public String generateTheString(int n) {
             StringBuilder result = new StringBuilder();
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < n; i++) {
                 result.append('a');
+            }
             if ((n & 1) == 0) {
                 result.deleteCharAt(n - 1);
                 result.append('b');

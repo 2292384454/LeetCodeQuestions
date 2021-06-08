@@ -47,7 +47,9 @@ public class P234PalindromeLinkedList {
     class Solution {
         public boolean isPalindrome(ListNode head) {
             //如果链表为空或者链表只有一个元素，那么一定返回true
-            if (head == null || head.next == null) return true;
+            if (head == null || head.next == null) {
+                return true;
+            }
             ListNode p = head, q = head, pre = null;
             //循环结束后p指向(int)(n/2)号节点，n为链表长度，索引从0开始
             while (q != null && q.next != null) {
@@ -58,11 +60,14 @@ public class P234PalindromeLinkedList {
                 p = temp;//移动p
             }
             if (q != null) //链表长度为奇数，此时pre指向(int)(n/2)-1号元素，p指向(int)(n/2)号元素
+            {
                 p = p.next;//p向后移动一位
+            }
             //判断是否回文
             while (p != null && pre != null) {
-                if (p.val != pre.val)
+                if (p.val != pre.val) {
                     return false;
+                }
                 p = p.next;
                 pre = pre.next;
             }

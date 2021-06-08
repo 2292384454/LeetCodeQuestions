@@ -47,14 +47,18 @@ public class P917ReverseOnlyLetters {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String reverseOnlyLetters(String S) {
-            if (S.length() < 2) return S;
+            if (S.length() < 2) {
+                return S;
+            }
             int i = 0, j = S.length() - 1;
             char[] S_chars = S.toCharArray();
             while (i < j) {
-                while (i < j && !Character.isLetter(S_chars[i]))
+                while (i < j && !Character.isLetter(S_chars[i])) {
                     i++;
-                while (i < j && !Character.isLetter(S_chars[j]))
+                }
+                while (i < j && !Character.isLetter(S_chars[j])) {
                     j--;
+                }
                 char temp = S_chars[i];
                 S_chars[i] = S_chars[j];
                 S_chars[j] = temp;

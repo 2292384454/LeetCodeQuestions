@@ -18,7 +18,6 @@
 package leetcode.editor.cn;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 //Java：杨辉三角 II
@@ -33,15 +32,17 @@ public class P119PascalsTriangleIi {
         public List<Integer> getRow(int rowIndex) {
             List<Integer> result = new ArrayList<>();
             Integer[] temparr = new Integer[rowIndex + 1];
-            for (int i = 0; i <= rowIndex; i++)
-                result.add(0);
             for (int i = 0; i <= rowIndex; i++) {
-                if (i == 0)
+                result.add(0);
+            }
+            for (int i = 0; i <= rowIndex; i++) {
+                if (i == 0) {
                     result.set(0, 1);
-                else {
+                } else {
                     result.toArray(temparr);
-                    for (int j = 1; j <= i; j++)
+                    for (int j = 1; j <= i; j++) {
                         result.set(j, temparr[j - 1] + temparr[j]);
+                    }
                 }
             }
             return result;

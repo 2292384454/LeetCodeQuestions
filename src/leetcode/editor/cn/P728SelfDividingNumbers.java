@@ -24,7 +24,8 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 //Java：自除数
 public class P728SelfDividingNumbers {
@@ -38,8 +39,9 @@ public class P728SelfDividingNumbers {
         public List<Integer> selfDividingNumbers(int left, int right) {
             List<Integer> result = new ArrayList<>();
             for (int i = left; i <= right; i++) {
-                if (isSelfDividing(i))
+                if (isSelfDividing(i)) {
                     result.add(i);
+                }
             }
             return result;
         }
@@ -49,9 +51,11 @@ public class P728SelfDividingNumbers {
             int n = num;
             while (n > 0) {
                 int temp = n % 10;
-                if (temp == 0) return false;
-                else
+                if (temp == 0) {
+                    return false;
+                } else {
                     result &= (num % (temp) == 0);
+                }
                 n /= 10;
             }
             return result;

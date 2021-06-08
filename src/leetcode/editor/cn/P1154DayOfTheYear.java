@@ -58,8 +58,9 @@ public class P1154DayOfTheYear {
             for (int i = 0; i < month - 1; i++) {
                 result += days[i];
             }
-            if (month > 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)))
+            if (month > 2 && (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0))) {
                 result++;
+            }
             result += day;
             return result;
         }

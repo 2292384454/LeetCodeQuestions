@@ -40,8 +40,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：玩筹码
 public class P1217MinimumCostToMoveChipsToTheSamePosition {
     public static void main(String[] args) {
@@ -54,8 +52,11 @@ public class P1217MinimumCostToMoveChipsToTheSamePosition {
         public int minCostToMoveChips(int[] position) {
             int odd = 0, even = 0;
             for (int num : position) {
-                if ((num & 1) == 0) even++;
-                else odd++;
+                if ((num & 1) == 0) {
+                    even++;
+                } else {
+                    odd++;
+                }
             }
             return Math.min(odd, even);
         }

@@ -59,11 +59,16 @@ public class P2AddTwoNumbers {
                 tail.next = new ListNode((x + y + carry) % 10);
                 carry = (x + y + carry) / 10;
                 tail = tail.next;
-                if (p != null) p = p.next;
-                if (q != null) q = q.next;
+                if (p != null) {
+                    p = p.next;
+                }
+                if (q != null) {
+                    q = q.next;
+                }
             }
-            if (carry > 0)
+            if (carry > 0) {
                 tail.next = new ListNode(carry);
+            }
             return head.next;
         }
     }

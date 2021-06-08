@@ -56,12 +56,14 @@ public class P1221SplitAStringInBalancedStrings {
         public int balancedStringSplit(String s) {
             int p = 0, result = 0;
             for (char c : s.toCharArray()) {
-                if (c == 'L')
+                if (c == 'L') {
                     p++;
-                else if (c == 'R')
+                } else if (c == 'R') {
                     p--;
-                if (p == 0)
+                }
+                if (p == 0) {
                     result++;
+                }
             }
             return result;
         }

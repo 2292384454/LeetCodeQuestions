@@ -66,20 +66,23 @@ public class P1380LuckyNumbersInAMatrix {
             List<Integer> result = new ArrayList<>();
             for (int i = 0; i < m; i++) {
                 minOfRow[i][0] = Integer.MAX_VALUE;
-                for (int j = 0; j < n; j++)
+                for (int j = 0; j < n; j++) {
                     if (matrix[i][j] < minOfRow[i][0]) {
                         minOfRow[i][0] = matrix[i][j];
                         minOfRow[i][1] = j;
                     }
+                }
             }
             for (int i = 0; i < m; i++) {
                 int k = 0;
                 for (k = 0; k < m; k++) {
-                    if (matrix[k][minOfRow[i][1]] > minOfRow[i][0])
+                    if (matrix[k][minOfRow[i][1]] > minOfRow[i][0]) {
                         break;
+                    }
                 }
-                if (k == m)
+                if (k == m) {
                     result.add(minOfRow[i][0]);
+                }
             }
             return result;
         }

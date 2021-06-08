@@ -66,20 +66,25 @@ public class P859BuddyStrings {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean buddyStrings(String A, String B) {
-            if (A.length() != B.length()) return false;
+            if (A.length() != B.length()) {
+                return false;
+            }
             char[] A_chars = A.toCharArray(), B_chars = B.toCharArray();
             int count = 0;
             int[] char_count = new int[26], index = new int[]{-1, -1};
             boolean flag = false;
             for (int i = 0; i < A_chars.length; i++) {
                 char_count[A_chars[i] - 'a']++;
-                if (char_count[A_chars[i] - 'a'] == 2) flag = true;
+                if (char_count[A_chars[i] - 'a'] == 2) {
+                    flag = true;
+                }
                 if (A_chars[i] != B_chars[i]) {
                     count += 1;
-                    if (count <= 2)
+                    if (count <= 2) {
                         index[count - 1] = i;
-                    else
+                    } else {
                         return false;
+                    }
                 }
             }
             return (count == 0 && flag) || (index[0] != -1 && index[1] != -1 && A_chars[index[0]] == B_chars[index[1]] && A_chars[index[1]] == B_chars[index[0]]);

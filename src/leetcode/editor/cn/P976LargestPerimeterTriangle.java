@@ -58,8 +58,9 @@ public class P976LargestPerimeterTriangle {
         public int largestPerimeter(int[] A) {
             Arrays.sort(A);
             int i = A.length - 1;
-            while (i > 2 && (A[i - 1] + A[i - 2] <= A[i]))
+            while (i > 2 && (A[i - 1] + A[i - 2] <= A[i])) {
                 i--;
+            }
             return A[i - 1] + A[i - 2] <= A[i] ? 0 : A[i] + A[i - 1] + A[i - 2];
         }
     }

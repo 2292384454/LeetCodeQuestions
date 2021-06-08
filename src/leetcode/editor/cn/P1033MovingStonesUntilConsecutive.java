@@ -53,12 +53,13 @@ public class P1033MovingStonesUntilConsecutive {
         public int[] numMovesStones(int a, int b, int c) {
             int[] sorted = new int[]{a, b, c}, result = new int[2];
             Arrays.sort(sorted);
-            if (sorted[1] - sorted[0] == 1 && sorted[2] - sorted[1] == 1)
+            if (sorted[1] - sorted[0] == 1 && sorted[2] - sorted[1] == 1) {
                 result[0] = 0;
-            else if (sorted[1] - sorted[0] <= 2 || sorted[2] - sorted[1] <= 2)
+            } else if (sorted[1] - sorted[0] <= 2 || sorted[2] - sorted[1] <= 2) {
                 result[0] = 1;
-            else
+            } else {
                 result[0] = 2;
+            }
             result[1] = sorted[2] - sorted[0] - 2;
             return result;
         }

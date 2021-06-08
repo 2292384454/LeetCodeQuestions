@@ -64,8 +64,9 @@ public class P1005MaximizeSumOfArrayAfterKNegations {
             }
             //计算A中所有元素的和，找到翻转负数后A中最小的元素
             for (int x : A) {
-                if (x < min)
+                if (x < min) {
                     min = x;
+                }
                 result += x;
             }
             //如果所有的负数都已经被翻转过了，剩下的次数为奇数，那么必然会有一个正数会被翻转，选择最小的正数翻转

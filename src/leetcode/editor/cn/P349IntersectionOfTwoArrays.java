@@ -40,13 +40,18 @@ public class P349IntersectionOfTwoArrays {
     class Solution {
         public int[] intersection(int[] nums1, int[] nums2) {
             HashSet<Integer> set1 = new HashSet<>(), result = new HashSet<>();
-            for (int x : nums1)
+            for (int x : nums1) {
                 set1.add(x);
-            for (int x : nums2)
-                if (set1.contains(x))
+            }
+            for (int x : nums2) {
+                if (set1.contains(x)) {
                     result.add(x);
+                }
+            }
             int len = result.size();
-            if (len == 0) return new int[0];
+            if (len == 0) {
+                return new int[0];
+            }
             Integer res[] = result.toArray(new Integer[len]);
             return Arrays.stream(res).mapToInt(Integer::valueOf).toArray();//Integer[]转int[]
         }

@@ -52,7 +52,9 @@ public class P637AverageOfLevelsInBinaryTree {
     class Solution {
         public List<Double> averageOfLevels(TreeNode root) {
             List<Double> result = new ArrayList<>();
-            if (root == null) return result;
+            if (root == null) {
+                return result;
+            }
             Queue<TreeNode> myqueue = new LinkedList<>();
             myqueue.add(root);
             while (!myqueue.isEmpty()) {
@@ -61,10 +63,12 @@ public class P637AverageOfLevelsInBinaryTree {
                 for (int i = 0; i < lenOfTheLevel; i++) {
                     TreeNode p = myqueue.poll();
                     average += p.val;
-                    if (p.left != null)
+                    if (p.left != null) {
                         myqueue.add(p.left);
-                    if (p.right != null)
+                    }
+                    if (p.right != null) {
                         myqueue.add(p.right);
+                    }
                 }
                 average /= lenOfTheLevel;
                 result.add(average);

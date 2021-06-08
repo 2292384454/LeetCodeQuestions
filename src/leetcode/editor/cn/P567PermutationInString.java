@@ -32,8 +32,6 @@
 
 package leetcode.editor.cn;
 
-import java.util.Arrays;
-
 //Java：字符串的排列
 public class P567PermutationInString {
     public static void main(String[] args) {
@@ -47,8 +45,12 @@ public class P567PermutationInString {
     class Solution {
         public boolean checkInclusion(String s1, String s2) {
             int len1 = s1.length(), len2 = s2.length();
-            if (len1 == 0) return true;//如果s1长度为0，那么一定返回true
-            if (len2 < len1) return false;//如果s1长度大于s2长度，那么一定返回false
+            if (len1 == 0) {
+                return true;//如果s1长度为0，那么一定返回true
+            }
+            if (len2 < len1) {
+                return false;//如果s1长度大于s2长度，那么一定返回false
+            }
 
             //将字符串转化成字符数组，方便后续访问字符降低时间复杂度
             char s1_array[] = s1.toCharArray(), s2_array[] = s2.toCharArray();
@@ -64,12 +66,15 @@ public class P567PermutationInString {
                 if (end - start + 1 == len1) {
                     if (end < len2) {
                         //如果s2在这段范围内的子串是是s1的排列，返回true，否则将start自增
-                        if (permutation(s1, s2.substring(start, end + 1)))
+                        if (permutation(s1, s2.substring(start, end + 1))) {
                             return true;
-                        else
+                        } else {
                             start++;
+                        }
                     } else//如果end已经超出了s2的范围，则返回false
+                    {
                         return false;
+                    }
                 }
             }
             return false;
@@ -81,10 +86,11 @@ public class P567PermutationInString {
             for (char c : s1_array) {
                 letters[c - 'a']++;
             }
-            for (char c : s2_array)
+            for (char c : s2_array) {
                 if (--letters[c - 'a'] < 0) {
                     return false;
                 }
+            }
             return true;
         }
 

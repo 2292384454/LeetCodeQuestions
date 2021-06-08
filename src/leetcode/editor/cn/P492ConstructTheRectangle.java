@@ -43,18 +43,22 @@ public class P492ConstructTheRectangle {
             int sqrt = (int) Math.sqrt(area), L = sqrt, W = sqrt;
             while (L <= area && W > 0) {
                 //情况零：直接返回结果
-                if (L * W == area) return new int[]{L, W};
+                if (L * W == area) {
+                    return new int[]{L, W};
+                }
                     //情况一：L++;W--;
                 else if ((L + 1) * W > area && L * (W - 1) < area) {
                     L++;
                     W--;
                 }
                 //情况二：L++;
-                else if (L * W < area)
+                else if (L * W < area) {
                     L++;
+                }
                     //情况三：W--;
-                else
+                else {
                     W--;
+                }
             }
             return new int[]{L, W};
         }

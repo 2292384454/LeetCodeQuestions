@@ -56,7 +56,8 @@
 
 package leetcode.editor.cn;
 
-import java.util.*;
+import java.util.Map;
+import java.util.TreeMap;
 
 //Java：重新排列字符串
 public class P1528ShuffleString {
@@ -73,8 +74,9 @@ public class P1528ShuffleString {
                 mymap.put(indices[i], s.charAt(i));
             }
             StringBuilder result = new StringBuilder();
-            for (char c : mymap.values())
+            for (char c : mymap.values()) {
                 result.append(c);
+            }
             return result.toString();
         }
     }

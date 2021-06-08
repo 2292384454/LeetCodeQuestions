@@ -46,14 +46,18 @@ public class P695MaxAreaOfIsland {
     class Solution {
         public int maxAreaOfIsland(int[][] grid) {
             int result = 0;
-            for (int i = 0; i < grid.length; i++)
-                for (int j = 0; j < grid[i].length; j++)
+            for (int i = 0; i < grid.length; i++) {
+                for (int j = 0; j < grid[i].length; j++) {
                     result = Math.max(result, dfs(i, j, grid));
+                }
+            }
             return result;
         }
 
         public int dfs(int i, int j, int[][] grid) {
-            if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == 0) return 0;
+            if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == 0) {
+                return 0;
+            }
             grid[i][j] = 0;
             int num = 1;
             num += dfs(i + 1, j, grid);

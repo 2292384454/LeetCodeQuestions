@@ -39,7 +39,9 @@ public class P108ConvertSortedArrayToBinarySearchTree {
      */
     class Solution {
         public TreeNode sortedArrayToBST(int[] nums) {
-            if (nums.length == 0) return null;//如果数组为空，返回空树
+            if (nums.length == 0) {
+                return null;//如果数组为空，返回空树
+            }
             int left = 0, right = nums.length, mid = (left + right) / 2;//按照二分查找的办法遍历数组
             TreeNode root = new TreeNode(nums[mid]), p = root;//数组中间的那个元素作为根节点
             if (left < right) {//如果left小于right开始递归，给root添加左子树和右子树

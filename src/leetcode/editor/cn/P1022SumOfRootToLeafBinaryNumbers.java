@@ -87,9 +87,11 @@ public class P1022SumOfRootToLeafBinaryNumbers {
                     root.right.val += root.val * 2;
                 } else if (root.left != null) {
                     root.left.val += root.val * 2;
-                } else if (root.right != null)
+                } else if (root.right != null) {
                     root.right.val += root.val * 2;
-                else result += root.val;
+                } else {
+                    result += root.val;
+                }
                 help(root.left);
                 help(root.right);
             }

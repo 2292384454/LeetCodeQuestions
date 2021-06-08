@@ -54,8 +54,6 @@
 
 package leetcode.editor.cn;
 
-import javafx.scene.CacheHint;
-
 import java.util.HashMap;
 
 //Java：罗马数字转整数
@@ -85,8 +83,9 @@ public class P13RomanToInteger {
                 char temp = s.charAt(i);
                 if (mymap.get(temp) < mymap.get(s.charAt(i + 1))) {//判断是加还是减
                     result -= mymap.get(temp);
-                } else
+                } else {
                     result += mymap.get(s.charAt(i));
+                }
             }
             result += mymap.get(s.charAt(i));//加上最后一个字符代表的数字
             return result;

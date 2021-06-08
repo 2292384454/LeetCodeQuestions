@@ -52,8 +52,9 @@ public class P965UnivaluedBinaryTree {
      */
     class Solution {
         public boolean isUnivalTree(TreeNode root) {
-            if (root == null)
+            if (root == null) {
                 return true;
+            }
             return (root.left == null || root.val == root.left.val) && (root.right == null || root.val == root.right.val) &&
                     isUnivalTree(root.left) && isUnivalTree(root.right);
         }

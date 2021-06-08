@@ -63,11 +63,13 @@ public class P1184DistanceBetweenBusStops {
     class Solution {
         public int distanceBetweenBusStops(int[] distance, int start, int destination) {
             int n = distance.length, dis1 = 0, dis2 = 0;
-            for (int i = start; i % n != destination; i++)
+            for (int i = start; i % n != destination; i++) {
                 dis1 += distance[i % n];
+            }
             int i = n + start - 1;
-            for (; i % n != destination; i--)
+            for (; i % n != destination; i--) {
                 dis2 += distance[i % n];
+            }
             dis2 += distance[i % n];
             return Math.min(dis1, dis2);
         }

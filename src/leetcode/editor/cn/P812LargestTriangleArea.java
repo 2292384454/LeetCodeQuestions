@@ -37,14 +37,16 @@ public class P812LargestTriangleArea {
         public double largestTriangleArea(int[][] points) {
             int len = points.length;
             double result = 0;
-            for (int i = 0; i < len; i++)
-                for (int j = i + 1; j < len; j++)
+            for (int i = 0; i < len; i++) {
+                for (int j = i + 1; j < len; j++) {
                     for (int k = j + 1; k < len; k++) {
                         double ax = points[j][0] - points[i][0], ay = points[j][1] - points[i][1],
                                 bx = points[j][0] - points[k][0], by = points[j][1] - points[k][1];
                         double area = Math.abs(ax * by - ay * bx) / 2;
                         result = Math.max(result, area);
                     }
+                }
+            }
             return result;
         }
     }

@@ -48,26 +48,30 @@ public class P1122RelativeSortArray {
             int defult = 99999;//num_indexInArr2初值全部赋为一个超出数组长度的极大值
             int[] num_indexInArr2 = new int[1001];//num_indexInArr2记录arr2中每个数字的索引
             Arrays.fill(num_indexInArr2, defult);
-            for (int i = 0; i < arr2.length; i++)
+            for (int i = 0; i < arr2.length; i++) {
                 num_indexInArr2[arr2[i]] = i;
+            }
             Integer[] arr1Integer = new Integer[arr1.length];//将arr1先转换成Integer类型数组，便于后续重载compare函数
-            for (int i = 0; i < arr1.length; i++)
+            for (int i = 0; i < arr1.length; i++) {
                 arr1Integer[i] = arr1[i];
+            }
             int[] result = new int[arr1.length];//result需要为int类型数组
             Arrays.sort(arr1Integer, new Comparator<Integer>() {//用重载的compare函数进行比较
                 @Override
                 public int compare(Integer o1, Integer o2) {
                     //如果arr2中有o1或者o2，那么返回num_indexInArr2中存储的索引相对顺序即可，不存在的一方因为默认索引为极大值，所以会被自动丢到数组尾部
                     //如果arr2中没有o1也没有o2，那么返回o1和o2的比较结果
-                    if (num_indexInArr2[o1] != defult || num_indexInArr2[o2] != defult)
+                    if (num_indexInArr2[o1] != defult || num_indexInArr2[o2] != defult) {
                         return num_indexInArr2[o1] - num_indexInArr2[o2];
-                    else
+                    } else {
                         return o1 - o2;
+                    }
                 }
             });
             //将Integer类型数组转成int型数组返回
-            for (int i = 0; i < arr1.length; i++)
+            for (int i = 0; i < arr1.length; i++) {
                 result[i] = arr1Integer[i];
+            }
             return result;
         }
 

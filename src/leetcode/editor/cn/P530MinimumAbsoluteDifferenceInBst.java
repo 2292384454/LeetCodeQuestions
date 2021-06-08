@@ -54,15 +54,18 @@ public class P530MinimumAbsoluteDifferenceInBst {
         Integer minAbs = Integer.MAX_VALUE, lastVal = null;
 
         public int getMinimumDifference(TreeNode root) {
-            if (root.left != null)
+            if (root.left != null) {
                 minAbs = Math.min(minAbs, getMinimumDifference(root.left));
+            }
 
-            if (lastVal != null)
+            if (lastVal != null) {
                 minAbs = Math.min(minAbs, root.val - lastVal);
+            }
             lastVal = root.val;
 
-            if (root.right != null)
+            if (root.right != null) {
                 minAbs = Math.min(minAbs, getMinimumDifference(root.right));
+            }
 
             return minAbs;
         }

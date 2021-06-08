@@ -32,13 +32,18 @@ public class P453MinimumMovesToEqualArrayElements {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int minMoves(int[] nums) {
-            if (nums.length == 0) return 0;
+            if (nums.length == 0) {
+                return 0;
+            }
             int result = 0, minvalue = nums[0];
-            for (int x : nums)
-                if (x < minvalue)
+            for (int x : nums) {
+                if (x < minvalue) {
                     minvalue = x;
-            for (int x : nums)
+                }
+            }
+            for (int x : nums) {
                 result += (x - minvalue);
+            }
             return result;
         }
     }

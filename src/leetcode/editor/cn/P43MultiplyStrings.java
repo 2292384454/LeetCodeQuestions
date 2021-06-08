@@ -35,7 +35,9 @@ public class P43MultiplyStrings {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String multiply(String num1, String num2) {
-            if (num1.equals("0") || num2.equals("0")) return "0";
+            if (num1.equals("0") || num2.equals("0")) {
+                return "0";
+            }
             int len1 = num1.length(), len2 = num2.length();
             char[] array1 = num1.toCharArray(), array2 = num2.toCharArray();
             String[] tempcounts = new String[len2];
@@ -49,8 +51,9 @@ public class P43MultiplyStrings {
                     tempstr.append((temp + carry) % 10);
                     carry = (temp + carry) / 10;
                 }
-                if (carry > 0)
+                if (carry > 0) {
                     tempstr.append(carry);
+                }
                 tempcounts[len2 - i - 1] = tempstr.reverse().toString();
             }
             for (int i = 0; i < len2; i++) {
@@ -71,8 +74,9 @@ public class P43MultiplyStrings {
                 result.append((temp + carry) % 10);
                 carry = (temp + carry) / 10;
             }
-            if (carry > 0)
+            if (carry > 0) {
                 result.append(carry);
+            }
             return result.reverse().toString();
         }
     }

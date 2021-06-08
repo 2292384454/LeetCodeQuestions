@@ -55,14 +55,17 @@ public class P235LowestCommonAncestorOfABinarySearchTree {
     class Solution {
         public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
             //如果p和q都在root的右子树，那么去root的右子树寻找最近公共祖先
-            if (p.val > root.val && q.val > root.val)
+            if (p.val > root.val && q.val > root.val) {
                 return lowestCommonAncestor(root.right, p, q);
+            }
                 //如果p和q都在root的左子树，那么去root的左子树寻找最近公共祖先
-            else if (p.val < root.val && q.val < root.val)
+            else if (p.val < root.val && q.val < root.val) {
                 return lowestCommonAncestor(root.left, p, q);
+            }
                 //如果p和q分别在root的两侧子树，那么root就是要寻找的最近公共祖先
-            else
+            else {
                 return root;
+            }
 
         }
     }

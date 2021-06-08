@@ -36,10 +36,11 @@ public class P645SetMismatch {
             int repeat = 0, missing = 0;
             for (int i = 0; i < nums.length; i++) {
                 missing ^= (nums[i] ^ (i + 1));
-                if (isNumsAppeared[nums[i] - 1])
+                if (isNumsAppeared[nums[i] - 1]) {
                     repeat = nums[i];
-                else
+                } else {
                     isNumsAppeared[nums[i] - 1] = true;
+                }
             }
             missing ^= repeat;
             return new int[]{repeat, missing};

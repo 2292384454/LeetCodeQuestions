@@ -77,18 +77,22 @@ public class P572SubtreeOfAnotherTree {
      */
     class Solution {
         public boolean isSubtree(TreeNode s, TreeNode t) {
-            if (s == null) return false;
-            if (isTheSameTree(s, t))
+            if (s == null) {
+                return false;
+            }
+            if (isTheSameTree(s, t)) {
                 return true;
-            else
+            } else {
                 return isSubtree(s.left, t) || isSubtree(s.right, t);
+            }
         }
 
         public boolean isTheSameTree(TreeNode s, TreeNode t) {
-            if (s != null && t != null)
+            if (s != null && t != null) {
                 return (s.val == t.val) && isTheSameTree(s.left, t.left) && isTheSameTree(s.right, t.right);
-            else
+            } else {
                 return s == t;
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -59,11 +59,14 @@ public class P1475FinalPricesWithASpecialDiscountInAShop {
             int[] result = Arrays.copyOf(prices, prices.length);
             for (int i = 0; i < prices.length; i++) {
                 int j = i + 1;
-                while (j < prices.length && prices[j] > prices[i])
+                while (j < prices.length && prices[j] > prices[i]) {
                     j++;
-                if (j < prices.length && j > i && prices[j] <= prices[i])
+                }
+                if (j < prices.length && j > i && prices[j] <= prices[i]) {
                     result[i] = prices[i] - prices[j];
-                else result[i] = prices[i];
+                } else {
+                    result[i] = prices[i];
+                }
             }
             return result;
         }

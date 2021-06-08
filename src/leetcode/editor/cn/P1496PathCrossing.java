@@ -52,14 +52,21 @@ public class P1496PathCrossing {
             points.add("00");
             int x = 0, y = 0;
             for (char c : path.toCharArray()) {
-                if (c == 'W') x--;
-                else if (c == 'E') x++;
-                else if (c == 'N') y++;
-                else y--;
+                if (c == 'W') {
+                    x--;
+                } else if (c == 'E') {
+                    x++;
+                } else if (c == 'N') {
+                    y++;
+                } else {
+                    y--;
+                }
                 String str = x + "" + y;
-                if (points.contains(str))
+                if (points.contains(str)) {
                     return true;
-                else points.add(str);
+                } else {
+                    points.add(str);
+                }
             }
             return false;
         }

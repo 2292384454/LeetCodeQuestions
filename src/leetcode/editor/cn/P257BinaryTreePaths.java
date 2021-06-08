@@ -51,22 +51,26 @@ public class P257BinaryTreePaths {
     class Solution {
         public List<String> binaryTreePaths(TreeNode root) {
             List<String> result = new ArrayList<>();
-            if (root == null) return result;
+            if (root == null) {
+                return result;
+            }
             Stack<TreeNode> mystack = new Stack<>();//后根遍历搜索辅助堆栈
             TreeNode p, last = null;//last指向上一次被遍历的结点
             //进行后序遍历
             mystack.push(root);
             while (!mystack.empty()) {
-                while (mystack.peek().left != null)
+                while (mystack.peek().left != null) {
                     mystack.push(mystack.peek().left);
+                }
                 while (!mystack.empty()) {
                     p = mystack.peek();
                     if (p.right == null || p.right == last) {
                         if (p.left == null && p.right == null) {//如果被访问的结点是叶子结点，那么将堆栈中此时所有结点的值按顺序添加到字符串中
                             int i = 0;
                             StringBuilder temp = new StringBuilder();
-                            for (; i < mystack.size() - 1; i++)
+                            for (; i < mystack.size() - 1; i++) {
                                 temp.append(mystack.elementAt(i).val + "->");
+                            }
                             temp.append(mystack.elementAt(i).val + "");
                             result.add(temp.toString());
                         }

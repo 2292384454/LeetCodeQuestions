@@ -59,13 +59,15 @@ public class P1403MinimumSubsequenceInNonIncreasingOrder {
             List<Integer> result = new ArrayList<>();
             Arrays.sort(nums);
             int sumOfAll = 0, sum = 0;
-            for (int num : nums)
+            for (int num : nums) {
                 sumOfAll += num;
+            }
             for (int i = nums.length - 1; i >= 0; i--) {
                 sum += nums[i];
                 result.add(nums[i]);
-                if (sum > sumOfAll - sum)
+                if (sum > sumOfAll - sum) {
                     return result;
+                }
             }
             return result;
         }

@@ -63,19 +63,24 @@ public class P896MonotonicArray {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public boolean isMonotonic(int[] A) {
-            if (A.length < 2)
+            if (A.length < 2) {
                 return true;
+            }
             int i = 0;
             boolean compare = false;
-            while (i < A.length - 1 && A[i] == A[i + 1])
+            while (i < A.length - 1 && A[i] == A[i + 1]) {
                 i++;
-            if (i < A.length - 1)
+            }
+            if (i < A.length - 1) {
                 compare = A[i] < A[i + 1];
+            }
             for (; i < A.length - 1; i++) {
-                if (A[i] == A[i + 1])
+                if (A[i] == A[i + 1]) {
                     continue;
-                if (compare != (A[i] < A[i + 1]))
+                }
+                if (compare != (A[i] < A[i + 1])) {
                     return false;
+                }
             }
             return true;
         }
