@@ -1,0 +1,29 @@
+    class Solution {
+        public int nthUglyNumber(int n) {
+            if (n <= 1) return 1;
+            boolean[] dp = new boolean[n * n];
+            dp[1] = true;
+            for (int i = 1; i < dp.length; i++) {
+                if (dp[i]) {
+                    if (i * 2 < dp.length)
+                        dp[i * 2] = true;
+                    if (i * 3 < dp.length)
+                        dp[i * 3] = true;
+                    if (i * 5 < dp.length)
+                        dp[i * 5] = true;
+                }
+            }
+            for (int i = 1; i < dp.length; i++) {
+                if (dp[i])
+                    n--;
+                if (n == 0) return i;
+            }
+            return 0;
+        }
+    }
+
+//total_testcases:596
+//total_correct:308
+//input_formatted:309
+//expected_output:96000
+//code_output:0

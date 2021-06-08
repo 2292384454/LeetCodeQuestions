@@ -1,0 +1,35 @@
+    class Solution {
+        public int numberOfArithmeticSlices(int[] nums) {
+            if (nums == null || nums.length < 3) return 0;
+            int n = nums.length, ans = 0;
+            // dp[i]存储nums[0:i]中以nums[i]为最后一个元素的所有子等差数组的[公差,长度]，
+            // dp[i]中所有第二个元素大于2的数组的数量就是nums[0:i]所有为等差数组的子数组的个数
+            ArrayList<ArrayList<long[]>> dp = new ArrayList<>(n);
+            for (int i = 0; i < n; i++) dp.add(new ArrayList<>());
+            for (int i = 1; i < n; i++) {
+                for (int j = i - 1; j >= 0; j--) {
+                    long sub = (long) nums[i] - nums[j];
+                    int k = 0, dp_j_size = dp.get(j).size();
+                    for (; k < dp_j_size; k++) {
+                        long[] sub_len = dp.get(j).get(k);
+                        if (sub == sub_len[0] && sub_len[1] >= 2) {
+                            dp.get(i).add(new long[]{sub_len[0], sub_len[1] + 1});
+                            ans++;
+                        }
+                    }
+                    if (k == dp_j_size) dp.get(i).add(new long[]{sub, 2});
+                }
+            }
+            return ans;
+        }
+    }
+
+//runtime:N/A
+//memory:N/A
+//total_testcases:101
+//total_correct:38
+//input_formatted:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+//expected_output:8388331
+//code_output:
+//runtime_error:
+//last_testcase:[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]

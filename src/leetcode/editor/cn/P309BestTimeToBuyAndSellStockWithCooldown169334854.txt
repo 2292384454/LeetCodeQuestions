@@ -1,0 +1,17 @@
+    class Solution {
+        public int maxProfit(int[] prices) {
+            //buy和sell分别存储截止当前日期，最后一次操作为买入/卖出能取得的最大收益，lock存储截止当前日期，最后一次操作为冷冻时的最大收益
+            int buy = -prices[0], sell = 0, lock = 0;
+            for (int price : prices) {
+                int buyNow = Math.max(buy, lock - price);
+                int sellNow = Math.max(sell, buy + price);
+                lock = sell;
+                buy = buyNow;
+                sell = sellNow;
+            }
+            return sell;
+        }
+    }
+
+//runtime:1 ms
+//memory:36.4 MB

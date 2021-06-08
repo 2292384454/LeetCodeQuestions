@@ -1,0 +1,40 @@
+    class FooBar {
+        private int n;
+        private boolean firstFooOver = false;//用于控制第一个输出的是foo还是bar，后续会自动交替输出
+        private Object lock = new Object();
+
+        public FooBar(int n) {
+            this.n = n;
+        }
+
+        public void foo(Runnable printFoo) throws InterruptedException {
+            synchronized (lock) {
+                for (int i = 0; i < n; i++) {
+                    // printFoo.run() outputs "foo". Do not change or remove this line.
+                    printFoo.run();
+                    firstFooOver = true;//第一次输出foo完成，后续的顺序控制就交给线程切换了
+                    lock.notify();//唤醒bar
+                    //如果i<n-1说明一会还会再输出一次foo，foo线程可以释放锁等待被bar唤醒
+                    //否则不需要等待，完成n次foo的输出
+                    if (i < n - 1)
+                        lock.wait();
+                }
+            }
+        }
+
+        public void bar(Runnable printBar) throws InterruptedException {
+            synchronized (lock) {
+                for (int i = 0; i < n; i++) {
+                    while (!firstFooOver) lock.wait();
+                    // printBar.run() outputs "bar". Do not change or remove this line.
+                    printBar.run();//唤醒foo
+                    lock.notify();
+                    if (i < n - 1)
+                        lock.wait();
+                }
+            }
+        }
+    }
+
+//runtime:25 ms
+//memory:38.3 MB
