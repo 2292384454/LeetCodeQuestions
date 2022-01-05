@@ -1,0 +1,6 @@
+/.idea/
+/out/
+/src/leetcode/editor/cn/doc/
+*.iml
+*.xml
+*.json

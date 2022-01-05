@@ -1,0 +1,39 @@
+
+    /**
+     * Definition for a binary tree node.
+     * public class TreeNode {
+     * int val;
+     * TreeNode left;
+     * TreeNode right;
+     * TreeNode() {}
+     * TreeNode(int val) { this.val = val; }
+     * TreeNode(int val, TreeNode left, TreeNode right) {
+     * this.val = val;
+     * this.left = left;
+     * this.right = right;
+     * }
+     * }
+     */
+    class Solution {
+        int ans = 0;
+
+        public int longestUnivaluePath(TreeNode root) {
+            if (root != null) {
+                ans = Math.max(ans, helper(root.left, root.val) + helper(root.right, root.val));
+                ans = Math.max(ans, longestUnivaluePath(root.left));
+                ans = Math.max(ans, longestUnivaluePath(root.right));
+            }
+            return ans;
+        }
+
+        private int helper(TreeNode root, int val) {
+            if (root != null && root.val == val) {
+                return 1 + Math.max(helper(root.left, val), helper(root.right, val));
+            } else {
+                return 0;
+            }
+        }
+    }
+
+//runtime:11 ms
+//memory:42.1 MB
