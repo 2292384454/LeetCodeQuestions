@@ -1,0 +1,24 @@
+    class Solution {
+        Set<String> ans;
+
+        public String[] permutation(String S) {
+            ans = new HashSet<>();
+            helper(S, 0, "");
+            return ans.toArray(new String[0]);
+        }
+
+        private void helper(String S, int used, String str) {
+            if (str.length() == S.length()) {
+                ans.add(str);
+                return;
+            }
+            for (int i = 0; i < S.length(); i++) {
+                if ((used & (1 << i)) == 0) {
+                    helper(S, used | (1 << i), str + S.charAt(i));
+                }
+            }
+        }
+    }
+
+//runtime:71 ms
+//memory:38.9 MB

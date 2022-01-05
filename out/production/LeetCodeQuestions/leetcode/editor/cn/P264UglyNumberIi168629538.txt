@@ -1,0 +1,28 @@
+    class Solution {
+        public int nthUglyNumber(int n) {
+            if (n <= 1) return 1;
+            Set<Integer> uglyNumbers = new HashSet<>();
+            uglyNumbers.add(1);
+            int i = 1, ans = 0;
+            while (uglyNumbers.size() < n) {
+                if (i % 2 == 0 && uglyNumbers.contains(i / 2) ||
+                        i % 3 == 0 && uglyNumbers.contains(i / 3) ||
+                        i % 5 == 0 && uglyNumbers.contains(i / 5)) {
+                    uglyNumbers.add(i);
+                    ans = i;
+                }
+                i++;
+            }
+            return ans;
+        }
+    }
+
+//runtime:N/A
+//memory:N/A
+//total_testcases:596
+//total_correct:500
+//input_formatted:1352
+//expected_output:402653184
+//code_output:
+//runtime_error:
+//last_testcase:1352

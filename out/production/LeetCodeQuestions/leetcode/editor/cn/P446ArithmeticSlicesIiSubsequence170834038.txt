@@ -1,0 +1,46 @@
+    class Solution {
+        public int numberOfArithmeticSlices(int[] nums) {
+            if (nums == null || nums.length < 3) return 0;
+            int n = nums.length, ans = 0;
+            // dp[i]存储nums[0:i]中以nums[i]为最后一个元素的所有子等差数组的[公差,最大长度]，如果有多组就记录多次
+            ArrayList<ArrayList<long[]>> dp = new ArrayList<>(n);
+            for (int i = 0; i < n; i++) dp.add(new ArrayList<>());
+            for (int i = 1; i < n; i++) {
+                HashMap<Long, Integer> temp = new HashMap<>();
+                for (int j = i - 1; j >= 0; j--) {
+                    long sub = (long) nums[i] - nums[j];
+                    boolean flag = false;//记录在nums[0,j]中有没有公差为sub的子等差数组
+                    int currentLen = temp.getOrDefault(sub, 2);
+                    temp.put(sub, currentLen);
+                    for (long[] tolerance_len : dp.get(j)) {
+                        long tolerance = tolerance_len[0];
+                        int len = (int) tolerance_len[1];
+                        if (sub == tolerance && len >= 2) {
+                            flag = true;
+                            if (len + 1 >= temp.get(sub)) {
+                                temp.put(sub, len + 1);
+                                dp.get(i).add(new long[]{sub, len + 1});
+                                if (tolerance == 0)
+                                    //  C(len,2)+C(len,3)+……+C(len,len)
+                                    // =2^len-1-len
+                                    // =(1 << len)-len-1
+                                    ans += ((1 << len) - 1 - len);
+                                else
+                                    ans += (len - 1);
+                            }
+                        }
+                    }
+                    //如果在nums[0,j]中没有公差为sub的子等差数组
+                    if (!flag)
+                        dp.get(i).add(new long[]{sub, 2});
+                }
+            }
+            return ans;
+        }
+    }
+
+//total_testcases:101
+//total_correct:76
+//input_formatted:[79,20,64,28,67,81,60,58,97,85,92,96,82,89,46,50,15,2,36,44,54,2,90,37,7,79,26,40,34,67,64,28,60,89,46,31,9,95,43,19,47,64,48,95,80,31,47,19,72,99,28,46,13,9,64,4,68,74,50,28,69,94,93,3,80,78,23,80,43,49,77,18,68,28,13,61,34,44,80,70,55,85,0,37,93,40,47,47,45,23,26,74,45,67,34,20,33,71,48,96]
+//expected_output:1030
+//code_output:1022

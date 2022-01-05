@@ -1,0 +1,68 @@
+    class Solution {
+        /**
+         * 常规方法，DFS.
+         */
+        public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+            Deque<Long> stack = new LinkedList<>();
+            stack.push(0L);
+            // mask1：保留高32位，即取得第一个杯子里的水
+            // mask2：保留低32位，即取得第二个杯子里的水
+            long mask2 = 0xffffffffL, mask1 = ~mask2;
+            HashSet<Long> visited = new HashSet<>();
+            while (!stack.isEmpty()) {
+                if (visited.contains(stack.peek())) {
+                    stack.pop();
+                    continue;
+                }
+                Long cur = stack.pop();
+                long contain1 = (cur & mask1) >> 32, contain2 = cur & mask2;
+                if (contain1 == targetCapacity || contain2 == targetCapacity || contain1 + contain2 == targetCapacity) {
+                    return true;
+                }
+                visited.add(cur);
+                long[] states = new long[6];
+                // 清空第一个杯子
+                states[0] = cur & mask2;
+                // 清空第二个杯子
+                states[1] = cur & mask1;
+                // 装满第一个杯子
+                states[2] = ((long) jug1Capacity << 32) | contain2;
+                // 装满第二个杯子
+                states[3] = (cur & mask1) | jug2Capacity;
+                // 把第一个杯子里的水全部倒进第二个杯子
+                // 装得下就全部转移，装不下就装满为止
+                long move = jug2Capacity - contain2 - contain1 >= 0 ? contain1 : jug2Capacity - contain2;
+                states[4] = ((contain1 - move) << 32) | (contain2 + move);
+                // 把第二个杯子里的水全部倒进第一个杯子
+                // 装得下就全部转移，装不下就装满为止
+                move = jug1Capacity - contain2 - contain1 >= 0 ? contain2 : jug1Capacity - contain1;
+                states[5] = ((contain1 + move) << 32) | (contain2 - move);
+                for (long state : states) {
+                    if (!visited.contains(state)) {
+                        stack.push(state);
+                    }
+                }
+            }
+            return false;
+        }
+
+        // /**
+        //  * 数学方法.
+        //  */
+        // public boolean canMeasureWater(int jug1Capacity, int jug2Capacity, int targetCapacity) {
+        //     if (jug1Capacity + jug2Capacity < targetCapacity) {
+        //         return false;
+        //     }
+        //     return targetCapacity % gcd(jug1Capacity, jug2Capacity) == 0;
+        // }
+        //
+        // /**
+        //  * 求最大公约数.
+        //  */
+        // private int gcd(int x, int y) {
+        //     return y > 0 ? gcd(y, x % y) : x;
+        // }
+    }
+
+//runtime:427 ms
+//memory:102.8 MB

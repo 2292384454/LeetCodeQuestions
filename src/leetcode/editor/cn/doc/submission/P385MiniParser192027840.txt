@@ -1,0 +1,47 @@
+    class Solution {
+        public NestedInteger deserialize(String s) {
+            if (s.charAt(0) != '[') {
+                // 是单个数字，直接返回
+                return new NestedInteger(Integer.parseInt(s));
+            } else {
+                NestedInteger oldNI = null, newNI = null;
+                Deque<String> stack = new LinkedList<>();
+                StringBuilder sb = new StringBuilder();
+                for (char c : s.toCharArray()) {
+                    if (c == '[') {
+                        stack.push(String.valueOf(c));
+                    } else if (c == ',') {
+                        stack.push(sb.toString());
+                        sb = new StringBuilder();
+                    } else if (c == ']') {
+                        if (sb.length() != 0) {
+                            stack.push(sb.toString());
+                            sb = new StringBuilder();
+                        }
+                        String str;
+                        newNI = new NestedInteger();
+                        // 出栈直到上一个 '['
+                        while (!"[".equals(str = stack.pop())) {
+                            newNI.add(new NestedInteger(Integer.parseInt(str)));
+                        }
+                        if (oldNI != null) {
+                            newNI.add(oldNI);
+                        }
+                        oldNI = newNI;
+                    } else {
+                        sb.append(c);
+                    }
+                }
+                return oldNI;
+            }
+        }
+    }
+
+//runtime_error:java.lang.NumberFormatException: For input string: ""
+  at line 68, java.base/java.lang.NumberFormatException.forInputString
+  at line 668, java.base/java.lang.Integer.parseInt
+  at line 776, java.base/java.lang.Integer.parseInt
+  at line 25, Solution.deserialize
+  at line 54, __DriverSolution__.__helper__
+  at line 84, __Driver__.main
+//last_testcase:"[123,456,[788,799,833],[[]],10,[]]"
