@@ -50,44 +50,41 @@
 
 package leetcode.editor.cn;
 
-import java.util.Stack;
+import java.util.Deque;
+import java.util.LinkedList;
 
 //Java：简化路径
 public class P71SimplifyPath {
     public static void main(String[] args) {
         Solution solution = new P71SimplifyPath().new Solution();
         // TO TEST
-        String result = solution.simplifyPath("/a//b////c/d//././/..");
+        String result = solution.simplifyPath("/a/../../b/../c//.//");
         System.out.println(result);
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String simplifyPath(String path) {
-            StringBuilder result = new StringBuilder();
-            String[] names = path.split("/");
-            Stack<String> myStack = new Stack<>();//创建堆栈用来存储路径，栈底为根目录
-            for (String s : names) {
-                switch (s) {
-                    case "..":
-                        if (!myStack.isEmpty()) {
-                            myStack.pop();
-                        }
-                        break;
-                    case ".":
-                    case "":
-                        break;
-                    default:
-                        myStack.push(s);
+            String[] path_split = path.split("/");
+            Deque<String> stack = new LinkedList<>();
+            for (String s : path_split) {
+                if (s == null || "".equals(s) || ".".equals(s) || s.startsWith("/")) {
+                } else if ("..".equals(s)) {
+                    if (!stack.isEmpty()) {
+                        stack.pop();
+                    }
+                } else {
+                    stack.push(s);
                 }
             }
-            if (myStack.isEmpty()) {
+            if (stack.isEmpty()) {
                 return "/";
             }
-            for (String s : myStack) {
-                result.append("/").append(s);
+            StringBuilder ans = new StringBuilder();
+            while (!stack.isEmpty()) {
+                ans.append("/").append(stack.pollLast());
             }
-            return result.toString();
+            return ans.toString();
         }
 /*
         //自定义getDicNames方法，从原始路径中提取出各级目录的名字或者"."或".."

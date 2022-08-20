@@ -38,20 +38,16 @@ public class P396RotateFunction {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int maxRotateFunction(int[] nums) {
-            if (nums == null || nums.length == 0) {
-                return 0;
+            int n = nums.length, F = 0, totalSum = 0;
+            for (int i = 0; i < n; i++) {
+                F += (i * nums[i]);
+                totalSum += nums[i];
             }
-            int n = nums.length;
-            int[] F = new int[n];
-            int sum = 0;
-            for (int i = 0; i < nums.length; i++) {
-                sum += nums[i];
-                F[0] += (i * nums[i]);
-            }
-            int ans = F[0];
-            for (int i = 1; i < n; i++) {
-                F[i] = F[i - 1] + sum - (n * nums[n - i]);
-                ans = Integer.max(ans, F[i]);
+            int ans = F;
+            for (int i = 0; i < n; i++) {
+                // sum = sum - (n - 1) * nums[n - 1 - i] + (totalSum - nums[n - 1 - i]);
+                F += (totalSum - n * nums[n - 1 - i]);
+                ans = Math.max(ans, F);
             }
             return ans;
         }

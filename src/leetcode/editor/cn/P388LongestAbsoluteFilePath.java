@@ -79,7 +79,7 @@ public class P388LongestAbsoluteFilePath {
     public static void main(String[] args) {
         Solution solution = new P388LongestAbsoluteFilePath().new Solution();
         // TO TEST
-        String input = "a\n\tb\n\t\tc";
+        String input = "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext";
         System.out.println(solution.lengthLongestPath(input));
     }
 
@@ -97,7 +97,13 @@ public class P388LongestAbsoluteFilePath {
          * 子目录
          */
         List<FileNode> children = new ArrayList<>();
+        /**
+         * 深度
+         */
         int depth;
+        /**
+         * 是否为文件
+         */
         boolean isFile;
 
         /**
@@ -136,12 +142,15 @@ public class P388LongestAbsoluteFilePath {
             stack.push(root);
             for (String str : array) {
                 int depth = 0;
+                // str 中 '\t' 的数量就是其深度
                 while (depth < str.length() && str.charAt(depth) == '\t') {
                     depth++;
                 }
                 String name = str.substring(depth);
                 boolean isFile = str.contains(".");
+                // 构造节点
                 FileNode cur = new FileNode(name, depth, isFile);
+                // 从 stack 中找到 cur 的父节点
                 while (stack.peek().depth >= depth) {
                     stack.pop();
                 }
