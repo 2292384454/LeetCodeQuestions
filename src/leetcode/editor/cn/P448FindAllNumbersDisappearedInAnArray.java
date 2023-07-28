@@ -18,6 +18,7 @@
 
 package leetcode.editor.cn;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -33,17 +34,26 @@ public class P448FindAllNumbersDisappearedInAnArray {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public List<Integer> findDisappearedNumbers(int[] nums) {
-            List<Integer> result = new LinkedList<>();
-            for (int i = 0; i < nums.length; i++) {
-                int appearedIndex = Math.abs(nums[i]) - 1;
-                nums[appearedIndex] = 0 - Math.abs(nums[appearedIndex]);
-            }
-            for (int i = 0; i < nums.length; i++) {
-                if (nums[i] > 0) {
-                    result.add(i + 1);
+            int n = nums.length, max = 0;
+            for (int i = 0; i < n; i++) {
+                max = Math.max(max, nums[i]);
+                while (nums[nums[i] - 1] != nums[i]) {
+                    swap(nums, nums[i] - 1, i);
                 }
             }
-            return result;
+            List<Integer> ans = new ArrayList<>(n - max);
+            for (int i = 0; i < n; i++) {
+                if (nums[i] != i + 1) {
+                    ans.add(i + 1);
+                }
+            }
+            return ans;
+        }
+
+        private void swap(int[] nums, int index1, int index2) {
+            int tmp = nums[index1];
+            nums[index1] = nums[index2];
+            nums[index2] = tmp;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

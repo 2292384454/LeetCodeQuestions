@@ -50,44 +50,26 @@ public class P907SumOfSubarrayMinimums {
 
     //leetcode submit region begin(Prohibit modification and deletion)
 
-    public class Solution {
-
-        public int sumSubarrayMins(int[] A) {
-            final int MOD = 1000000007;
-            int n = A.length;
-
-            // 第 1 步：单调栈计算当前下标 i 的左边第 1 个比 A[i] 小的元素的下标
-            Deque<Integer> stack1 = new LinkedList<>();
-            int[] prev = new int[n];
-            for (int i = 0; i < n; i++) {
-                while (!stack1.isEmpty() && A[i] <= A[stack1.peek()]) {
-                    stack1.pop();
-                }
-                prev[i] = stack1.isEmpty() ? -1 : stack1.peek();
-                stack1.push(i);
-            }
-
-            // 第 2 步：单调栈计算当前下标 i 的右边第 1 个比 A[i] 小的元素的下标
-            Deque<Integer> stack2 = new LinkedList<>();
-            int[] next = new int[n];
-            for (int i = n - 1; i >= 0; i--) {
-                while (!stack2.isEmpty() && A[i] < A[stack2.peek()]) {
-                    stack2.pop();
-                }
-                next[i] = stack2.isEmpty() ? n : stack2.peek();
-                stack2.push(i);
-            }
-
-            // 第 3 步：计算结果
+    class Solution {
+        public int sumSubarrayMins(int[] arr) {
+            int n = arr.length;
             long ans = 0;
-            for (int i = 0; i < n; ++i) {
-                // 注意：乘法可能越界，须要先转成 long 类型
-                ans += (long) (i - prev[i]) * (next[i] - i) % MOD * A[i] % MOD;
-                ans %= MOD;
+            final int MOD = 1000000007;
+            Deque<Integer> monoStack = new ArrayDeque<>();
+            int[] dp = new int[n];
+            for (int i = 0; i < n; i++) {
+                while (!monoStack.isEmpty() && arr[monoStack.peek()] > arr[i]) {
+                    monoStack.pop();
+                }
+                int k = monoStack.isEmpty() ? (i + 1) : (i - monoStack.peek());
+                dp[i] = k * arr[i] + (monoStack.isEmpty() ? 0 : dp[i - k]);
+                ans = (ans + dp[i]) % MOD;
+                monoStack.push(i);
             }
             return (int) ans;
         }
     }
+
 //leetcode submit region end(Prohibit modification and deletion)
 
 }

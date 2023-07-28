@@ -51,14 +51,14 @@ public class P2AddTwoNumbers {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-            ListNode p = l1, q = l2, head = new ListNode(0), tail = head;
-            int carry = 0, x = 0, y = 0;
+            ListNode p = l1, q = l2, preOfAns = new ListNode(0), r = preOfAns;
+            int carry = 0;
             while (p != null || q != null) {
-                x = (p != null) ? p.val : 0;
-                y = (q != null) ? q.val : 0;
-                tail.next = new ListNode((x + y + carry) % 10);
-                carry = (x + y + carry) / 10;
-                tail = tail.next;
+                int v1 = p == null ? 0 : p.val, v2 = q == null ? 0 : q.val;
+                int sum = carry + v1 + v2;
+                r.next = new ListNode(sum % 10);
+                r = r.next;
+                carry = sum / 10;
                 if (p != null) {
                     p = p.next;
                 }
@@ -66,10 +66,10 @@ public class P2AddTwoNumbers {
                     q = q.next;
                 }
             }
-            if (carry > 0) {
-                tail.next = new ListNode(carry);
+            if (carry!=0){
+                r.next = new ListNode(carry);
             }
-            return head.next;
+            return preOfAns.next;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

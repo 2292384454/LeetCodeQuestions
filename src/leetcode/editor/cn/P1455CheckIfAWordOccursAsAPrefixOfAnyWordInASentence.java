@@ -60,20 +60,45 @@
 
 package leetcode.editor.cn;
 
+import java.util.Arrays;
+
 //Java：检查单词是否为句中其他单词的前缀
 public class P1455CheckIfAWordOccursAsAPrefixOfAnyWordInASentence {
     public static void main(String[] args) {
         Solution solution = new P1455CheckIfAWordOccursAsAPrefixOfAnyWordInASentence().new Solution();
         // TO TEST
+       /* String sentence = "i love eating  burger";
+        String searchWord = "burg";
+        System.out.println(solution.isPrefixOfWord(sentence, searchWord));*/
+        String sentence = "hellohello hellohellohello";
+        String searchWord = "ell";
+        System.out.println(solution.isPrefixOfWord(sentence, searchWord));
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int isPrefixOfWord(String sentence, String searchWord) {
-            String[] array = sentence.split(" ");
-            for (int i = 0; i < array.length; i++) {
-                if (array[i].startsWith(searchWord)) {
-                    return i + 1;
+            /* 本解法还适用于 sentence 用一个或多个空格分隔的情况 */
+            int sentenceLen = sentence.length(), searchLen = searchWord.length();
+            int wordCnt = 0;
+            for (int i = 0, j = 0; i < sentenceLen; i++) {
+                char c = sentence.charAt(i);
+                // 对单词进行计数，并且在每一个单词开始时把 j 置为 0
+                if (c != ' ' && (i == 0 || sentence.charAt(i - 1) == ' ')) {
+                    wordCnt++;
+                    j = 0;
+                }
+                // 如果匹配就继续后移，否则 i 直接移动到本单词结束
+                if (c == searchWord.charAt(j)) {
+                    j++;
+                } else {
+                    while (i < sentenceLen && sentence.charAt(i) != ' ') {
+                        i++;
+                    }
+                }
+                // 如果 searchWord 全部匹配上了，就返回
+                if (j >= searchLen) {
+                    return wordCnt;
                 }
             }
             return -1;

@@ -47,7 +47,7 @@ public class P剑指_Offer_II_009ZVAVXX {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int numSubarrayProductLessThanK(int[] nums, int k) {
-            if (k <= 1) return 0;
+            if (k <= 1) {return 0;}
             int prod = 1, ans = 0, l = 0;
             for (int r = 0; r < nums.length; r++) {
                 prod *= nums[r];

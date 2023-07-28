@@ -26,6 +26,7 @@
 package leetcode.editor.cn;
 
 import java.util.HashMap;
+import java.util.Map;
 
 //Java：无重复字符的最长子串
 public class P3LongestSubstringWithoutRepeatingCharacters {
@@ -40,17 +41,18 @@ public class P3LongestSubstringWithoutRepeatingCharacters {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int lengthOfLongestSubstring(String s) {
-            HashMap<Character, Integer> mymap = new HashMap<>();
-            int ans = 0, i = 0, j = 0;
-            while (j < s.length()) {
-                if (mymap.containsKey(s.charAt(j)) && mymap.get(s.charAt(j)) >= i) {
-                    ans = Math.max(ans, j - i);
-                    i = mymap.get(s.charAt(j)) + 1;
-                }
-                mymap.put(s.charAt(j), j);
-                j++;
+            int len = s.length();
+            if (len <= 1) {
+                return len;
             }
-            ans = Math.max(ans, j - i);
+            Map<Character, Integer> map = new HashMap<>();
+            int ans = 1;
+            for (int i = -1, j = 0; j < len; j++) {
+                char c = s.charAt(j);
+                i = Math.max(i, map.getOrDefault(c, -1));
+                ans = Math.max(j - i, ans);
+                map.put(c, j);
+            }
             return ans;
         }
     }

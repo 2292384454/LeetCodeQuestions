@@ -107,45 +107,27 @@ public class P4MedianOfTwoSortedArrays {
         //     }
         // }
 
-        // 二分查找思路：找 num[i] <= nums[j] 的最后一个 i，O(log(min(nums1.length , nums2.length)))复杂度
+        // 二分查找思路：找 nums1[i] <= nums2[j] 的最后一个 i（i+j=halfCount)，O(log(min(nums1.length , nums2.length)))复杂度
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-            // 进行交换以使得 nums1.length <= nums2.length
+            // 1、进行交换以使得 nums1.length <= nums2.length
             if (nums1.length > nums2.length) {
                 int[] temp = nums1;
                 nums1 = nums2;
                 nums2 = temp;
             }
-            int m = nums1.length, n = nums2.length;
-            // 中位数左边的所有元素的个数为 (n + m + 1) / 2;
-            // 这里 +1 是为了考虑到 m+n 为奇数的情况，此时中位数将包含于左半边
-            int leftCount = (m + n + 1) >> 1;
-            // nums1 为空的情况单独处理
-            if (m == 0) {
-                return (n & 1) == 1 ? nums2[leftCount - 1] : (nums2[leftCount - 1] + nums2[leftCount]) / 2.0;
-            }
-            int l = 0, r = m, i = 0, j = 0;
-            int lCnt1 = 0, lCnt2 = 0;
-            while (l <= r) {
-                i = (l + r) >> 1;
-                j = leftCount - i;
-                if (i <= 0 || j >= n || nums1[i - 1] <= nums2[j]) {
-                    lCnt1 = i;
-                    l = i + 1;
+            int m = nums1.length, n = nums2.length; //m<=n
+            int halfCount = (m + n + 1) >> 1;//加1是为了实现向上取整，即halfCount=⌈(m+n)/2⌉。当m+n为奇数时，中位数为第halfCount大的数
+            int l = 0, h = m, i = 0, j = 0;
+            while (l <= h) {
+                i = (l + m) >> 1;
+                j = halfCount - i;
+                if (nums1[i] > nums2[j]) {
+                    h = i - 1;
                 } else {
-                    r = i - 1;
+                    l = i + 1;
                 }
             }
-            lCnt2 = leftCount - lCnt1;
-            int lCandidate1 = lCnt1 > 0 ? nums1[lCnt1 - 1] : Integer.MIN_VALUE;
-            int lCandidate2 = lCnt2 > 0 ? nums2[lCnt2 - 1] : Integer.MIN_VALUE;
-            int candidate = Math.max(lCandidate1, lCandidate2);
-            if (((m + n) & 1) == 1) {
-                return candidate;
-            } else {
-                int rCandidate1 = lCnt1 < m ? nums1[lCnt1] : Integer.MAX_VALUE;
-                int rCandidate2 = lCnt2 < n ? nums2[lCnt2] : Integer.MAX_VALUE;
-                return (candidate + Math.min(rCandidate1, rCandidate2)) / 2.0;
-            }
+            return (nums1[i] + nums2[j]) >> 1;
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)

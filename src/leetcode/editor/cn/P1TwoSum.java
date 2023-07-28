@@ -16,6 +16,7 @@
 package leetcode.editor.cn;
 
 import java.util.HashMap;
+import java.util.Map;
 
 //Java：两数之和
 public class P1TwoSum {
@@ -33,17 +34,15 @@ public class P1TwoSum {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public int[] twoSum(int[] nums, int target) {
-            int[] result = {-1, -1};
-            HashMap<Integer, Integer> mymap = new HashMap<>();
-            for (int i = 0; i < nums.length; i++) {
-                if (mymap.containsKey(target - nums[i])) {
-                    result[0] = mymap.get(target - nums[i]);
-                    result[1] = i;
-                    break;
+            Map<Integer, Integer> map = new HashMap<>();
+            Integer i;
+            for (int j = 0; j < nums.length; j++) {
+                if ((i = map.get(target - nums[j])) != null) {
+                    return new int[]{i, j};
                 }
-                mymap.put(nums[i], i);
+                map.put(nums[j], j);
             }
-            return result;
+            return new int[]{-1, -1};
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
